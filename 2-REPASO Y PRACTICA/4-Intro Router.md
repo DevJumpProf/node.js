@@ -1,4 +1,4 @@
-<img  src='logo.png' height='70px'>
+<img  src='../logo.png' height='70px'>
 
 # Lección 4: Router
 
@@ -14,6 +14,7 @@ https://expressjs.com/es/guide/routing.html
 Utilice el middleware express.Router para crear manejadores de rutas montables y modulares.
 Creamos una carpeta router
 // RutasWeb.js
+```javascript
 const express = require('express');
 const router = express.Router();
 
@@ -53,18 +54,22 @@ app.use((req, res, next) => {
 app.listen(port, () => {
     console.log('servidor a su servicio en el puerto', port)
 })
+```
 
 ## Notas importantes
+
 Puedes utilizar:
+```javascript
 app.use('/api', require('./router/RutasWeb'));
 Pero tendremos que cambiar las rutas en las vistas (sacar el punto):
 <link rel="stylesheet" href="/css/bootstrap.min.css">
 
 <script src="/js/bootstrap.min.js"></script>
-Por ahora eso es todo con las rutas, pero seguiremos configurando en el apartado de Bases de datos.
+```
 
 ## Mascotas Router
 // Mascotas.js
+```javascript
 const express = require('express');
 const router = express.Router();
 
@@ -81,4 +86,4 @@ app.use('/mascotas', require('./router/Mascotas'));
     <h1><%= listaMascotas %></h1>
     
 <%- include("template/footer") %>
-
+```

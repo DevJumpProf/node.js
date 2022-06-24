@@ -1,4 +1,4 @@
-<img  src='logo.png' height='70px'>
+<img  src='../logo.png' height='70px'>
 
 # Lección 1: Fundamentos
 
@@ -36,11 +36,13 @@ node -v
 
 ## Primeros pasos
 •	Cree un archivo app.js
+```javascript
 const frutas = ["banana", "banana", "pera", "banana"];
 
 frutas.forEach((fruta) => {
   console.count(fruta);
 });
+```
 Ejecute en la terminal:
 node app
 
@@ -48,6 +50,7 @@ node app
 https://nodejs.dev/learn/expose-functionality-from-a-nodejs-file-using-exports
 Node.js tiene un sistema de módulos incorporado. Un archivo Node.js puede importar la funcionalidad expuesta por otros archivos Node.js.
 Cuando quieres importar algo que usas:
+```javascript
 const frutas = require("./frutas");
 
 frutas.forEach((fruta) => {
@@ -73,13 +76,17 @@ frutas.forEach((fruta) => {
 });
 
 console.log("mi dinero actual: ", dinero);
+```
 
 ## package.json
 Si ejecutamos:
 npm init -y
 Se nos creará un archivo el cual tendrá información sobre nuestro proyecto, lo más relevante en estos momentos serán sus dependencias y scripts
 Definiciones https://nodejs.dev/learn/the-package-json-guide
+
 Ejemplo de scripts:
+
+```javascript
 "scripts": {
   "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
   "start": "npm run dev",
@@ -88,10 +95,12 @@ Ejemplo de scripts:
   "lint": "eslint --ext .js,.vue src test/unit",
   "build": "node build/build.js"
 }
+```
 
 Estos scripts son aplicaciones de línea de comandos. Puede ejecutarlos llamando npm run XXXX, donde "XXXX" está el nombre del comando. Ejemplo: npm run dev
 Puede usar el nombre que desee para un comando y los scripts pueden hacer literalmente cualquier cosa que desee.
 
+```javascript
 Dependencias y devDependencies:
 "dependencies": {
   "cowsay": "^1.4.0"
@@ -100,7 +109,7 @@ Dependencias y devDependencies:
   "autoprefixer": "^7.1.2",
   "babel-core": "^6.22.1"
 }
-
+```
 •	Aquí estará la lista de paquetes instalados a través de npm.
 •	devDependencies hace referencia a los paquetes que no se necesitan para producción, están destinados a instalarse solo en una máquina de desarrollo, no son necesarios para ejecutar el código en producción.
 
@@ -127,6 +136,8 @@ TIP
 Generalmente utilizamos global para los CLI, por ejemplo el cli de vue.js, otra opción son para los paquetes frecuentes como nodemon (que veremos a futuro)
 
 Ejemplo de instalación y utilización https://www.npmjs.com/package/cowsay
+
+```javascript
 npm i cowsay
 var cowsay = require("cowsay");
 console.log(
@@ -136,6 +147,7 @@ console.log(
     T: "U",
   })
 );
+```
 
 •	npx: Posiblemente se toparán con este comando a futuro (sobretodo si trabajan con React.js), bueno esto ejecuta un paquete de npm sin necesidad de instalarlo de forma global o local.
 
@@ -145,6 +157,8 @@ npx le permite ejecutar código creado con Node.js y publicado a través del reg
 
 ## Servidor HTTP
 https://nodejs.dev/learn/build-an-http-server
+
+```javascript
 const http = require("http");
 
 const port = process.env.PORT;
@@ -158,8 +172,10 @@ const server = http.createServer((req, res) => {
 server.listen(port, () => {
   console.log(`Server running at port ${port}`);
 });
+```
 
 ## ¿Servidor HTTP?
+
 Hypertext Transfer Protocol: El Protocolo de transferencia de hipertexto es el protocolo de comunicación que permite las transferencias de información en la World Wide Web.
 
 •	Intercambia de información entre cliente y servidor.

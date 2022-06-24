@@ -1,4 +1,4 @@
-<img  src='logo.png' height='70px'>
+<img  src='../logo.png' height='70px'>
 
 # Lección 3: Vistas
 
@@ -22,14 +22,19 @@ Vamos a utilizar EJS:
 •	https://ejs.co/
 
 ## EJS y Express
+
 npm i ejs
 // Motor de plantilla
+```javascript
 app.set("view engine", "ejs");
 app.set("views", __dirname + "/views");
+```
 Crear carpeta views y un index.ejs
 
 ## Rutas render
+
 Para que Express renderice este arhivo y lo combierta en HTML utilizamos:
+```javascript
 app.get("/", (req, res) => {
   res.render("index", { titulo: "inicio EJS" });
 });
@@ -54,8 +59,10 @@ index.ejs
     <h1>Hola a EJS <%= titulo %></h1>
   </body>
 </html>
+```
 
 ## Include
+
 Estamos repitiendo código HTML por ende podemos optimizarlo con include:
 template/cabecera.ejs
 <!DOCTYPE html>
@@ -125,6 +132,7 @@ index.ejs
 <%- include('template/footer'); %>
 
 ## Despliegue Heroku
+
 Vamos a subir nuestra aplicación a un hosting real, para ello utilizaremos Heroku: https://www.heroku.com/pricing
 
  Crear cuenta gratis
@@ -132,6 +140,8 @@ https://signup.heroku.com/
 
  Cambiar puerto
 https://help.heroku.com/P1AVPANS/why-is-my-node-js-app-crashing-with-an-r10-error
+
+```javascript
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Our app is running on port ${ PORT }`);
@@ -140,7 +150,7 @@ app.listen(PORT, () => {
 "scripts": {
     "start": "node app"
   },
-
+```
 
 #.gitignore
 Crear archivo .gitignore
