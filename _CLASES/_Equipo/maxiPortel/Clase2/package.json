@@ -1,0 +1,16 @@
+{
+  "name": "servidor",
+  "version": "1.0.0",
+  "description": "servidor node nodemon",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "servidor",
+    "node",
+    "nodemon"
+  ],
+  "author": "Maximiliano Portel",
+  "license": "ISC"
+}
