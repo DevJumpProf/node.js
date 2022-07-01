@@ -1,19 +1,17 @@
 {
-  "name": "app",
+  "name": "01primerospasos",
   "version": "1.0.0",
-  "description": "Prueba de init",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app"
   },
-  "keywords": [
-    "npm",
-    "prueba",
-    "node"
-  ],
-  "author": "Maximiliano Portel",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
+  "description": "",
   "dependencies": {
-    "moment": "^2.29.3"
+    "cowsay": "^1.5.0",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1"
   }
 }
