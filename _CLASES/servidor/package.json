@@ -1,0 +1,15 @@
+{
+  "name": "servidornode",
+  "version": "1.0.0",
+  "description": "servidor node.js y practicas express etc",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "express"
+  ],
+  "author": "Arbusta GM",
+  "license": "ISC"
+}
