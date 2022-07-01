@@ -1,0 +1,11 @@
+{
+  "name": "servidor",
+  "version": "1.0.0",
+  "description": "primer servidor y practica",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "rodriguez galo",
+  "license": "ISC"
+}
