@@ -1,0 +1,15 @@
+{
+  "name": "servidor",
+  "version": "1.0.0",
+  "description": "servidor clase2",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "server",
+    "clase2"
+  ],
+  "author": "gonzalo cataldo",
+  "license": "ISC"
+}
