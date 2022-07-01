@@ -1,0 +1,11 @@
+{
+  "name": "servidor",
+  "version": "1.0.0",
+  "description": "servidor escuchando",
+  "main": "app.js",
+  "scripts": {
+    "test": "servidor"
+  },
+  "author": "Natali Lescano",
+  "license": "ISC"
+}
