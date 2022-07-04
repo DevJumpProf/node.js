@@ -1,0 +1,20 @@
+{
+  "name": "servidor-express",
+  "version": "1.0.0",
+  "description": "TAREA 2 (04/07)",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "servidor",
+    "express",
+    "ejs"
+  ],
+  "author": "ezequiel rodriguez",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.1"
+  }
+}
