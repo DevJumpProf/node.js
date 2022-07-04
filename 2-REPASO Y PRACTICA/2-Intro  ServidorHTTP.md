@@ -109,7 +109,7 @@ app.get("/", (req, res) => {
 app.use(express.static(__dirname + "/public"));
 __dirmane es la ruta según la máquina donde se ejecuta el código:
 app.get("/contacto", (req, res) => {
-  res.send(__dirname);
+  res.send(__dirname );
 });
 ```
 

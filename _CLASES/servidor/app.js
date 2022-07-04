@@ -1,14 +1,26 @@
-const http = require("http"); // requiero http
+/* ----Express----------------------------------------------------- */
+const express = require("express"); // Requerimos Express
+const app = express();  // metodos express
+const port = 3000;   // definimos el puerto
 
-// guardo el servidor en una variable
-const server = http.createServer((req, res) => {
-  console.log("respuesta del servidor funcionando...");
-  res.end("El servidor me devuelve esto");
+// defino el motor de vistas EJS
+app.set("view engine", "ejs"); //cual va a ser mi motor de vistas
+app.set("views", __dirname + "/views"); // donde van a estar esas vistas
+
+app.get("/", (req, res) => {
+  res.render("index", { titulo: "inicio EJS" , h1: "h1 index en EJS"});
 });
 
-const puerto = 3000; // guardo el puerto en una variables
+app.get("/nosotros", (req, res) => {
+  res.render("nosotros", { titulo: "Nosotros EJS" , h1: "h1 nosotros en EJS"});
+});
 
-server.listen(puerto, () => {
-  console.log("Servidor Escuchando...");
+/* Definir la vista para el error 404 */
+/* app.use((req, res, next) => {
+  res.status(404).render("404", { titulo: "Página 404" });
+}); */
+
+app.listen(port, () => {
+  console.log(`Ejemplo , levanto mi servidor en : http://localhost:${port}`);
 });
 
