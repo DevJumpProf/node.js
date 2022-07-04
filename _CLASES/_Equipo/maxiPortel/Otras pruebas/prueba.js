@@ -20,7 +20,7 @@ http.createServer((req, res) => {
 
 
     let obj = url.parse(req.url, true).query;
-    //hacemos una variale para guardar el objeto y pasamos los parametros. "url.parse" Decodifica el link y devuelve en un objeto lo que es protocolo, dominio, etc. y el parametro "true" está para ver si hay algo despies de las doble barras(//) y así poder identificar que es protocolo o host, etc.
+    //hacemos una variale para guardar el objeto y pasamos los parametros. "url.parse" Decodifica el link y devuelve, en un objeto, lo que es protocolo, dominio, etc. y el parametro "true" está para ver si hay algo despues de las barras dobles(//) y así poder identificar que es protocolo, host, etc.
     // "query" es la propiedad del objeto que devuelve todo lo anterior: "url.parse(a,b)"
     let fecha = `${obj.year} ${obj.month}`;
     //acá armamos una variable para guardar los datos que tiene el objeto(obj) en los atributos "year" y "month" llamaremos a esta variable para imprimirlo en pantalla abajo
