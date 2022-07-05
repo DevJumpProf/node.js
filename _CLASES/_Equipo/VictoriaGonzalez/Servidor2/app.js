@@ -16,6 +16,7 @@ app.get("/nosotros", (req, res) => {
 });
 
 
+
  app.use((req, res, next) => {
   res.status(404).render("404", { titulo: "Página 404", h1: "Página no encontrada, reintente de Victoria Gonzalez :)" });
 }); 
