@@ -1,0 +1,22 @@
+{
+  "name": "clase3",
+  "version": "1.0.0",
+  "description": "ejercicio de la clase 3",
+  "main": "clase3.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "servidor",
+    "node",
+    "express",
+    "javascript"
+  ],
+  "author": "rodriguez galo",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "*",
+    "express": "*",
+    "nodemon": "*"
+  }
+}
