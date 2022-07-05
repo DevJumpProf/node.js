@@ -16,9 +16,9 @@ app.get("/nosotros", (req, res) => {
 });
 
 /* Definir la vista para el error 404 */
-/* app.use((req, res, next) => {
-  res.status(404).render("404", { titulo: "Página 404" });
-}); */
+ app.use((req, res, next) => {
+  res.status(404).render("404", { titulo404: "Página 404" });
+}); 
 
 app.listen(port, () => {
   console.log(`Ejemplo , levanto mi servidor en : http://localhost:${port}`);
