@@ -11,7 +11,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/nosotros", (req, res) => {
-    res.sendFile(__dirname + "/public/nosotros.html");
+    res.render("nosotros");
 });
 
 /* Definiendo accion al encontrar Error 404 */
