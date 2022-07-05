@@ -13,7 +13,7 @@
 
 const express = require("express"); 
 const app = express();
-const port = 3030; 
+const port = 3000; 
 
 
 
@@ -34,7 +34,7 @@ app.get("/", (req, res) => {
     res.status(404).render("404", { h1: "Error 404", h2:"no se encontro la página" });
   });
 
-  
+
 app.listen(port, () => {
   console.log(`Servidor OK http://localhost:${port}`);
 });
