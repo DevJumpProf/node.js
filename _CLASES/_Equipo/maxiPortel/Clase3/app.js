@@ -11,20 +11,20 @@ app.set('views', __dirname + '/views'); //decimos que esas vistas estan en una r
 
 
 app.get('/', (req, res) =>{
-    res.render('index', { titulo : 'inicio EJS'});
+    res.render('index', { titulo : 'INICIO'});
 });
 
 app.get('/nosotros', (req, res) => {
-    res.render('nosotros', {titulo : 'Bienvenido a la sección nosotros'})
-})
+    res.render('nosotros', {titulo : 'Bienvenido a la sección nosotros'});
+});
 
 app.use( (req, res, next) => {
     res.status(404).render('404', {titulo404: 'Error404'});
-})
+});
 
 app.listen(port, () => {
     console.log(`Servidor OK http://localhost:${port}`);
-  });
+});
 
 
 

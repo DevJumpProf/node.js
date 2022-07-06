@@ -23,7 +23,8 @@ app.set('views', __dirname + '/views');
 
 app.use(express.static(__dirname + '/public'));
 
-app.get('/', (req, res) => {
+app.use('/api', require('./router/rutasWeb'))
+/* app.get('/', (req, res) => { //Esto lo pasamos a /rutasWeb
     //console.log(__dirname);
     res.render('index', {titulo: 'Inicio'});
 });
@@ -31,10 +32,9 @@ app.get('/', (req, res) => {
 app.get('/servicios', (req,res) =>{
     res.render('servicios', {tituloServicios: 'Servicios'});
 });
-
 app.get('/contacto', (req,res) => {
     res.render('contacto', {tituloContacto: 'Mensaje de contacto'});
-});
+});*/
 
 
 app.use( (req,res,next) => {
