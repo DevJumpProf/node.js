@@ -19,17 +19,14 @@ app.listen (puerto,()=>{
 const express = require ("express");
 const app = express();
 const puerto = 3003;
-app.use(express.static(__dirname+"/public"))
+
+/* app.use(express.static(__dirname+"/public")) */
 app.set("view engine","ejs")
 app.set("views",__dirname+"/views")
 
-app.get("/",(req,res)=>{
-    res.render("index",{titulo: "index"});
-})
+app.use('/', require('./router/RutasWeb'));
 
-app.get("/nosotros",(req,res)=>{
-    res.render("nosotros",{titulo: "welcome to the jungle"});
-})
+//Paso las rutas en una carpeta aparte
 
 app.use((req,res,next)=>{
     res.status(404).render("error",{titulo: "error"})
@@ -38,6 +35,8 @@ app.use((req,res,next)=>{
 app.listen (puerto,()=>{
     console.log("servidor escuchando...")
 })
+
+
 //-----------------------------------------------------------------------------
 /* const express = require ("express");
 const app = express();
