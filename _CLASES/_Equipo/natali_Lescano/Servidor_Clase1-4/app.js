@@ -55,6 +55,10 @@ app.get("/nosotros", (req, res) => {
   res.render("nosotros", { titulo: "Nosotros EJS" , h1: "h1 nosotros en EJS"});
 });
 
+/* Rutas  */
+
+app.use('/', require('./router/rutasWeb'));
+
 /* Definir la vista para el error 404 */
  app.use("/404", (req, res, next) => {
   res.status(404).render("404", {titulo: "Error 404", h2: "Redirigiendo a la página" });
@@ -63,3 +67,6 @@ app.get("/nosotros", (req, res) => {
 app.listen(port, () => {
   console.log(`Ejemplo , levanto mi servidor en : http://localhost:${port}`);
 });
+
+
+
