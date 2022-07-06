@@ -1,11 +1,10 @@
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index</title>
-  </head>
+<html>
+  
+  <%- include ('partials/head', {tituloweb: 'headPartial'}); %>
 
+  <%- include ('partials/header', {tituloweb: 'header partial'}); %> <!-- toma un archivo partial de otra carpeta para unir diferentes partes de una vista -->
   <body>
     <h1>Hola a EJS <%= titulo %></h1>
   </body>
+  <%- include ('partials/footer', {tituloprincipal: 'footer', telefono: '1155117485', contacto: 'blablabla', red1: 'facebook', red2: 'instagram', red3: 'twitter'}); %>
 </html>
