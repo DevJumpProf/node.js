@@ -1,0 +1,24 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "servidor evaluacion node expres ejs router",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "evaluacion",
+    "node",
+    "express",
+    "ejs",
+    "router"
+  ],
+  "author": "maximilianoPortel",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.19",
+    "router": "^1.3.7"
+  }
+}

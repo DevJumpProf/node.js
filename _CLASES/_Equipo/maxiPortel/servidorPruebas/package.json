@@ -1,0 +1,18 @@
+{
+  "name": "01primerospasos",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app",
+    "dev": "nodemon app"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "cowsay": "^1.5.0",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1"
+  }
+}

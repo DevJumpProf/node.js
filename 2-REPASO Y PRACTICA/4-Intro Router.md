@@ -3,8 +3,7 @@
 # Lección 4: Router
 
 * Rutas
-* Notas importantes
-* Mascotas Router
+
 
 Router
 Vamos a establecer un orden con el middleware Router de Express.
@@ -54,36 +53,4 @@ app.use((req, res, next) => {
 app.listen(port, () => {
     console.log('servidor a su servicio en el puerto', port)
 })
-```
-
-## Notas importantes
-
-Puedes utilizar:
-```javascript
-app.use('/api', require('./router/RutasWeb'));
-Pero tendremos que cambiar las rutas en las vistas (sacar el punto):
-<link rel="stylesheet" href="/css/bootstrap.min.css">
-
-<script src="/js/bootstrap.min.js"></script>
-```
-
-## Mascotas Router
-// Mascotas.js
-```javascript
-const express = require('express');
-const router = express.Router();
-
-router.get('/', (req, res) => {
-    res.render("mascotas", {listaMascotas: "Aquí irán todas las mascotas"})
-})
-
-module.exports = router;
-//Rutas web
-app.use('/', require('./router/RutasWeb'));
-app.use('/mascotas', require('./router/Mascotas'));
-<%- include("template/cabecera", {tituloWeb: 'Mascotas'}) %>
-
-    <h1><%= listaMascotas %></h1>
-    
-<%- include("template/footer") %>
 ```
