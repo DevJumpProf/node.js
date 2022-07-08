@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=titulo%></title>
+</head>
+<body>
+    <!-- header -->
+    <%- include('partials/header', {tituloweb: 'Super Bazar'}); %>
+    <a href="/">Inicio</a>
+
+       <h2><%=h2%></h2>
+       
+       
+       <img src="https://setabazar.com.ar/wp-content/uploads/2022/03/Seta-Bazar-12.jpeg" width="500px" alt="cocina">
+
+       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem necessitatibus dicta ratione nisi quibusdam repudiandae ab repellat<br> expedita ea itaque, corporis reprehenderit eveniet, earum beatae quae laudantium iusto debitis incidunt.<br>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis dignissimos ipsa molestiae corrupti, minus deleniti,<br> cumque quas quod facere, consequatur doloribus odio suscipit sequi ea totam facilis aut recusandae perferendis.
+       </p>
+
+       <h3>Ollas</h3>
+       <a href="#"><img src="https://http2.mlstatic.com/D_NQ_NP_646395-MLA28464177876_102018-O.jpg" alt="setDeOllas"></a>
+
+       <h3>Utensillos</h3>
+       <a href="#"><img src="https://www.lamaletademaggie.com/wp-content/uploads/2018/06/Utensilios-de-cocina.jpg" width="600px" alt="utensillos"></a>
+
+       <h3>Tapers</h3>
+       <a href="#"><img src="https://www.semana.com.ve/wp-content/uploads/2021/11/kichly-recipientes-de-vidrio-para-comida-24-piezas-12-envases-12-tapas.jpg" width="500px" alt="tapers"></a>
+
+
+    <!-- footer -->
+    <%- include('partials/footer', {tituloweb: 'Footer partial'}); %>
+</body>
+</html>
