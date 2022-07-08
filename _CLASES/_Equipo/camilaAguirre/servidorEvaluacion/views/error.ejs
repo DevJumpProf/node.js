@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<% include ('partials/head') %> 
+<body>
+    <% include ('partials/header',{titulo: 'header'}) %> 
+    <main>
+        <h1>
+            <%= titulo %> 
+        </h1>
+        <img src="/images/bts2.jpg" alt="">
+        <h3>
+            <%= descripcion %> 
+        </h3>
+    </main>
+    <% include ('partials/footer', {mensaje: 'light flame'}) %> 
+</body>
+</html>
