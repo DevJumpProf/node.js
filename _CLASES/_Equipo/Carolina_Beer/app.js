@@ -13,21 +13,13 @@
 
 const express = require("express"); 
 const app = express();
-const port = 3000; 
+const port = 3030; 
 
 
 
-app.use(express.static(__dirname + "/public"));
+app.use('/', require('./router/RutasWeb'));
 app.set("view engine", "ejs");
 app.set("views", __dirname + "/views");
-app.get("/", (req, res) => {
-    res.render("index", { titulo: "inicio EJS" });
-  });
-
-
-  app.get("/nosotros", (req, res) => {
-    res.render("nosotros", { titulo: "Nosotros EJS" });
-  });
 
 
   app.use((req, res, next) => {
