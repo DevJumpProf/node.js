@@ -38,12 +38,12 @@ app.use((req, res, next) => {
   res.status(404).render("404", { titulo: "Página 404",laUrl:req.url });/* req.url te devuelve la url que el usario escriba despues de la ruta raiz */
 }); 
 
-app.listen(port, () => {
+ app.listen(port, () => {
     console.log(`
     ***************************************
     Servidor funcionando en el puerto ${port}
     link ---->>> http://localhost:${port}
     ***************************************
     `);
-});
+}); 
 
