@@ -8,6 +8,6 @@ router.get('/', (req, res) => {
 })
 
 router.get('/contacto', (req,res) =>{
-    res.render('contacto', {tituloPrincipal : "contacto"})
+    res.render('contacto', {tituloPrincipal : "CONTACTO"})
 })
 module.exports = router;

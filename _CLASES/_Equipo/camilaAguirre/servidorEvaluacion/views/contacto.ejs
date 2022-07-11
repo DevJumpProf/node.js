@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<% include ('partials/head') %> 
+<%- include ('partials/head') %> 
 <body>
-    <% include ('partials/header',{titulo: 'header'}) %> 
+    <%- include ('partials/header',{opcion1: 'HOME', opcion2: 'CONTACTO', opcion3:'SOBRE NOSOTROS',opcion4: 'PORTAFOLIO'}) %>
     <main>
         <h1>
             <%= tituloPrincipal %> 
         </h1>
-        <img src="/images/bts.jpg" alt="">
-        <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis earum blanditiis quo? Dignissimos nihil temporibus recusandae saepe facere libero ratione, voluptatem sed quam cupiditate excepturi, quo laborum in non animi. Quia rerum magni exercitationem distinctio est mollitia adipisci ex! Reiciendis animi voluptates facilis tenetur voluptatum aliquam, totam ad voluptatem nam reprehenderit quo dolorem delectus, doloribus, praesentium facere? Omnis, recusandae deleniti! Esse magni sequi repudiandae, consectetur porro facilis nulla, eligendi doloremque id voluptatem aliquid vero corrupti! Saepe vitae labore nemo aliquam eos quidem quo sequi suscipit rem delectus hic unde, soluta repudiandae magnam provident facilis ipsam! Deleniti enim iusto numquam atque.
-        </p>
+        <div class="gif">
+            <img src="/images/workingOnIt.gif" alt="">
+        </div>
     </main>
-    <% include ('partials/footer', {mensaje: 'light flame'}) %> 
+    <%- include ('partials/footer', {mensaje: 'Seguinos'}) %> 
 </body>
 </html>
