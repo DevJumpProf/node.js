@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include ('partials/head') %> 
+<body>
+    <%- include ('partials/header',{opcion1: 'HOME', opcion2: 'CONTACTO', opcion3:'SOBRE NOSOTROS',opcion4: 'PORTAFOLIO'}) %>
+    <main>
+        <h1>
+            <%= tituloPrincipal %> 
+        </h1>
+        <div class="gif">
+            <img src="/images/workingOnIt.gif" alt="">
+        </div>
+    </main>
+    <%- include ('partials/footer', {mensaje: 'Seguinos'}) %> 
+</body>
+</html>

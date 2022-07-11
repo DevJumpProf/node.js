@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=titulo%></title>
+</head>
+<body>
+     <!-- header -->
+     <%- include('partials/header', {tituloweb: 'Super Bazar'}); %>
+       
+     <section>
+        <a href="/">Inicio</a>
+
+        <h2>Categorias:</h2>
+        
+        <img src="https://lh3.googleusercontent.com/p/AF1QipPu-TWvUzB-oegfB6e2Fn_1QQk8U0i2AflbJS8r=w1080-h608-p-no-v0" width="600px" alt="bazares">
+
+        <ul>
+            <li>Organizadores</li>
+            <img src="https://www.vientodeleste.co/wp-content/uploads/2019/08/cajas-organizar.jpg" width="300px"  alt="organizadores">
+
+            <li><a href="/cocina">Cocina</a></li>
+            <img src="https://media.admagazine.com/photos/618a61d996bc0f80f8b42dab/master/w_1600%2Cc_limit/83281.jpg" width="300px"  alt="">
+
+            <li>Tazas y vasos</li>
+            <img src="https://i.pinimg.com/736x/77/e8/5a/77e85a9975c643c6e3f90aa8aa61902e--collection-displays-kitchen-decorations.jpg" width="300px" alt="tazas">
+
+
+            <li>Comedor</li>
+            <img src="https://tienda.mueblesbeity.com/wp-content/uploads/2020/04/20210421_100604-1-scaled.jpg" width="300px" alt="comedoraccesorios">
+
+
+            <li>Macetas</li>
+            <img src="https://www.revistaad.es/decoracion/articulos/ideas-para-decorar-casa-con-plantas-interior/24932" width="300px"  alt="macetas">
+
+        </ul>
+        
+        </section>
+
+
+     <!-- footer -->
+     <%- include('partials/footer', {tituloweb: 'Footer partial'}); %>
+</body>
+</html>
+
+

@@ -1,0 +1,16 @@
+{
+  "name": "servidorevaluacion",
+  "version": "1.0.0",
+  "description": "Servidor de la evaluación :D",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "VictoriaGonzalez",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.19"
+  }
+}

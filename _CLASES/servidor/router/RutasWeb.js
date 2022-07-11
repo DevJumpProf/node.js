@@ -6,8 +6,5 @@ router.get('/', (req, res) => {
     res.render("index", {titulo:"Pagina: Index"})
 })
 
-router.get('/nosotros', (req, res) => {
-    res.render("nosotros", {titulo:"Pagina: Nosotros"})
-})
 
 module.exports = router;

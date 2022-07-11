@@ -2,13 +2,17 @@
 const express = require("express"); // Requerimos Express
 const app = express();  // metodos express
 const port = 3000;   // definimos el puerto
+const home = require('./router/RutasWeb')
+const cursos = require('./router/cursos')
 
 // defino el motor de vistas EJS
 app.set("view engine", "ejs"); //cual va a ser mi motor de vistas
 app.set("views", __dirname + "/views"); // donde van a estar esas vistas
 
 //Rutas web  (Antes de la configuracion del error 404)
-app.use('/', require('./router/RutasWeb'));
+app.use('/',home);
+app.use('/cursos',cursos);
+
 
 /* Definir la vista para el error 404 */
  app.use((req, res, next) => {
