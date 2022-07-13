@@ -1,9 +1,12 @@
 module.exports = {
     index: (req, res, next) => {
-         res.render("users", { usuarios: ["Juan","Pepe","Luis"]});
+         res.render("users", {title: 'Users'});
     },
-    show: (req, res, next) => {
-        ["Gabriel","jose","Agostina"]
+    idUser: (req, res, next) => {
+        res.send("Informacion del usuario " + req.params.idUser)
+    },
+    idLenguajes: (req,res,next) => {
+        res.send ("El usuario " + req.params.idUser + " maneja los lenguajes " + req.params.idLenguajes);
     }
 };
 

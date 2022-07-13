@@ -5,9 +5,8 @@ const usersController = require("../controllers/userController");
 /* GET users listing. */
 router.get('/', usersController.index);
 
-/* router.get('/:id', function (req, res) {
-  let idUser = req.params.id;
-});
-*/
+router.get('/:idUser', usersController.idUser);
+
+router.get('/:idUser/:idLenguajes', usersController.idLenguajes);
 
 module.exports = router; 
