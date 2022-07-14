@@ -1,4 +1,4 @@
-body{
+body {
     height: 100vh;
     width: 100vw;
     box-sizing: border-box;
@@ -7,31 +7,36 @@ body{
     background-color: #d9dcd6;
     font-family: sans-serif;
 }
-ul{
+
+ul {
     list-style-type: none;
 }
-a{
+
+a {
     text-decoration: none;
     margin: 0;
     padding: 0;
 }
-.container{
+
+.container {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.containerHeader{
+
+.containerHeader {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     background-color: #d3d7d0;
 }
-.navBar{
+
+.navBar {
     display: flex;
     flex-direction: row;
 }
 
-                                    /* BOTON NAV */
+/* BOTON NAV */
 .buttonNav {
     position: relative;
     border: none;
@@ -121,20 +126,20 @@ a{
     border: none;
 }
 
-                                                /* FIN NAV */
+/* FIN NAV */
 
-                                                /* COMIENZO ARTICULO */
+/* COMIENZO ARTICULO */
 
-.contenedorArticulo{
+.contenedorArticulo {
     display: flex;
     justify-content: center;
     align-content: center;
     align-items: center;
     margin: 40px;
 }
+
 .container2 {
     height: 300px;
-    width: 600px;
     top: 60px;
     left: calc(50% - 300px);
     display: flex;
@@ -230,7 +235,7 @@ svg {
 }
 
 
-                                            /* BOTON TITULO */
+/* BOTON TITULO */
 .button {
     margin: 0;
     background: transparent;
@@ -277,10 +282,10 @@ svg {
     filter: drop-shadow(0 0 23px var(--animation-color))
 }
 
-                                            /* FIN TITULO */
+/* FIN TITULO */
 
-                                    /*   FOOTER */
-.footer{
+/*   FOOTER */
+.footer {
     display: flex;
     flex-direction: row;
     align-items: flex-end;
@@ -296,9 +301,9 @@ svg {
     transition: all 0.2s ease;
     border: none;
     background: none;
-   }
-   
-   .cta:before {
+}
+
+.cta:before {
     content: "";
     position: absolute;
     left: 0;
@@ -308,18 +313,18 @@ svg {
     width: 20px;
     height: 20px;
     transition: all 0.3s ease;
-   }
-   
-   .cta a {
+}
+
+.cta a {
     position: relative;
     font-family: "Ubuntu", sans-serif;
     font-size: 18px;
     font-weight: 700;
     letter-spacing: 0.05em;
     color: #234567;
-   }
-   
-   .cta svg {
+}
+
+.cta svg {
     position: relative;
     top: 0;
     margin-left: 10px;
@@ -330,24 +335,24 @@ svg {
     stroke-width: 2;
     transform: translateX(-5px);
     transition: all 0.3s ease;
-   }
-   
-   .cta:hover:before {
+}
+
+.cta:hover:before {
     width: 100%;
     background: #b1dae7;
-   }
-   
-   .cta:hover svg {
-    transform: translateX(0);
-   }
-   
-   .cta:active {
-    transform: scale(0.95);
-   }
+}
 
-                                /* CREADOR POR :  */
- /* From uiverse.io by @WhiteNervosa */
-h5 a{
+.cta:hover svg {
+    transform: translateX(0);
+}
+
+.cta:active {
+    transform: scale(0.95);
+}
+
+/* CREADOR POR :  */
+/* From uiverse.io by @WhiteNervosa */
+h5 a {
     font-size: 9px;
     color: #16425B;
     font-family: inherit;
@@ -360,20 +365,20 @@ h5 a{
     transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
     transition-duration: 400ms;
     transition-property: color;
-  }
+}
 
-  h5 a:focus,
-  h5 a:hover {
+h5 a:focus,
+h5 a:hover {
     color: #81C3D7;
-  }
-  
-  h5 a:focus:after,
-  h5 a:hover:after {
+}
+
+h5 a:focus:after,
+h5 a:hover:after {
     width: 100%;
     left: 0%;
-  }
-  
-  h5 a:after {
+}
+
+h5 a:after {
     content: "";
     pointer-events: none;
     bottom: -2px;
@@ -385,8 +390,9 @@ h5 a{
     transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
     transition-duration: 400ms;
     transition-property: width, left;
-  }
-                    /*    FIN FOOTER */
+}
+
+/*    FIN FOOTER */
 
 
 
@@ -397,51 +403,56 @@ h5 a{
 /* ERROR 404 */
 
 
-.container404{
-    background-color:#141019;
+.container404 {
+    background-color: #141019;
     background: radial-gradient(at 50% -20%, #908392, #0d060e) fixed;
 }
 
-#handboy
-{
-   animation: swing ease-in-out 1.3s infinite alternate;
+#handboy {
+    animation: swing ease-in-out 1.3s infinite alternate;
     transform-origin: 98% 98%;
     transform-box: fill-box;
-    
 }
 
 
-#girllight
-{
-   animation: swing ease-in-out 1.3s infinite alternate;
+#girllight {
+    animation: swing ease-in-out 1.3s infinite alternate;
     transform-origin: 0% 97%;
     transform-box: fill-box;
 }
 
-#hairgirl
-{
+#hairgirl {
     animation: swinghair ease-in-out 1.3s infinite alternate;
-   transform-origin: 60% 0%;
+    transform-origin: 60% 0%;
     transform-box: fill-box;
-  
+
 }
 
-#zero
-{
-  transform-origin:bottom;
-  transform-box:fill-box;
-  
+#zero {
+    transform-origin: bottom;
+    transform-box: fill-box;
+
 }
 
 /*************swing************/
 @keyframes swing {
-    0% { transform: rotate(10deg); }
-    100% { transform: rotate(-10deg); }
+    0% {
+        transform: rotate(10deg);
+    }
+
+    100% {
+        transform: rotate(-10deg);
+    }
 }
 
 
 /*************swing hair************/
 @keyframes swinghair {
-    0% { transform: rotate(6deg); }
-    100% { transform: rotate(-6deg); }
+    0% {
+        transform: rotate(6deg);
+    }
+
+    100% {
+        transform: rotate(-6deg);
+    }
 }

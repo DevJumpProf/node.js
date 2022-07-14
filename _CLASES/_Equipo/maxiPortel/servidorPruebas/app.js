@@ -23,7 +23,8 @@ app.set('views', __dirname + '/views');
 
 app.use(express.static(__dirname + '/public'));
 
-app.use('/api', require('./router/rutasWeb'))
+app.use('/', require('./router/rutasWeb'))
+app.use('/mascotas', require('./router/mascotas'))
 /* app.get('/', (req, res) => { //Esto lo pasamos a /rutasWeb
     //console.log(__dirname);
     res.render('index', {titulo: 'Inicio'});
