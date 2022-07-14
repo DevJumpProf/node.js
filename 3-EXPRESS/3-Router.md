@@ -86,7 +86,7 @@ represente al dato que estará llegando en la url.
 
 ```javascript
 //                     2
- app.get('/productos/:id?', function (req,res) {
+ app.get('/productos/:id', function (req,res) {
  // código
  })
 
@@ -105,7 +105,7 @@ parámetros que llegan por url con la estructura propiedad:valor,en donde cada p
 definimos en el path.
 
 ```javascript
-app.get('/productos/:id', function (req,res) {
+app.get('/productos/:id?', function (req,res) {
 let idProducto = req.params.id;
 })
 
