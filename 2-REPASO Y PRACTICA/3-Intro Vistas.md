@@ -7,7 +7,7 @@
 * Rutas render
 * Include
 * CSS, JS, img, etc
-* Despliegue Heroku
+
 
 
 Vistas

@@ -1,6 +1,6 @@
 <img  src='../logo.png' height='70px'>
 
-# Lección 3: SERVIDOR HTTP EN EXPRESS
+# Lección 3:  
 
 * SERVIDOR HTTP EN EXPRESS
 
