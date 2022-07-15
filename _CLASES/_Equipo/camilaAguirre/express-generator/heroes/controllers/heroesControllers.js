@@ -4,9 +4,17 @@ const heroes = JSON.parse(fs.readFileSync('./data/heroes.json','utf-8'));
  /* duragamos al json como un objeto en especifico la lectura de la misam, con el dirname indicamos la direccion del archico json */
 
 
+        
+const str1 = JSON.stringify(heroes)
+
+
 
 module.exports = {
     index : (req,res,next) => {
-        res.send(heroes)
+        
+       res.send(heroes)
+       
     }
 }
+
+
