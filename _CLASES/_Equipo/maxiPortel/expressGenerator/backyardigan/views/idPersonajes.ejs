@@ -1,0 +1,20 @@
+<%- include("partials/head") %>
+
+    <body>
+        <h1>
+            <%= title %>
+        </h1>
+        <p>Welcome to <%= title %>
+        </p>
+
+
+<% personajes.forEach(pj => { %> 
+<% if(pj.id == req.param.id){ %> 
+    <p>
+        <% pj.nombre %> Es un <% pj.tipo %> 
+    </p>
+<% }}) %> 
+
+    </body>
+
+    </html>

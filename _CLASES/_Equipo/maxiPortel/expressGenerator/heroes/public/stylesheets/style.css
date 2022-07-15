@@ -1,8 +1,584 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: #d9dcd6;
+  font-family: sans-serif;
+}
+
+ul {
+  list-style-type: none;
 }
 
 a {
-  color: #00B7FF;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.containerHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #d3d7d0;
+}
+
+.navBar {
+  display: flex;
+  flex-direction: row;
+}
+
+/* BOTON NAV */
+.buttonNav {
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+  transition: filter 250ms;
+  user-select: none;
+  touch-action: manipulation;
+  margin: 0px 20px;
+}
+
+.shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: hsl(0deg 0% 0% / 0.25);
+  will-change: transform;
+  transform: translateY(2px);
+  transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
+}
+
+.edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: linear-gradient(to left,
+          #2f6690 0%,
+          #3a7ca5 8%,
+          #3a7ca5 92%,
+          #2f6690 100%);
+}
+
+.front {
+  display: block;
+  position: relative;
+  padding: 12px 27px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  color: white;
+  background: #3a7ca5;
+  will-change: transform;
+  transform: translateY(-4px);
+  transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
+}
+
+.buttonNav:hover {
+  filter: brightness(110%);
+}
+
+.buttonNav:hover .front {
+  transform: translateY(-6px);
+  transition: transform 250ms cubic-bezier(.3, .7, .4, 1.5);
+}
+
+.buttonNav:active .front {
+  transform: translateY(-2px);
+  transition: transform 34ms;
+}
+
+.buttonNav:hover .shadow {
+  transform: translateY(4px);
+  transition: transform 250ms cubic-bezier(.3, .7, .4, 1.5);
+}
+
+.buttonNav:active .shadow {
+  transform: translateY(1px);
+  transition: transform 34ms;
+}
+
+.buttonNav:focus:not(:focus-visible) {
+  outline: none;
+}
+
+
+.button {
+  margin: 0;
+  background: transparent;
+  padding: 0;
+  border: none;
+}
+
+/* FIN NAV */
+
+
+
+
+
+
+/* COMIENZO ARTICULO */
+
+.contenedorArticulo {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  margin: 40px;
+}
+
+.tituloMain::before {  
+  transform: scaleX(0);
+  transform-origin: bottom right;
+}
+
+.tituloMain:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.tituloMain::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  inset: 0 0 0 0;
+  background: #81C3D7;
+  z-index: -1;
+  transition: transform .3s ease;
+}
+
+.tituloMain {
+  position: relative;
+  font-size: 3.5rem;
+  cursor:default;
+}
+
+
+
+.container2 {
+  height: 300px;
+  top: 60px;
+  left: calc(50% - 300px);
+  display: flex;
+}
+
+.card {
+  display: flex;
+  height: 280px;
+  width: 200px;
+  background-color: #17141d;
+  border-radius: 10px;
+  box-shadow: -1rem 0 3rem #000;
+  /*   margin-left: -50px; */
+  transition: 0.4s ease-out;
+  position: relative;
+  left: 0px;
+}
+
+.card:not(:first-child) {
+  margin-left: -50px;
+}
+
+.card:hover {
+  transform: translateY(-20px);
+  transition: 0.4s ease-out;
+}
+
+.card:hover~.card {
+  position: relative;
+  left: 50px;
+  transition: 0.4s ease-out;
+}
+
+.title {
+  color: white;
+  font-weight: 300;
+  position: absolute;
+  left: 20px;
+  top: 15px;
+}
+
+.bar {
+  position: absolute;
+  top: 100px;
+  left: 20px;
+  height: 5px;
+  width: 150px;
+}
+
+.emptybar {
+  background-color: #2e3033;
+  width: 100%;
+  height: 100%;
+}
+
+.filledbar {
+  position: absolute;
+  top: 0px;
+  z-index: 3;
+  width: 0px;
+  height: 100%;
+  background: rgb(0, 154, 217);
+  background: linear-gradient(90deg, #2F6690 0%, #3A7CA5 65%, #81C3D7 100%);
+  transition: 0.6s ease-out;
+}
+
+.card:hover .filledbar {
+  width: 120px;
+  transition: 0.4s ease-out;
+}
+
+.circle {
+  position: absolute;
+  top: 150px;
+  left: calc(50% - 60px);
+}
+
+.stroke {
+  stroke: white;
+  stroke-dasharray: 360;
+  stroke-dashoffset: 360;
+  transition: 0.6s ease-out;
+}
+
+svg {
+  fill: #17141d;
+  stroke-width: 2px;
+}
+
+.card:hover .stroke {
+  stroke-dashoffset: 100;
+  transition: 0.6s ease-out;
+}
+
+
+/* BOTON TITULO */
+.button {
+  margin: 0;
+  background: transparent;
+  padding: 0;
+  border: none;
+}
+
+/* button styling */
+.button {
+  --border-right: 6px;
+  --text-stroke-color: #1b131399;
+  --animation-color: #2f6690;
+  --fs-size: 2em;
+  letter-spacing: 3px;
+  text-decoration: none;
+  font-size: var(--fs-size);
+  font-family: "Arial";
+  position: relative;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--text-stroke-color);
+}
+
+/* this is the text, when you hover on button */
+.hover-text {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  content: attr(data-text);
+  color: var(--animation-color);
+  width: 0%;
+  inset: 0;
+  border-right: var(--border-right) solid var(--animation-color);
+  overflow: hidden;
+  transition: 0.5s;
+  -webkit-text-stroke: 1px var(--animation-color);
+}
+
+/* hover */
+.button:hover .hover-text {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  filter: drop-shadow(0 0 23px var(--animation-color))
+}
+
+/* FIN TITULO */
+
+/*   FOOTER */
+.footer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  background-color: #d3d7d0;
+}
+
+
+.cta {
+  position: relative;
+  margin: auto;
+  padding: 5px 18px;
+  transition: all 0.2s ease;
+  border: none;
+  background: none;
+}
+
+.cta:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  display: block;
+  border-radius: 50px;
+  background: #b1dae7;
+  width: 20px;
+  height: 20px;
+  transition: all 0.3s ease;
+}
+
+.cta a {
+  position: relative;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #234567;
+}
+
+.cta svg {
+  position: relative;
+  top: 0;
+  margin-left: 10px;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: #234567;
+  stroke-width: 2;
+  transform: translateX(-5px);
+  transition: all 0.3s ease;
+}
+
+.cta:hover:before {
+  width: 100%;
+  background: #b1dae7;
+}
+
+.cta:hover svg {
+  transform: translateX(0);
+}
+
+.cta:active {
+  transform: scale(0.95);
+}
+
+/* CREADOR POR :  */
+h5 a {
+  font-size: 9px;
+  color: #16425B;
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  background: none;
+  text-transform: uppercase;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: color;
+}
+
+h5 a:focus,
+h5 a:hover {
+  color: #81C3D7;
+}
+
+h5 a:focus:after,
+h5 a:hover:after {
+  width: 100%;
+  left: 0%;
+}
+
+h5 a:after {
+  content: "";
+  pointer-events: none;
+  bottom: -2px;
+  left: 50%;
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: #81C3D7;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: width, left;
+}
+
+/*    FIN FOOTER */
+
+
+
+
+
+
+
+/* ERROR 404 */
+
+
+.container404 {
+  background-color: #141019;
+  background: radial-gradient(at 50% -20%, #908392, #0d060e) fixed;
+}
+
+#handboy {
+  animation: swing ease-in-out 1.3s infinite alternate;
+  transform-origin: 98% 98%;
+  transform-box: fill-box;
+}
+
+
+#girllight {
+  animation: swing ease-in-out 1.3s infinite alternate;
+  transform-origin: 0% 97%;
+  transform-box: fill-box;
+}
+
+#hairgirl {
+  animation: swinghair ease-in-out 1.3s infinite alternate;
+  transform-origin: 60% 0%;
+  transform-box: fill-box;
+
+}
+
+#zero {
+  transform-origin: bottom;
+  transform-box: fill-box;
+
+}
+
+/*************swing************/
+@keyframes swing {
+  0% {
+      transform: rotate(10deg);
+  }
+
+  100% {
+      transform: rotate(-10deg);
+  }
+}
+
+
+/*************swing hair************/
+@keyframes swinghair {
+  0% {
+      transform: rotate(6deg);
+  }
+
+  100% {
+      transform: rotate(-6deg);
+  }
+}
+
+
+
+/* CARDS HEROES  */
+
+.containerHeroes {
+  width: 100vw;
+  max-height: 800px;
+  max-width: 1280px;
+  min-width: 1000px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 80px auto;
+}
+.border {
+  height: 369px;
+  width: 290px;
+  background: transparent;
+  border-radius: 10px;
+  transition: border 1s;
+  position: relative;
+}
+.border:hover {
+  border: 1px solid #fff;
+}
+.cardHeroes {
+  height: 379px;
+  width: 300px;
+  background: #808080;
+  border-radius: 10px;
+  transition: background 0.8s;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 70px 63px -60px #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.cardHeroes0 {
+  background: url("http://www.huellasdemujeresgeniales.com/wp-content/uploads/2015/04/Ada_Lovelace_portrait_circa_1840.jpg") center center no-repeat;
+  background-size: 310px;
+}
+.cardHeroes0:hover {
+  background: url("http://www.huellasdemujeresgeniales.com/wp-content/uploads/2015/04/Ada_Lovelace_portrait_circa_1840.jpg") left center no-repeat;
+  background-size: 350px;
+}
+.cardHeroes0:hover h2 {
+  opacity: 1;
+}
+.cardHeroes0:hover .fa {
+  opacity: 1;
+}
+.cardHeroes1 {
+  background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Charles_Babbage_-_1860.jpg/330px-Charles_Babbage_-_1860.jpg") center center no-repeat;
+  background-size: 300px;
+}
+.cardHeroes1:hover {
+  background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Charles_Babbage_-_1860.jpg/330px-Charles_Babbage_-_1860.jpg") left center no-repeat;
+  background-size: 350px;
+}
+.cardHeroes1:hover h2 {
+  opacity: 1;
+}
+.cardHeroes1:hover .fa {
+  opacity: 1;
+}
+.cardHeroes2 {
+  background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Margaret_Hamilton_1995.jpg/800px-Margaret_Hamilton_1995.jpg") center center no-repeat;
+  background-size: 300px;
+}
+.cardHeroes2:hover {
+  background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Margaret_Hamilton_1995.jpg/800px-Margaret_Hamilton_1995.jpg") left center no-repeat;
+  background-size: 350px;
+}
+.cardHeroes2:hover h2 {
+  opacity: 1;
+}
+.cardHeroes2:hover .fa {
+  opacity: 1;
+}
+.tituloHeroesh2 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #fff;
+  margin: 20px;
+  opacity: 0;
+  transition: opacity 1s;
+}
+.fa {
+  opacity: 0;
+  transition: opacity 1s;
 }
