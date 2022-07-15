@@ -1,0 +1,21 @@
+<%- include("partials/head")  %> 
+<body>
+    <%- include("partials/header") %> 
+    <div class="conteinerDetalle">
+        <div class="cardHeroeDetalle">
+            <h1>Hola soy el heroe <%= heroe.nombre %> y mi profesion es <%= heroe.profesion %>   </h1>
+            <div class="pregunta">
+                <p>Desea ver la bio del heroe?</p>
+                <div class="opciones">
+                    <a href="/heroes/<%= heroe.id %>/ok ">Si</a>
+                    <a href="/heroes/<%= heroe.id %>/no">No</a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    
+    <%- include("partials/footer")  %> 
+</body>
+</html>

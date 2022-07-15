@@ -1,0 +1,31 @@
+@import "generales.css";
+
+.conteinerDetalle{
+    display: flex;
+    justify-content: center;
+}
+.conteinerDetalle .cardHeroeDetalle{
+    width: 500px;
+    border: 1px solid black;
+    border-radius: 15px;
+}
+.conteinerDetalle .cardHeroeDetalle h1{
+    margin: 5px;
+    text-align: center;
+}
+.conteinerDetalle .cardHeroeDetalle .pregunta{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+.conteinerDetalle .cardHeroeDetalle .pregunta p{
+    margin: 10px;
+}
+.conteinerDetalle .cardHeroeDetalle .pregunta .opciones a{
+    margin: 10px;
+    padding: 5px;
+    border:1px solid black;
+
+}

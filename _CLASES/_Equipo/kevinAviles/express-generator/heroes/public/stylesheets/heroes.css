@@ -1,0 +1,41 @@
+@import "generales.css";
+
+.loGeneral{
+  /*   width: 100%; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.loGeneral .card{
+    flex-basis: 50%; 
+    margin: 30px; 
+    border: 1px solid black;
+    border-radius: 15px;
+  
+}
+.loGeneral .card .cardParteSuperior{
+    border-bottom: 1px solid black;
+}
+.loGeneral .card .cardParteSuperior .ImagenHeroe{
+   display: flex;
+   justify-content: center;
+  
+}
+.loGeneral .card .cardParteSuperior .ImagenHeroe img{
+    /* width: 100%; */
+    /* border: 1px solid black;
+    border-radius: 10px; */
+    width: 50%;
+    /* margin: 10px; */
+}
+.loGeneral .card .cardParteInferior{
+    height: 100px;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+}
+.loGeneral .card .cardParteInferior p{
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 0 5px;
+}

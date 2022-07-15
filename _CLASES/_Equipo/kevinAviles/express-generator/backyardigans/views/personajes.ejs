@@ -1,0 +1,22 @@
+<%- include('partials/head')  %> 
+<body>
+  <%- include('partials/header')  %> 
+  <h1>Lista de perosnajes de backyardigans</h1>
+  
+    <% objeto.forEach(personaje => { %>
+        <div style="width:200px ;"></div>
+        <a href="/personajes/<%= personaje.id %> ">
+            
+                <h2><%= personaje.id %> </h2>
+                <h3><%= personaje.nombre %> </h3>
+                <h4><%= personaje.especie %> </h4>
+                <img src="/images/<%= personaje.img %> " alt="">
+            
+        </a>
+    </div>
+       
+        
+    <% }) %>
+  <%- include('partials/footer')  %> 
+</body>
+</html>
