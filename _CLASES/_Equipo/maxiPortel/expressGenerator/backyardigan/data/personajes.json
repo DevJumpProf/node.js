@@ -1,0 +1,41 @@
+[
+    {
+        "id": "1",
+        "nombre": "Uniqua",
+        "tipo": "Hormiga",
+        "detalles": "es una hormiga curiosa, segura de sí misma y con mucho espíritu, de color rosa y con manchas. La serie utiliza el nombre 'Uniqua' tanto para el personaje como para su especie. Tiene un par de antenas en forma de espiral en la parte superior de la cabeza. Uniqua es dulce y simpática, aunque sus fuertes opiniones y su ocasional terquedad se interponen en sus relaciones. Se imagina a sí misma desempeñando papeles que requieren inteligencia y valor (como la de científica o la de capitán pirata) y le encantan los libros (como se ve en episodios como 'The Masked Retriever'). Su creadora, Janice Burgess, describe a Uniqua como la niña que le gustaría haber sido de pequeña. Es el único personaje principal que aparece en todos los episodios. Su mejor amiga es Tasha. Es la segunda menor de los personajes principales. Uniqua es confirmada por la creadora de la serie que es y será para siempre la Eterna patrona de los demás Backyardigans y que siempre ha sido la carreadora del programa.",
+        "voz": "Lashawn Tináh Jefferies",
+        "cantante": "Jamia Simone Nash (temporadas 1-3) y Avion Baker (temporada 4)",
+        "color": "Rosa"
+    },
+    {
+        "id": "2",
+        "nombre": "Tyrone",
+        "tipo": "alce",
+        "detalles": "es un alce pelirrojo anaranjado de buen carácter, aunque algo temeroso, que lleva una camisa a rayas rojas y azules, y es el mejor amigo de Pablo. Es casi todo lo contrario a Pablo en cuanto a personalidad, con su carácter relajado y frío. Tyrone es conocido por sus comentarios sarcásticos, uno de los cuales es 'Eso sí que fue conveniente'. Al final de la mayoría de los episodios, cuando aparece, dice: 'Ha sido una aventura (tipo) excelente, ¿no lo creen?'. (aunque Pablo, Austin y Tasha recitan la frase cuando él no aparece). A pesar de que no parece llevar pantalones (salvo en raras ocasiones), Tyrone se las arregla para meter las manos en los bolsillos. Es el mayor de los personajes principales.",
+        "voz": "Reginald Davis Jr. (temporada 1), Jordan Coleman (temporadas 2-3) y Christopher Grant, Jr. (temporada 4)",
+        "cantante": "Corwin C. Tuggles (temporada 1), Leon Thomas III (temporadas 2-3), Damani Roberts (temporada 3) y Tyrel Jackson Williams (temporada 3-4).",
+        "color": "Naranja"
+    },
+    {
+        "id": "3",
+        "nombre": "Tasha",
+        "tipo": "Hipopótama ",
+        "detalles": "es una hipopótama amarilla de carácter bastante fuerte. Tasha lleva un vestido naranja floreado y unas sandalias rojas. Es una chica dulce por fuera, pero es racional y le gusta salirse con la suya la mayoría del tiempo. Es la más seria y mandona de los personajes principales queriendo que los demás hagan las cosas como ella quiere, aunque de vez en cuando Tasha puede ser tan despreocupada como los demás. Es más femenina que su mejor amiga Uniqua. En las temporadas 2-4, tiene una personalidad más amable. Tiende a ser malhumorada algunas veces si no es la jefa. Hay varios episodios en la serie cuando ella no aparece, pero aparece en más episodios que Austin. Su eslogan es: '¡Oh, por todos los cielos!'. Es la segunda mayor de los personajes principales.",
+        "voz": "Naelee Rae (temporadas 1-2) y Gianna Bruzzese (temporadas 3-4).",
+        "cantante": "Kristin Klabunde (temporadas 1-3) y Gabriella Malek (temporadas 3-4).",
+        "color": "Amarillo"
+    },
+    {
+        "id": "4",
+        "nombre": "Austin",
+        "tipo": "Canguro",
+        "detalles": "es un canguro morado tímido pero divertido. Aunque en la primera temporada se muestra que es bastante tímido, debido a que se ha mudado recientemente al barrio, Austin empieza a salir de su caparazón a medida que avanza la serie y aún no conoce a los demás personajes principales muy bien. Se revela inteligente e imaginativo. Habla con acento australiano. Austin rara vez aparece en el centro de atención, pero asume el papel de protagonista en varios episodios. Su eslogan varía de un programa a otro. En más de un episodio, se refiere a sí mismo como 'Sólo Austin'. Dice Bogush: 'Austin suele ser el que tira de la retaguardia. Es una especie de tipo que se lleva bien'. Austin ha mostrado ocasionalmente un lado más malvado, como en los episodios 'La fiesta de té' y 'La patineta mágica'. Es el único personaje principal sin tener un mejor amigo, aunque se la lleva bien con los demás personajes principales en sus apariciones. Es el personaje principal con la menor cantidad de apariciones en la serie. Es el tercer mayor de los personajes principales.",
+        "voz": "Jonah Bobo.",
+        "cantante": "Thomas Sharkey (temporadas 1-3) y Nicholas Barasch (temporada 4).",
+        "color": "Morado"
+    }
+]
+
+
+

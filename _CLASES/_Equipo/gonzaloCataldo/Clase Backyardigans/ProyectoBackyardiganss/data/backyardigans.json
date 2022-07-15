@@ -1,0 +1,33 @@
+[
+	{
+		"id": 1,
+		"nombre": "Pablo",
+		"especie": "Pinguino",
+		"color": "Azul",
+		"biografia": "Pablo es un pingüino de color azul y amarillo que convive con el resto de los Backyardigans, tiene un sombrero de color azul y amarillo de la misma tonalidad que su piel, cuenta con un moño de color azul de la misma tonalidad que su piel. Su piel es de color azul oscuro y tiene un amarillo pálido. Pablo suele jugar el rol de líder en muchas de las aventuras, a veces dando ordenes, como villano o guiando a los demás, aunque suele ser también quien más rápido y fácilmente pierde la calma."
+	}, {
+		"id": 2,
+		"nombre": "Uniqua",
+		"especie": "Hormiga",
+		"color": "Rosa",
+		"biografia": "Uniqua suele tener bastante iniciativa para hacer las cosas, ella es una niña muy emotiva y amable. No le teme a los peligros ni a las dificultades y en muchas ocasiones es la voz de la razón cuando sus compañeros se desaniman o no encuentran salida, ella se encarga de animarlos. En múltiples ocasiones desempeña un rol de líder en la aventura. Su mejor amiga es Tasha."
+	}, {
+		"id": 3,
+		"nombre": "Austin",
+		"especie": "Canguro",
+		"color": "Morado",
+		"biografia": "Austin suele tener una actitud tranquila frente a las situaciones, es habitual que juegue el rol de personaje tímido, sumiso o que nunca espera conseguir nada a pesar de sus grandes esfuerzos, aunque suele estar muy preparado ante todo y no se rinde con facilidad. Es el nuevo amigo del grupo, ya qué no aparece en los episodios pilotos. Así que no conoce a los otros amigos muy bien. Es el personaje con la menor cantidad de apariciones en la serie y es muy amable."
+	}, {
+		"id": 4,
+		"nombre": "Tyrone",
+		"especie": "Alce",
+		"color": "Naranja",
+		"biografia": "Es un pensador inteligente y parecer un poco más rápido que su mejor amigo Pablo y los demás. Tyrone normalmente muestra una actitud tranquila ante las situaciones, aunque hay situaciones que le asustan u ocasiones en las que es algo gruñón. La apariencia de Tyrone se basa en un Alce canadiense."
+	}, {
+		"id": 5,
+		"nombre": "Tasha",
+		"especie": "Hipopotamo",
+		"color": "Amarillo",
+		"biografia": "Tasha es una hipopótamo de color amarillo que tiene una gran imaginación, es creativa y viste de un vestido color anaranjado y zapatos anaranjados. Suele jugar el rol de malvada, engreída o prepotente en muchas de las aventuras, aunque su personaje suele terminar aprendiendo una lección por dicha actitud. También suele ser algo mandona y desesperarse cuando sus compañeros no siguen sus instrucciones como deberían, pero no puede ocultar su lado amable con su mejor amiga Uniqua."
+	}
+]

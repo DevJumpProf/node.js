@@ -1,0 +1,14 @@
+@import "generales.css";
+.navbar{
+    width: 100%;
+    /* background-color: red; */
+    display: flex;
+    margin: 10px 0;
+    justify-content: center;
+}
+.navbar .laSeccion{
+    margin: 10px 50px;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 20px;
+}

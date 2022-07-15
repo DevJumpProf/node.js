@@ -1,0 +1,21 @@
+<%- include("partials/head") %>
+
+    <body>
+        <h1>
+            <%= title %>
+        </h1>
+        <p>Welcome to <%= title %>
+        </p>
+
+        <%  %> 
+        <% personaje.forEach(pj=> { if(id == pj.id){ %>
+
+            <div>
+                <% pj.nombre %>
+            </div>
+        <%}}) %>
+
+
+    </body>
+
+    </html>

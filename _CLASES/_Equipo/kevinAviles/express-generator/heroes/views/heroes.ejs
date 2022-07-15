@@ -1,0 +1,36 @@
+<%- include("partials/head") %>
+
+    <body>
+        <%- include("partials/header") %>
+        
+        <div class="loGeneral">
+            <% heroes.forEach(heroe=> { %>
+                <a href="/heroes/<%=heroe.id%>">
+                    <div class="losHeroes">
+                        <div class="card">
+                            <div class="cardParteSuperior">
+                                <div class="ImagenHeroe">
+                                    <img src="/images/usuarioDefault.png" alt="imagenUsuario">
+                                </div>
+                            </div>
+                            <div class="cardParteInferior">
+
+                                <p>
+                                    <%= heroe.nombre %>
+                                </p>
+                                <p>
+                                    <%= heroe.id %>
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </a>
+                <% }) %>
+
+            </div>
+
+                    <%- include("partials/footer") %>
+    </body>
+
+    </html>
