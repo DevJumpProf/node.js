@@ -1,0 +1,19 @@
+<head>
+    <%- include('partials/head', {title:"personajes"}) %>
+</head>
+
+<body>
+    <header>
+        <%- include('partials/header', {title:"personajes"}) %>
+    </header>
+
+
+    <% let {id}=req.params.id %>
+    <% personajes.forEach(personaje=> { %>
+    <% if (id==personaje.id) { %>
+    <p>Hola soy <%= personaje.nombre %> </p>
+    <% } %>
+    <% }); %>
+                                
+
+</body>

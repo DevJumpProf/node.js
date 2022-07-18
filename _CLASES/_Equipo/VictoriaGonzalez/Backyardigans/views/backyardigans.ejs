@@ -1,0 +1,29 @@
+<%- include("partials/head"); %>
+
+<body>
+
+<%- include("partials/header"); %>
+
+
+<ul>
+
+<% personajes.forEach(personaje=>{ %>
+<li><%= personaje.id%></li> 
+
+<li><%= personaje.nombre %></li>
+
+<li><%= personaje.voz%></li> 
+
+<li><%= personaje.color %></li>
+
+<li><%= personaje.tipo_de_bicho%></li> 
+
+<li><%= personaje.Informacion%></li> 
+<% }) %>
+</ul>
+
+<audio src="audio/backyardigans.mp3" controls></audio>
+<img url="https://c.tenor.com/ho4U8y_DczMAAAAd/the-backyardigans-castaways.gif">
+<%- include("partials/footer"); %>
+
+</body>

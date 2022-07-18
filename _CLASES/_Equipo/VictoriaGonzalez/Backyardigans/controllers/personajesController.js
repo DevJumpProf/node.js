@@ -1,22 +1,30 @@
 const fs = require ("fs");
 /* console.log(fs) */
-const personajes = JSON.parse (fs.readFileSync("./data/backyardigans.json", "utf8"));
+const personajes = JSON.parse (fs.readFileSync("./data/personajes.json", "utf8"));
 
 module.exports ={
     index: (req,res) =>{
-        res.send (personajes)
+        res.render ('backyardigans', {title:"personajes", personajes:personajes})
     },
+    detalle: (req, res, next) => {
+        let {id} = req.params;
 
-    
-    nombres: (req, res) => {
-        let nombrePersonaje = req.params.personajes; 
-           /*    let { idHeroe } = req.params */
-      
-              backyardigans.forEach(personaje => {
-                  if (nombrePersonaje == personaje.nombre) {
-                      res.send(`hola soy  ${backyardigans.nombre}`)
-                  }
-              });
-              res.send("No encontramos tu bicho")
-          },
+       personajes.forEach(personaje => {
+            if (id == personaje.id) {
+                res.send(`Hola soy ${personaje.nombre}`)
+            }
+        });
+        res.render('noexiste')
     }
+}
+    
+    
+ 
+    
+    
+    
+    
+    /*
+              res.send("No encontramos tu bicho")
+          }
+    }*/
