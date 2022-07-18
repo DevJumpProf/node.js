@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+ <%- include('partials/head') %> <!-- etiquetas de archivos partials -->
+<body>
+  <%- include('partials/header') %> 
+  <main class="contenedor">
+   <div class="slide-container swiper">
+    <div class="slide-content">
+        <div class="card-wrapper swiper-wrapper">
+            
+            <% personajes.forEach(personaje => { %> <!-- con una etiqueta ejs declaramos un bucle para que en cada card se repita la misma accion pero con cada uno de los personajes pasados por el json, esto es posible gracias a la variable indicada en el metodo de mainControllers -->
+             <div class="card swiper-slide">
+                <div class="image-content">
+                    <span class="overlay"></span>
+                    <div class="card-image">
+                        <img src='<%= personaje.img %> ' alt="" class="card-image"> <!-- cada etiqueta se indica que debe llenarla con informacion del personaje guardado en json -->
+                    </div>
+                </div>
+                    <div class="card-content">
+                        <h2 class="name"><%= personaje.nombre %> </h2>
+                        <p class="description">
+                       <%= personaje.preview %> 
+                        </p> 
+                        <!-- boton ver si lo uso mas adelante -->
+                        <button class="button"><a href="/personajes/<%= personaje.id %> "">ver mas!</a> </button> <!-- aqui guardamos el id de cada personaje el cual por defecto guarda la direccion para ver el detalle de ellos -->
+                    </div>
+            </div>  
+            <% }) %>
+             
+        </div>
+        
+    </div>
+    <div class="swiper-button-next swiper-navBtn" id="arrow"></div>
+    <div class="swiper-button-prev swiper-navBtn" id="arrow"></div>
+    <div class="swiper-pagination"></div>
+</div>
+  </main>
+<%- include('partials/footer', {mensaje: 'seguinos'}) %>  <!-- etiqueta de archivo partials con variable que indica el "relleno" que debe tener en ella lo que se pasa por una etiqueta ejs dentro del archivo partial -->
+</body>
+<!-- swiper js -->
+<script src="js/swiper-bundle.min.js"></script>
+<!-- js -->
+<script src="js/script.js"></script>
+</html>

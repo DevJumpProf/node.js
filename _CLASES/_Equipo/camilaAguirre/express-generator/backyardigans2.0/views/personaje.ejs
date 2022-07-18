@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head') %> 
+<body>
+    <%- include('partials/header') %> 
+<main class="contain">
+    
+     <section>
+        <h1><%= nombre %> </h1>
+<!-- <img src=<%= img %> alt="" class="image"> --> <!-- intente que me tomara la direcccion de imagen de cada personaje sin embargo me aparece un error 404 en consola cuando inspecciono la web, me resulta raro siendo que en el main.js no me sucede, al intentar lo mismo -->
+<h5><%= bio %> </h5>
+    </section>
+    
+
+</main>
+
+    <%- include('partials/footer',{mensaje: 'seguinos'}) %> 
+
+</body>
+</html>
