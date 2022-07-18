@@ -1,12 +1,11 @@
 module.exports = {
     index: (req, res, next) => {
-       res.send ("Ni Superman, Ni la mujer maravilla son tan increibles como las personas de carne y hueso de nuestra web ") 
+       res.render('main', {title: "Ni Superman, Ni la mujer maravilla son tan increibles como las personas de carne y hueso de nuestra web"}) 
     },
     creditos: (req, res, next) => {
-res.send ("Pagina creada por heroes del curso de NODE. somos BackEndirgands  ")
+        res.render('main',{title:"Pagina creada por heroes del curso de NODE. somos BackEndirgands"})
     }
 }
-
 
 
 
