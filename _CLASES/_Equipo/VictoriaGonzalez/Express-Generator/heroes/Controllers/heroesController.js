@@ -4,7 +4,7 @@ const heroes = JSON.parse(fs.readFileSync("./data/heroes.json", "utf8"));
 module.exports = {
 
     index: (req, res) => {
-        res.render('heroes' , {title:"Heroes", JSON: heroes})
+        res.render('heroes' , {title:"Heroes", heroes: heroes})
     }, 
       detalle: (req, res, next) => {
         let {id} = req.params;

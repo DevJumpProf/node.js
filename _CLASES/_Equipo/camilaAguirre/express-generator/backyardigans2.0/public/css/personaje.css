@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.contain{
+    min-height: 370px;
+    display: flex;
+    justify-content: center;
+}
+.image{
+    width: 50%;
+}
+section{
+    margin: 15px 25px 0 25px;
+}

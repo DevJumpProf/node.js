@@ -4,8 +4,8 @@
 <%- include("partials/header", {title:"nuestra página héroes"}); %>
 
 
-<% JSON %>
-<% JSON.forEach(heroe =>{ %>
+<% heroes %>
+<% heroes.forEach(heroe =>{ %>
 <ul>
 <li><%= heroe.id %></li>   
 <li><%= heroe.nombre %></li>

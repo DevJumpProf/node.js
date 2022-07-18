@@ -1,0 +1,28 @@
+[
+{
+    "id": 1,
+    "nombre": "Unica",
+    "tipo": "hormiga",
+    "informacion" : "segura de sí misma y con mucho espíritu, de color rosa y con manchas. La serie utiliza el nombre 'Uniqua' tanto para el personaje como para su especie. Tiene un par de antenas en forma de espiral en la parte superior de la cabeza. Uniqua es dulce y simpática, aunque sus fuertes opiniones y su ocasional terquedad se interponen en sus relaciones. Se imagina a sí misma desempeñando papeles que requieren inteligencia y valor (como la de científica o la de capitán pirata) y le encantan los libros (como se ve en episodios como 'The Masked Retriever')."
+}, {
+    "id": 2,
+    "nombre": "Pablo",
+    "tipo" : "pinguino",
+    "informacion" : "es muy nervioso, frenético y tiende a reaccionar de forma exagerada. Lleva una pajarita azul y un gorro de hélice. Debido a su energía e impetuosidad, a menudo entra en un 'ataque de pánico' cuando se enfrenta a un obstáculo, corriendo en círculos y diciéndoles a todos que no se preocupen hasta que alguien llame su atención llamándolo por su nombre tres veces. Los ataques de pánico de Pablo se volvieron menos prominentes después de la primera temporada, aunque en el episodio posterior The Flipper! , su propensión a sobreexcitarse es el punto principal de la trama. Pablo no aparece una sola vez: ' Chichen-Itza Pizza '. Sin embargo, sí aparece en todos los demás episodios. Su mejor amigo es Tyrone. Es el menor de los personajes principales."
+}, {
+    "id": 3,
+    "nombre": "Tyrone",
+    "tipo": "alce",
+    "informacion" : " buen carácter, aunque algo temeroso, que lleva una camisa a rayas rojas y azules, y es el mejor amigo de Pablo. Es casi todo lo contrario a Pablo en cuanto a personalidad, con su carácter relajado y frío. Tyrone es conocido por sus comentarios sarcásticos, uno de los cuales es 'Eso sí que fue conveniente'. Al final de la mayoría de los episodios, cuando aparece, dice: 'Ha sido una aventura (tipo) excelente, ¿no lo creen?''. (aunque Pablo, Austin y Tasha recitan la frase cuando él no aparece). A pesar de que no parece llevar pantalones (salvo en raras ocasiones), Tyrone se las arregla para meter las manos en los bolsillos. Es el mayor de los personajes principales."
+}, {
+    "id": 4,
+    "nombre": "Tasha",
+    "tipo": "hipopótamo",
+    "informacion": "Tasha lleva un vestido naranja floreado y unas sandalias rojas. Es una chica dulce por fuera, pero es racional y le gusta salirse con la suya la mayoría del tiempo. Es la más seria y mandona de los personajes principales queriendo que los demás hagan las cosas como ella quiere, aunque de vez en cuando Tasha puede ser tan despreocupada como los demás. Es más femenina que su mejor amiga Uniqua. En las temporadas 2-4, tiene una personalidad más amable. Tiende a ser malhumorada algunas veces si no es la jefa."
+}, {
+    "id": 5,
+    "nombre": "Austin",
+    "tipo": "canguro",
+    "informacion": "tímido pero divertido. Aunque en la primera temporada se muestra que es bastante tímido, debido a que se ha mudado recientemente al barrio, Austin empieza a salir de su caparazón a medida que avanza la serie y aún no conoce a los demás personajes principales muy bien. Se revela inteligente e imaginativo. Habla con acento australiano. Austin rara vez aparece en el centro de atención, pero asume el papel de protagonista en varios episodios."
+}
+]

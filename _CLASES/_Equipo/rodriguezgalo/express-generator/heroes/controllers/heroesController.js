@@ -4,7 +4,7 @@ const heroes = JSON.parse(fs.readFileSync("./data/heroes.json", "utf8"));
 
 module.exports = {
     index: (req, res) => {
-        res.send(heroes)
+        res.render("index",{tituloweb: "Heroes", json: heroes})
     },
     detalle: (req, res) => {
         let idHeroe = req.params.id;
@@ -12,7 +12,7 @@ module.exports = {
 
         heroes.forEach(heroe => {
             if (idHeroe == heroe.id) {
-                res.send(`hola soy heroe ${heroe.nombre} y mi profesion es ${heroe.profesion}`)
+                res.render(`hola soy heroe ${heroe.nombre} y mi profesion es ${heroe.profesion}`)
             }
         });
         res.send("no encontramos tu heroe")

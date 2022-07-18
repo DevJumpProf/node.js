@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head') %> 
+<body>
+    <%- include('partials/header') %> 
+<main class="contain">
+    
+     <section>
+        <img src=<%= img %> alt="" class="image"> <!-- no me toma las imagenes siendo que en el main ahciendo lo mismo si me lo toma -->
+        <h1><%= nombre %> </h1>
+        <h3><%= profesion %> </h3>
+
+<h5><%= bio %> </h5>
+    </section>
+    
+
+</main>
+
+    <%- include('partials/footer',{mensaje: 'seguinos'}) %> 
+
+</body>
+</html>
