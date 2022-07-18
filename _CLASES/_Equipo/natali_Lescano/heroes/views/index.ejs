@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+
+    <%- include('partials/header', {tituloweb: 'Super Heroes'}); %>
+
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+
+    <section>
+      <img src="https://w0.peakpx.com/wallpaper/732/878/HD-wallpaper-heroes-of-the-world-all-painting-collages-abstract.jpg" alt="heroes">
+    </section>
+
+    <%- include('partials/footer', {tituloweb: 'Footer Heroes'}); %>
+  </body>
+</html>
