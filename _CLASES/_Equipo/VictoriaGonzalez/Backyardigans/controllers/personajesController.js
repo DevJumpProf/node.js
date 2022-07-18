@@ -11,7 +11,7 @@ module.exports ={
 
        personajes.forEach(personaje => {
             if (id == personaje.id) {
-                res.send(`Hola soy ${personaje.nombre}`)
+                res.send(`Hola soy ${personaje.nombre} Mi voz es de:${personaje.voz}. Soy de color: ${personaje.color} y soy: ${personaje.tipo_de_bicho}. ${personaje.Informacion}`)
             }
         });
         res.render('noexiste')
