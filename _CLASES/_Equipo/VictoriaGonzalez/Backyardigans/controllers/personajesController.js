@@ -7,16 +7,17 @@ module.exports ={
         res.render ('backyardigans', {title:"personajes", personajes:personajes})
     },
     detalle: (req, res, next) => {
-        let {id} = req.params;
-
-       personajes.forEach(personaje => {
-            if (id == personaje.id) {
-                res.send(`Hola soy ${personaje.nombre} Mi voz es de:${personaje.voz}. Soy de color: ${personaje.color} y soy: ${personaje.tipo_de_bicho}. ${personaje.Informacion}`)
-            }
-        });
+         let id=req.params.id 
+        personajes.forEach(personaje=> { 
+               if (id==personaje.id) { 
+                res.render('id', {jason:personaje})
+            }    
+        }),
         res.render('noexiste')
     }
 }
+    
+
     
     
  

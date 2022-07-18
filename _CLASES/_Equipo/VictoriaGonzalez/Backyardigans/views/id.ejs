@@ -7,13 +7,10 @@
         <%- include('partials/header', {title:"personajes"}) %>
     </header>
 
+    
+    <p> Hola soy: <%= jason.nombre %> </p>
+    <p><img width=150px height=150px src="<%= jason.Img %>"></p>                   
 
-    <% let {id}=req.params.id %>
-    <% personajes.forEach(personaje=> { %>
-    <% if (id==personaje.id) { %>
-    <p>Hola soy <%= personaje.nombre %> </p>
-    <% } %>
-    <% }); %>
-                                
 
+<%- include('partials/footer') %>
 </body>
