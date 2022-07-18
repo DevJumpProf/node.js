@@ -1,11 +1,17 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
+
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <h1>
+      <%= tituloweb %>
+  </h1>
+
+  <div>
+      <% json.forEach(element=> { %>
+          <h2><%= element.nombre %></h2>
+          <a href="/heroes/<%=element.id%>/ok">Bio</a>
+          <% }) %>
+              
+
+  </div>
+  
   </body>
 </html>
