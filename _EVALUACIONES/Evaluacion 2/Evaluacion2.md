@@ -47,3 +47,37 @@ En este sitio vas a tener que listar TODOS los autos de nuestras concesionarias 
 *Opcional
 Esta última ruta se encargará de traernos todos los autos y todos los datos asociados a este de una marca especifica que el usuario ingrese. A su vez, de forma opcional, el usuario podrá ingresar un color/año (estos son los posibles datos de los autos) específico en la url para que no solo traiga los autos de la marca/año indicado, si no que tambien del color/año
 ingresado.
+
+
+Estructura de carpetas propuesta: 
+❖ controller 
+➢autosController.js 
+➢ marcasController.js 
+➢ sucursalesController.js 
+➢ homeController.js 
+
+❖ data ➢ concesionarias.json 
+
+❖ node_modules 
+
+❖ routes 
+➢ autos.js 
+➢ marcas.js 
+➢ sucursales.js 
+➢ home.js 
+
+❖ app.js 
+❖ package-lock.json 
+❖ package.json
+
+Te dejo algunos consejos para realizar la ejercitación
+
+Utiliza como guía los ejercicios prácticos que fuimos haciendo en las clases
+
+No dejes de utilizar el material que está a disposicion para sacarte dudas
+
+Trabaja de forma organizada
+
+Consultá con tus compañeros o profesores si algo no te sale
+
+No te frustres, seguí intentando
