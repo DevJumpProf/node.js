@@ -3,9 +3,9 @@ const router = express.Router()
 
 
 const personajesControllers= require ("../controllers/personajesControllers")
-router.get("/",personajesController.index)
+router.get("/",personajesControllers.main)
 
-router.get('/:id', show);
+router.get('/:id', personajesControllers.show);
 
 
 module.exports = router
