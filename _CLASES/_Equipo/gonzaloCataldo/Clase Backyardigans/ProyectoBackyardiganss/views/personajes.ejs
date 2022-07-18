@@ -2,7 +2,13 @@
   <body>
     <%- include('partials/header'); %>
     <main>
-        
+        <% perso.forEach(personaje => { %>
+            <a href="/personajes/<%= personaje.id %> ">
+                    <h3><%= personaje.id %> </h3>
+                    <h3><%= personaje.nombre %> </h3>
+                    <h4><%= personaje.especie %> </h4>
+            </a>
+        <% }) %>
     </main>
     <%- include('partials/footer'); %>
   </body>

@@ -4,29 +4,25 @@ const personajes = JSON.parse (fs.readFileSync("./data/backyardigans.json")); //
 
 module.exports= {
     mostrar: (req, res) => {
-        res.render("personajes", {titulo: "Personajes Backyardigans", tituloprincipal: "asd"})
+        res.render("personajes", { titulo: "Personajes Backyardigans", perso: personajes})
     },
     detalles: (req, res) => {
-        let idPersonaje = req.params.id;
-        personajes.forEach(personajes => {
-            if(idPersonaje == personajes.id) {
-                res.render("detalles")
-            } else {
-                res.send("error 404")
+        let asd = req.params.id
+        personajes.forEach(person => {
+            if(person.id == asd) {
+                res.render("detalles", { titulo: `Detalles de ${person.nombre}`, perso: person})
             }
-        })
+        }); res.send("error");
     },
     biografia: (req, res) => {
         let idPersonaje = req.params.id;
         let bio = req.params.bio;
-        personajes.forEach(personajes => {
-            if(idPersonaje == personajes.id) {
+        personajes.forEach(personi => {
+            if(personi.id == idPersonaje) {
                 if(bio == "bio") {
-                    res.render("bio")
-                } else {
-                    res.send("error 404")
+                    res.render("bio", { titulo: `Biografia de ${personi.nombre}`, perso: personi})
                 }
             }
-        })
+        }); res.send("error");
     }
 }

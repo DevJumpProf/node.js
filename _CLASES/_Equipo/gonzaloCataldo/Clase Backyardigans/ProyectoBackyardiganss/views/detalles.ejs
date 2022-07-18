@@ -1,0 +1,12 @@
+<%- include('partials/head'); %>
+  <body>
+    <%- include('partials/header'); %>
+    <main>
+        <h1>Detalles de <%=perso.nombre%>:</h1>
+        <h2>Especie: <%=perso.especie%></h2>
+        <h2>Color: <%=perso.color%></h2>
+        <h3>Para más detalles clickea <a href="/personajes/<%=perso.id%>/bio">acá</a></h3>
+    </main>
+    <%- include('partials/footer'); %>
+  </body>
+</html>
