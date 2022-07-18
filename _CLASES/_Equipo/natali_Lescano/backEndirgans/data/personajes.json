@@ -1,0 +1,47 @@
+[
+    {
+      "id" : 1,
+      "nombre": "Tasha",
+      "color": "amarillo",
+      "animal": "hipopotamo",
+      "informacion": "es una hipopótama amarilla de carácter bastante fuerte. Tasha lleva un vestido naranja floreado y unas sandalias rojas. Es una chica dulce por fuera, pero es racional y le gusta salirse con la suya la mayoría del tiempo. Es la más seria y mandona de los personajes principales queriendo que los demás hagan las cosas como ella quiere, aunque de vez en cuando Tasha puede ser tan despreocupada como los demás.",
+      "img": "/images/tasha.jpg"
+    },
+
+    {
+        "id" : 2,
+        "nombre": "Uniqua",
+        "color": "rosa",
+        "animal": "hormiga",
+        "informacion": "es una hormiga curiosa, segura de sí misma y con mucho espíritu, de color rosa y con manchas. La serie utiliza el nombre Uniqua tanto para el personaje como para su especie. Tiene un par de antenas en forma de espiral en la parte superior de la cabeza. Uniqua es dulce y simpática, aunque sus fuertes opiniones y su ocasional terquedad se interponen en sus relaciones. Se imagina a sí misma desempeñando papeles que requieren inteligencia y valor (como la de científica o la de capitán pirata) y le encantan los libros (como se ve en episodios como The Masked Retriever).",
+        "img": "/images/uniqua.png"
+      },
+
+      {
+        "id" : 3,
+        "nombre": "Pablo",
+        "color": "azul",
+        "animal": "pingüino",
+        "informacion": "es un pingüino azul con un pico amarillo que es muy nervioso, frenético y tiende a reaccionar de forma exagerada. Lleva una pajarita azul y un gorro de hélice. Debido a su energía e impetuosidad, a menudo entra en un ataque de pánico cuando se enfrenta a un obstáculo, corriendo en círculos y diciéndoles a todos que no se preocupen hasta que alguien llame su atención llamándolo por su nombre tres veces. ",
+        "img": "/images/Backyardigans-pablo.png"
+      },
+
+      {
+        "id" : 4,
+        "nombre": "Tyrone",
+        "color": "pelirrojo",
+        "animal": "alce",
+        "informacion": "es un alce pelirrojo anaranjado de buen carácter, aunque algo temeroso, que lleva una camisa a rayas rojas y azules, y es el mejor amigo de Pablo. Es casi todo lo contrario a Pablo en cuanto a personalidad, con su carácter relajado y frío. Tyrone es conocido por sus comentarios sarcásticos.",
+        "img": "/images/Tyrone.webp"
+      },
+
+      {
+        "id" : 5,
+        "nombre": "Austin",
+        "color": "morado",
+        "animal": "canguro",
+        "informacion": "es un canguro morado tímido pero divertido. Aunque en la primera temporada se muestra que es bastante tímido, debido a que se ha mudado recientemente al barrio, Austin empieza a salir de su caparazón a medida que avanza la serie y aún no conoce a los demás personajes principales muy bien. Se revela inteligente e imaginativo. Habla con acento australiano. Austin rara vez aparece en el centro de atención, pero asume el papel de protagonista en varios episodios.",
+        "img": "/images/austin.png"
+      }
+
+]
