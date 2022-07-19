@@ -6,7 +6,7 @@ module.exports = {
     index: (req, res) => {
         res.render('heroes',{
             titulo:'Nuestros Heroes',
-            heroes:heroes
+            heroes:heroes,
         })
         /* res.send(heroes) */
     },
