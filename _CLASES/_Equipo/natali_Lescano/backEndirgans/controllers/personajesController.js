@@ -5,7 +5,8 @@ module.exports = {
         index: (req,res) =>{
             res.send (personajes)
         },
-         detalle: (req,res) => {
+        
+        detalle: (req,res) => {
            let idPersonaje = req.params.id;
         
            personajes.forEach (personajes => {
@@ -15,6 +16,7 @@ module.exports = {
            res.send('No encontramos al personaje')
          },
 
+         
          bio: (req, res) => {
           let idPersonaje = req.params.id;
           let ok = req.params.ok;
