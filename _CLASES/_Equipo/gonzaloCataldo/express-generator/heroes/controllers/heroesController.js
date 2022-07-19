@@ -4,34 +4,27 @@ const heroes = JSON.parse (fs.readFileSync("./data/heroes.json", "utf8")); // JS
 
 module.exports ={
     index: (req,res) =>{
-        res.send (heroes) //Definios index para que envie el JSON traducido que guardamos en la variable heroes
+        res.render ("heroes", {titulo: "Heroes", hero: heroes}) //Definios index para que envie el JSON traducido que guardamos en la variable heroes
     },
     detalle: (req,res) => {
         let idHeroe = req.params.id;
         heroes.forEach(heroe => {
             if (idHeroe == heroe.id) {
-                res.send(`hola soy heroe ${heroe.nombre} y mi profesion es ${heroe.profesion}`)
+                res.render("detalle", {titulo: `Detalles ${heroe.nombre}`, hero:heroes, herou: heroe})
             }
         });
-        res.send("no encontramos tu heroe")
+        res.render("error")
     },
     bio: (req, res) => {
         let idHeroe = req.params.id;
         let ok = req.params.ok;
-        res.set ({"content-type":"text/plain;charset=utf-8"})
         heroes.forEach(heroe => {
-            if (heroe.id = idHeroe) {
+            if (idHeroe == heroe.id) {
                 if (ok == "ok") {
-                    res.write(`hola, mi nombre es : ${heroe.nombre}`)
-                    res.write(heroe.resenia)
-                    res.end()
-                } else {
-                    res.send(`${heroe.nombre} dice que lamenta que no quieras ver su bio`)
-                }
-                
+                    res.render("bio", {titulo:`Biografia ${heroe.nombre}`, hero: heroes, herou: heroe})
+                } 
             }
-        });
-        res.send("no encontramos tu heroe")
+        }); res.render("error")
     }
 }
 
