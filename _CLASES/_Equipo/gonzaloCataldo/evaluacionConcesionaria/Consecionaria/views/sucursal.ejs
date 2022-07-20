@@ -1,0 +1,21 @@
+<%- include('partials/head'); %>
+  <body>
+    <%- include('partials/header'); %>
+    <main>
+      <h2>Estas en la sucursal <%=sucur.sucursal%></h2>
+      <h3>Direccion: <%=sucur.direccion%></h3>
+      <h3>Telefono: <%=sucur.telefono%></h3>
+      <h3>Nuestros Autos (Cantidad total:<%= sucur.autos.length %> ):</h3>
+      <% sucur.autos.forEach(auto => { %>
+        <div style="border-style: solid">
+                <h4><%= auto.marca %> </h4>
+                <h4><%= auto.modelo %> </h4>
+                <h4><%= auto.anio %> </h4>
+                <h4><%= auto.color %> </h4>
+            </div>
+                <br>
+    <% }) %>
+    </main>
+    <%- include('partials/footer'); %>
+  </body>
+</html>

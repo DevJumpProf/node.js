@@ -1,0 +1,457 @@
+[{
+        "sucursal": "3 de Febrero",
+        "direccion": "Caseros 1678, B1678 Caseros Partido de Tres de Febrero, Provincia de Buenos Aires",
+        "telefono": "(011) 4758-6780",
+        "autos": [
+            {
+                "marca": "volkswagen",
+                "modelo": "scirocco",
+                "anio": 2016,
+                "color": "black"
+            },
+            {
+                "marca": "peugeot",
+                "modelo": "207",
+                "anio": 2020,
+                "color": "red"
+            },
+            {
+                "marca": "chevrolet",
+                "modelo": "cruze",
+                "anio": 2020,
+                "color": "white"
+            },
+            {
+                "marca": "nissan",
+                "modelo": "x-trail",
+                "anio": 2020,
+                "color": "brown"
+            },
+            {
+                "marca": "chevrolet",
+                "modelo": "onix",
+                "anio": 2017,
+                "color": "white"
+            },
+            {
+                "marca": "renault",
+                "modelo": "kangoo",
+                "anio": 2016,
+                "color": "black"
+            },
+            {
+                "marca": "audi",
+                "modelo": "a3",
+                "anio": 2020,
+                "color": "black"
+            },
+
+            {
+                "marca": "volkswagen",
+                "modelo": "golf",
+                "anio": 2020,
+                "color": "gray"
+            },
+            {
+                "marca": "volkswagen",
+                "modelo": "amarok",
+                "anio": 2010,
+                "color": "gray"
+            },
+            {
+                "marca": "renault",
+                "modelo": "captur",
+                "anio": 2020,
+                "color": "orange"
+            },
+            {
+                "marca": "ford",
+                "modelo": "focus",
+                "anio": 2014,
+                "color": "blue"
+            },
+            {
+                "marca": "ford",
+                "modelo": "ka",
+                "anio": 2020,
+                "color": "red"
+            },
+            {
+                "marca": "toyota",
+                "modelo": "etios",
+                "anio": 2020,
+                "color": "black"
+            },
+            {
+                "marca": "volkswagen",
+                "modelo": "gol",
+                "anio": 2020,
+                "color": "white"
+            }
+        ]
+    },
+    {
+        "sucursal": "Pilar",
+        "direccion": "Au Panamericana KM 51, B1629 Pilar, Provincia de Buenos Aires",
+        "telefono": "(0230) 466-3000",
+        "autos": [{
+                "marca": "fiat",
+                "modelo": "toro",
+                "anio": 2019,
+                "color": "black"
+            },
+            {
+                "marca": "volkswagen",
+                "modelo": "vento",
+                "anio": 2019,
+                "color": "black"
+            },
+            {
+                "marca": "ford",
+                "modelo": "focus",
+                "anio": 2014,
+                "color": "blue"
+            },
+            {
+                "marca": "ford",
+                "modelo": "fiesta",
+                "anio": 2010,
+                "color": "white"
+            },
+            {
+                "marca": "nissan",
+                "modelo": "x-trail",
+                "anio": 2020,
+                "color": "brown"
+            },
+            {
+                "marca": "chevrolet",
+                "modelo": "onix",
+                "anio": 2017,
+                "color": "white"
+            },
+            {
+                "marca": "volkswagen",
+                "modelo": "amarok",
+                "anio": 2020,
+                "color": "black"
+            },
+            {
+                "marca": "volkswagen",
+                "modelo": "golf",
+                "anio": 2020,
+                "color": "gray"
+            },
+            {
+                "marca": "renault",
+                "modelo": "captur",
+                "anio": 2020,
+                "color": "orange"
+            },
+            {
+                "marca": "chevrolet",
+                "modelo": "camaro",
+                "anio": 20120,
+                "color": "yellow"
+            },
+            {
+                "marca": "volkswagen",
+                "modelo": "gol",
+                "anio": 2018,
+                "color": "black"
+            },
+            {
+                "marca": "toyota",
+                "modelo": "etios",
+                "anio": 2020,
+                "color": "white"
+            },
+            {
+                "marca": "ford",
+                "modelo": "ka",
+                "anio": 2020,
+                "color": "green"
+            }
+        ]
+    },
+
+    {
+        "sucursal": "Lanus",
+        "direccion": "Remedios de Escalada de San Martín 1584, B1822AAD Lanús Oeste, Provincia de Buenos Aires",
+        "telefono": "(011) 4208-1514",
+        "autos": [{
+                "marca": "volkswagen",
+                "modelo": "amarok",
+                "anio": 2019,
+                "color": "white"
+            },
+            {
+                "marca": "volkswagen",
+                "modelo": "amarok",
+                "anio": 2010,
+                "color": "gray"
+            },
+            {
+                "marca": "audi",
+                "modelo": "tt",
+                "anio": 2019,
+                "color": "white"
+            },
+            {
+                "marca": "audi",
+                "modelo": "tt",
+                "anio": 2012,
+                "color": "black"
+            },
+            {
+                "marca": "chevrolet",
+                "modelo": "cruze",
+                "anio": 2018,
+                "color": "black"
+            },
+
+            {
+                "marca": "audi",
+                "modelo": "q5",
+                "anio": 2018,
+                "color": "black"
+            },
+            {
+                "marca": "audi",
+                "modelo": "q5",
+                "anio": 2015,
+                "color": "blue"
+            },
+            {
+                "marca": "chevrolet",
+                "modelo": "camaro",
+                "anio": 2015,
+                "color": "red"
+            },
+            {
+                "marca": "renault",
+                "modelo": "captur",
+                "anio": 2020,
+                "color": "orange"
+            },
+            {
+                "marca": "fiat",
+                "modelo": "argo",
+                "anio": 2020,
+                "color": "white"
+            },
+            {
+                "marca": "renault",
+                "modelo": "duster",
+                "anio": 2020,
+                "color": "gray"
+            },
+            {
+                "marca": "renault",
+                "modelo": "sandero",
+                "anio": 2020,
+                "color": "blue"
+            },
+            {
+                "marca": "ford",
+                "modelo": "ka",
+                "anio": 2020,
+                "color": "green"
+            },
+            {
+                "marca": "peugeot",
+                "modelo": "partner",
+                "anio": 2020,
+                "color": "white"
+            },
+            {
+                "marca": "toyota",
+                "modelo": "hilux",
+                "anio": 2020,
+                "color": "white"
+            },
+            {
+                "marca": "fiat",
+                "modelo": "cronos",
+                "anio": 2020,
+                "color": "red"
+            }
+        ]
+    },
+    {
+        "sucursal": "Quilmes",
+        "direccion": "Av. Hipólito Yrigoyen 80, B1878 Quilmes, Provincia de Buenos Aires",
+        "telefono": "(0230) 466-3000",
+        "autos": [{
+                "marca": "chevrolet",
+                "modelo": "camaro",
+                "anio": 20120,
+                "color": "black"
+            },
+            {
+                "marca": "nissan",
+                "modelo": "note",
+                "anio": 2020,
+                "color": "white"
+            },
+
+            {
+                "marca": "chevrolet",
+                "modelo": "onix",
+                "anio": 2019,
+                "color": "red"
+            },
+            {
+                "marca": "volkswagen",
+                "modelo": "scirocco",
+                "anio": 2015,
+                "color": "white"
+            },
+            {
+                "marca": "volkswagen",
+                "modelo": "golf",
+                "anio": 2016,
+                "color": "white"
+            },
+            {
+                "marca": "nissan",
+                "modelo": "sentra",
+                "anio": 2017,
+                "color": "black"
+            },
+            {
+                "marca": "citroen",
+                "modelo": "c4",
+                "anio": 2020,
+                "color": "gray"
+            },
+            {
+                "marca": "citroen",
+                "modelo": "berlingo",
+                "anio": 2020,
+                "color": "gray"
+            },
+            {
+                "marca": "peugeot",
+                "modelo": "208",
+                "anio": 2020,
+                "color": "gray"
+            },
+            {
+                "marca": "fiat",
+                "modelo": "fiorino",
+                "anio": 2020,
+                "color": "gray"
+            },
+            {
+                "marca": "toyota",
+                "modelo": "etios",
+                "anio": 2020,
+                "color": "gray"
+            },
+            {
+                "marca": "ford",
+                "modelo": "ecosport",
+                "anio": 2015,
+                "color": "red"
+            },
+            {
+                "marca": "chery",
+                "modelo": "tiggo",
+                "anio": 2020,
+                "color": "gray"
+            },
+            {
+                "marca": "renault",
+                "modelo": "sandero",
+                "anio": 2020,
+                "color": "gray"
+            }
+        ]
+    },
+    {
+        "sucursal": "San Miguel",
+        "direccion": "Av. Pres. Juan Domingo Perón 2043, B1663 San Miguel, Provincia de Buenos Aires",
+        "telefono": "(011) 4451-5565",
+        "autos": [{
+                "marca": "nissan",
+                "modelo": "note",
+                "anio": 2018,
+                "color": "red"
+            },
+            {
+                "marca": "chevrolet",
+                "modelo": "camaro",
+                "anio": 2018,
+                "color": "white"
+            },
+            {
+                "marca": "chevrolet",
+                "modelo": "onix",
+                "anio": 2016,
+                "color": "gray"
+            },
+            {
+                "marca": "honda",
+                "modelo": "civic",
+                "anio": 2020,
+                "color": "black"
+            },
+            {
+                "marca": "audi",
+                "modelo": "a6",
+                "anio": 2016,
+                "color": "red"
+            },
+            {
+                "marca": "nissan",
+                "modelo": "x-trail",
+                "anio": 2016,
+                "color": "gray"
+            },
+            {
+                "marca": "peugeot",
+                "modelo": "2008",
+                "anio": 2020,
+                "color": "green"
+            },
+            {
+                "marca": "toyota",
+                "modelo": "hilux",
+                "anio": 2020,
+                "color": "gray"
+            },
+            {
+                "marca": "volkswagen",
+                "modelo": "saveiro",
+                "anio": 2020,
+                "color": "blue"
+            },
+            {
+                "marca": "fiat",
+                "modelo": "golf",
+                "anio": 2020,
+                "color": "gray"
+            },
+            {
+                "marca": "fiat",
+                "modelo": "palio",
+                "anio": 2017,
+                "color": "white"
+            },
+            {
+                "marca": "peugeot",
+                "modelo": "307",
+                "anio": 2020,
+                "color": "gray"
+            },
+            {
+                "marca": "renault",
+                "modelo": "sandero",
+                "anio": 2020,
+                "color": "gray"
+            }
+        ]
+    }
+
+]
