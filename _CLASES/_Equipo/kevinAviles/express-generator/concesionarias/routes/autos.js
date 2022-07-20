@@ -3,6 +3,6 @@ const router = express.Router();
 const autosController = require('../controllers/autosController'); 
 router.get('/',autosController.index);
 router.get('/:marca',autosController.marcaAuto);
-router.get('/:marca/:dato');
+router.get('/:marca/:dato',autosController.datoMarca);
 
 module.exports = router;
