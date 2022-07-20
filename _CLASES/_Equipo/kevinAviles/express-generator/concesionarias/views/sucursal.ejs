@@ -1,0 +1,24 @@
+<%- include('partials/head')  %> 
+<body>
+  
+  <%- include('partials/header')  %> 
+  <h1>Sucursal <%= nombreSucursal %> </h1>
+  <h2>Direccion: <%= direccionSucursal %> </h2>
+  <h3>Telefono: <%= telefonoSucursal %> </h3>
+  
+  <%# laSucursal.forEach(element => { %>
+    <!-- <p><%#= element %> </p> -->
+  <%# }) %>
+  <% losAutos.forEach(auto => { %>
+    <div style="display: flex; justify-content:space-around; border: 1px solid black;width: 200px;height: 200px;">
+     <p><%= auto.marca %> </p>
+     <p><%= auto.modelo %> </p>
+     <p><%= auto.anio %> </p>
+    </div> 
+    
+  <% }) %>
+  <h6>la cantidad de autos de de: <%= cantAutos  %> </h6>
+  <%- include('partials/footer')  %> 
+  
+</body>
+</html>

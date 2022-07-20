@@ -26,6 +26,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+/*segundo les digo con que url va a ejecutar esas rutas y luego me voy a la carpeta rutas */
 app.use('/',indexRouter);
 app.use('/sucursales',sucursalesRouter);
 app.use('/marcas',marcasRouter);

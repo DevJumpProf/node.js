@@ -1,0 +1,29 @@
+<%- include('partials/head')  %> 
+<body>
+  
+  <%- include('partials/header')  %> 
+  <h1>Autos de la marca: <%=laMarca  %> </h1>
+ <div style="display: flex; justify-content:space-around; flex-wrap: wrap;">
+    <% autos.forEach(element => { %>
+      <div style=" border: 1px solid black;width: 200px;height: 200px;">
+      <p><%= element.marca %> </p>
+      <p><%= element.modelo %> </p>
+      <p><%= element.anio %> </p>
+    </div>
+    <% }) %>
+  </div>
+    <div style="display: flex; justify-content:space-around;flex-wrap: wrap;">
+    
+    <% autosUnicos.forEach(element => { %>
+      
+      <div style=" border: 1px solid red;width: 200px;height: 200px;">
+      <p><%= element.marca %> </p>
+      <p><%= element.modelo %> </p>
+      <p><%= element.anio %> </p>
+    </div>
+  
+    <% }) %>
+  </div>
+  <%- include('partials/footer')  %> 
+</body>
+</html>
