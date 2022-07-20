@@ -1,0 +1,16 @@
+<%- include('partials/head'); %>
+  <body>
+    <%- include('partials/header'); %>
+    <main>
+        <% hero.forEach(heroes => { %>
+            <a href="/heroes/<%=heroes.id%>/">
+                    <h3><%=heroes.id %> </h3>
+                    <h3><%=heroes.nombre %> </h3>
+                    <h4><%=heroes.profesion %> </h4>
+            </a>
+        <% }) %>
+    </main>
+    <%- include('partials/footer'); %>
+  </body>
+</html>
+
