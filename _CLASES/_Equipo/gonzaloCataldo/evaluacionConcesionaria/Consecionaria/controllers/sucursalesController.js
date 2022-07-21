@@ -4,15 +4,16 @@ const concesionarias = JSON.parse (fs.readFileSync("./data/concesionarias.json")
 
 module.exports= {
     sucursales: (req, res) => {
-        res.render("sucursales", { titulo: "Nuestras Sucursales", sucurs: concesionarias})
+        let sucursales = req.params.sucursales
+            res.render("sucursales", { titulo: "Nuestras Sucursales", sucurs: concesionarias})
     },
     sucursal: (req, res) => {
+        let suich = false
         let sucursal = req.params.sucursal
         concesionarias.forEach(sucursali => {
             if(sucursali.sucursal == sucursal) {
                 res.render("sucursal", {titulo:`Sucursal ${sucursali.sucursal}`, sucur: sucursali, sucurs: concesionarias})
             }
-        }); res.send("error");
+        }); res.render("error");
     }
 }
-console.log()

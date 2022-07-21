@@ -14,15 +14,21 @@ module.exports= {
         res.render("marcas", { titulo: "Nuestras Marcas", autos: autos})
     },
     marca: (req, res) => {
+        let suich = false
         let marca = req.params.marca
         let autis = []
         concesionarias.forEach(sucursal => { 
             sucursal.autos.forEach(auti => {
                 if(auti.marca == marca) {
                     autis.unshift(auti)
+                    suich = true
                 }
             }); 
         });
+        if( suich == true) {
         res.render("marca", { titulo: `Marca ${marca}`, autis: autis, marca: marca}) 
+    } else {
+        res.render("error")
+    }
     }
 }
