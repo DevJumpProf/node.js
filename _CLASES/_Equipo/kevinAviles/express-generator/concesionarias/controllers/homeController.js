@@ -1,11 +1,9 @@
-/* const fs =require('fs');
-const backyardigans = JSON.parse(fs.readFileSync("./data/backyardigans.json","utf8")); */
 const fs = require('fs');
 const db = fs.readFileSync('./data/concesionarias.json','utf8');
 const concesionarias = JSON.parse(db);
 
 module.exports = {
-    index:(req,res)=>{
+    indexHome:(req,res)=>{
         let sucursales=[]
         concesionarias.forEach(element=>{
             sucursales.push(element.sucursal)
@@ -17,7 +15,7 @@ module.exports = {
     }
 }
 /* res.send(concesionarias); */
-        
+/* INTENTOS DE COMO IBA A SER EL METODO */       
          /* concesionarias.forEach(elemento=>{
             res.write(elemento)
             res.end()

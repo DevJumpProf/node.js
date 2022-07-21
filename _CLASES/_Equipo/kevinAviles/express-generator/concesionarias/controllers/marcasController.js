@@ -3,13 +3,13 @@ const db = fs.readFileSync('./data/concesionarias.json','utf8');
 const concesionarias = JSON.parse(db);
 
 module.exports = {
-    index:(req,res)=>{
+    indexMarca:(req,res)=>{
         let marcas = [];
         
         concesionarias.forEach(element=>{
-            element.autos.forEach(losAutos=>{
-                if(marcas.includes(losAutos.marca) == false){
-                    marcas.push(losAutos.marca)
+            element.autos.forEach(autosSucursal=>{
+                if(marcas.includes(autosSucursal.marca) == false){
+                    marcas.push(autosSucursal.marca)
                 }
             })
         }) 
@@ -19,12 +19,14 @@ module.exports = {
        })     
     },
     autosMarca:(req,res)=>{
-        let laMarca = req.params.marca;
+        let {marca} = req.params;
         let autos=[];
+        let paramsAceptado= false;
         concesionarias.forEach(element=>{
             element.autos.forEach(losAutos=>{
-                if(losAutos.marca == laMarca){
+                if(losAutos.marca == marca){
                      autos.push(losAutos) 
+                     paramsAceptado=true;
                 }
             })
         })
@@ -38,24 +40,30 @@ module.exports = {
         let autosMapArr = new Map (autosMap) //Pares de clave y valor
         let autosUnicos=[...autosMapArr.values()]; 
        
-        concesionarias.forEach(element=>{
+       /*  concesionarias.forEach(element=>{
             element.autos.forEach(losAutos=>{
-                if(losAutos.marca == laMarca){
-                    res.render('marca',{
-                        titulo:`Marca ${laMarca}`,
-                        laMarca:laMarca,
-                        autos:autos,
-                        autosUnicos:autosUnicos
-                       }) 
+                if(losAutos.marca == marca){
+                    
                 }
             })
-        })
+        }) */
          /* res.send(elRecParamsPasado(laMarca));  */
-          
-       res.render('404',{
-        titulo:'Error 404',
-        mensaje:`la marca ${laMarca} no fue encontrada`
-    }) 
+        if(paramsAceptado){
+            res.render('marca',{
+                titulo:`Marca ${marca}`,
+                marca:marca,
+                autos:autos,
+                autosUnicos:autosUnicos
+               }) 
+        }else{
+            res.render('404',{
+                titulo:'Error 404',
+                mensaje:`la marca "${marca}" no fue encontrada`
+            }) 
+        }
+         
+
+       
       
        
         

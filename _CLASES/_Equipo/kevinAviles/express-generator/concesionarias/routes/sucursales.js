@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const sucursalController = require('../controllers/sucursalesController');
+const sucursalesController = require('../controllers/sucursalesController');
 
-router.get('/',sucursalController.index);
-router.get('/:sucursal',sucursalController.mostrarSucursal);
+router.get('/',sucursalesController.indexSucursales);
+router.get('/:sucursal',sucursalesController.mostrarSucursal);
 
 module.exports = router;

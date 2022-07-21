@@ -3,7 +3,7 @@ const db = fs.readFileSync('./data/concesionarias.json','utf8');
 const concesionarias = JSON.parse(db);
 
 module.exports = {
-    index:(req,res)=>{
+    indexAutos:(req,res)=>{
         let losAutos=[]
         concesionarias.forEach(element=>{
             element.autos.forEach(autos=>{
@@ -61,7 +61,7 @@ module.exports = {
           }else{
             res.render('404',{
                 titulo:'Error 404',
-                mensaje:`la marca ${laMarca} no fue encontrada`
+                mensaje:`la marca "${laMarca}" no fue encontrada`
             });
           }
          
@@ -94,7 +94,7 @@ module.exports = {
         }else{
             res.render('404',{
                 titulo:"Error",
-                mensaje:`El dato ${dato} no existe dentro de la marca de los autos`
+                mensaje:`El dato "${dato}" no existe dentro de la marca de los autos`
             })
         }
         

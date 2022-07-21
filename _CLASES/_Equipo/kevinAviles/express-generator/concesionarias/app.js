@@ -9,7 +9,7 @@ var logger = require('morgan');
 var usersRouter = require('./routes/users'); */
 /* 4 rutas en total, 4 archivos router.js */
 /* primero declare las rutas que voy a utilizar */
-const indexRouter = require('./routes/index');
+const homeRouter = require('./routes/home');
 const sucursalesRouter = require('./routes/sucursales');
 const marcasRouter = require('./routes/marcas');
 const autosRouter = require('./routes/autos');
@@ -27,10 +27,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 /*segundo les digo con que url va a ejecutar esas rutas y luego me voy a la carpeta rutas */
-app.use('/',indexRouter);
+
+app.use('/',homeRouter);
 app.use('/sucursales',sucursalesRouter);
 app.use('/marcas',marcasRouter);
 app.use('/autos',autosRouter);
+
 /* app.use('/', indexRouter);
 app.use('/users', usersRouter); */
 
