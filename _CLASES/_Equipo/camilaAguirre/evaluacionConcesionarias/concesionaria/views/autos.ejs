@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head') %> 
+<body>
+
+<%- include('partials/header') %> 
+
+    <div >
+      <div style="margin-left: 20px;">
+        <% autos.forEach(elemento => { %>
+         <p>
+           MARCA <a href="/autos/<%= elemento.marca %> "><%= elemento.marca %></a>  
+         </p>
+         <p>
+           MODELO <%= elemento.modelo %> 
+         </p>
+         <p>
+           AÑO <%= elemento.anio %> 
+         </p>
+         <p>
+          COLOR  <%= elemento.color %> 
+         </p>
+         <div>
+            <img src="<%= elemento.img %> " alt="" style="width: 25%;">
+         </div>
+        <% }) %>
+
+        <h3>
+          TOTAL DE AUTOS <%= autos.length %> 
+        </h3>
+      </div>
+       
+    </div>
+
+    <%- include('partials/footer') %> 
+
+
+
+</body>
+</html>
