@@ -1,0 +1,14 @@
+<%- include('partials/head') %>
+
+
+
+<body>
+<h1>Autos de la marca: <%=marca  %> </h1>
+<% autos.forEach(element => { %>
+    <h4><%=element.marca %></h4>
+    <p><%= element.anio %></p>
+    <p><%= element.modelo %></p>
+ <% }); %> 
+ 
+</body>
+</html>
