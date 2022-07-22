@@ -1,0 +1,23 @@
+<%- include('./partials/head-header') %>
+ 
+  <main class="inicio">
+    <h1>Hola!</h1>
+    <p>Bienvenidos a <%= title %>, la principal marca de concesionarios para encontrar tu mejor auto</p>
+  </main>
+
+  <section>
+    <div class="menu-titulo">
+      <h2>Nuestras sucursales</h2>
+    </div>
+    <% concesionarios.forEach(sucursales=> { %>
+      <div class="sucursales">
+        <ul>
+          <li>
+            <%= sucursales.sucursal %>
+          </li>
+        </ul>
+        <% }); %>
+      </div>
+  </section>
+
+  <%- include('./partials/footer') %>

@@ -1,0 +1,19 @@
+<%- include('partials/head') %>
+
+<h1> <% title %></h1>
+
+
+<h2>Más información sobre nuestras sucursales:</h2>
+<% concesionarias.forEach(sucursal => { %>
+  
+
+  <ul>
+    <li>
+    <%- sucursal.sucursal%>
+    <%- sucursal.direccion %>
+    <%- sucursal. telefono %>
+  </li>
+  </ul>
+
+<% }) %>
+

@@ -6,21 +6,17 @@
 
         <article>
             <div class="containerHeroes">
-                <div class="cardHeroes cardHeroes0">
-                    <div class="border">
-                        <h2 class="tituloHeroesh2">Ada Lovelace</h2>
-                    </div>
-                </div>
-                <div class="cardHeroes cardHeroes1">
-                    <div class="border">
-                        <h2 class="tituloHeroesh2">Charles Babbage</h2>
-                    </div>
-                </div>
-                <div class="cardHeroes cardHeroes2">
-                    <div class="border">
-                        <h2 class="tituloHeroesh2">Margaret Hamilton</h2>
-                    </div>
-                </div>
+                <% heroes.forEach(element=> { %>
+                    <a href="/heroes/<%= element.id %>/bio ">
+                        <div class="cardHeroes cardHeroes<%= element.id %> ">
+                            <div class="border">
+                                <h2 class="tituloHeroesh2">
+                                    <%= element.nombre %>
+                                </h2>
+                            </div>
+                        </div>
+                    </a>
+                    <% }) %>
             </div>
         </article>
 

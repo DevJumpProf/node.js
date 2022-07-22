@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('partials/head') %> 
+
+
+
+<body>
+
+    <%- include('partials/header') %> 
+
+
+
+    
+<div style="height: 387px;">
+    <div style="margin-left: 20px;">
+        <h1>Sucursales </h1>
+
+    <% concesionaria.forEach(sucursal => { %>
+     <h3>
+       <a href="/sucursales/<%= sucursal.sucursal %> "><%= sucursal.sucursal %> </a> 
+     </h3>
+     <h4>
+        <%= sucursal.direccion %> 
+     </h4>
+     <h4>
+        <%= sucursal.telefono %> 
+     </h4>
+    <% }) %>
+    </div>
+    
+</div>
+
+<%- include('partials/footer') %> 
+
+</body>
+</html>

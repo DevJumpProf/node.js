@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head') %> 
+<body>
+    
+<%- include('partials/header') %> 
+
+<div style="margin: 20px;">
+
+<h1>
+        <%= brand %> 
+    </h1>
+
+    <div>
+        <% autos.forEach(elemento => { %>
+         <p><%= elemento.modelo %> </p>
+        <p><%= elemento.anio %> </p>
+        <p><%= elemento.color %> </p>
+        <div>
+            <img src="<%= elemento.img %> " alt="" style="width:25% ;">
+        </div>
+        <% }) %>
+        
+    </div>
+
+
+</div>
+    
+<%- include('partials/footer') %> 
+</body>
+</html>

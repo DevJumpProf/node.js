@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head') %> 
+<body>
+
+
+    <%- include('partials/header') %> 
+<div style="margin-left: 20px;">
+
+
+<h1><%= nombreSucursal %> </h1>
+
+<h3> <%= direccionSucursal%></h3>
+<h3> <%= telefonoSucursal %></h3>
+<h3><%= cantidad %> </h3>
+<div>
+    <% autosArray.forEach(auto => { %>
+     
+        <h4>
+            <%= auto.marca %> 
+        </h4>
+        <h4>
+            <%= auto.modelo %> 
+        </h4>
+        <h4>
+            <%= auto.anio %> 
+        </h4>
+        <h4>
+            <%= auto.color %> 
+        </h4>
+        <div>
+            <img src="<%= auto.img %> " alt="" style="width: 25%;">
+        </div>
+
+    <% }) %>
+</div>
+
+</div>
+
+    
+
+<%- include('partials/footer') %> 
+
+</body>
+</html>
+

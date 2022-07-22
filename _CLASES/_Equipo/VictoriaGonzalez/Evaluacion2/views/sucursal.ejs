@@ -1,0 +1,24 @@
+<%- include('partials/head') %>
+<body>
+    <h1> <%- title %> </h1>
+
+<p>Nuestra dirección es <%= direccionsucursal%></p>
+<p>Nuestro teléfono es <%= telefonosucursal %></p>
+
+<h3>Cantidad de autos: <%= cantidad %></h3>
+<div>
+    <% autos1.forEach(auto => { %>
+       
+        <ul>
+        <h4>   <%= auto.marca %> </h4> 
+       
+        <li>   <%= auto.modelo %> </li> 
+        
+        <li>    <%= auto.anio %> </li> 
+        
+        <li>    <%= auto.color %> </li> 
+        </ul>
+    <% }) %>
+</div>
+</body>
+</html>
