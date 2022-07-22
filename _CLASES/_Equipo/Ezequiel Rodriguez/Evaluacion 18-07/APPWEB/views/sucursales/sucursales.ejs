@@ -1,0 +1,20 @@
+<%- include('../partials/head-header') %>
+
+    <section>
+        <div class="menu-titulo">
+            <h2>Nuestras sucursales</h2>
+        </div>
+        <% concesionarios.forEach(sucursales=> { %>
+            
+            <div class="sucursales">
+                <ul>
+                    <li class="negrita"> <%= sucursales.sucursal %> </li>
+                    <li> <%= sucursales.direccion %> </li>
+                    <li> <%= sucursales.telefono %> </li>
+                    <li><a href="/sucursales/<%= sucursales.sucursal %>">Más info acá</a></li>
+                </ul>
+                <% }); %>
+            </div>
+    </section>
+
+    <%- include('../partials/footer') %>

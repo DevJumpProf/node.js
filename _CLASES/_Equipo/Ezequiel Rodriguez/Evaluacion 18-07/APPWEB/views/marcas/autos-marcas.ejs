@@ -1,0 +1,23 @@
+<%- include('../partials/head-header') %>
+
+<section>
+    <div class="menu-titulo">
+        <h2>Nuestros autos </h2>
+        <br>
+    </div>
+
+    <div class="sucursales">
+        <ul>
+        <% auto.forEach(elemento => { %>
+
+                <li class="negrita"><%=elemento.modelo.toUpperCase() %></li>
+                <li><%=elemento.anio %></li>
+                <li><%=elemento.color %></li>
+
+                <br>
+        <% }); %>
+        </ul>
+    </div>
+</section>
+
+<%- include('../partials/footer') %>

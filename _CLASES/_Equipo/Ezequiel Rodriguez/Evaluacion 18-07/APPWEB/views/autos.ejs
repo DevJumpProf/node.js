@@ -1,0 +1,27 @@
+<%- include('./partials/head-header') %>
+
+    <section>
+        <div class="menu-titulo">
+            <h2>Todos nuestros autos</h2>
+            <br>
+        </div>
+
+        <div>
+            <ul>
+            <% auto.forEach(autos=> { %>
+                
+                <li><b><a href="/autos/<%=autos.marca%>"><%= autos.marca.toUpperCase() %></a></b></li>
+                <li> <%= autos.modelo %> </li>
+                <li> <%= autos.anio %> </li>
+                <li> <%= autos.color %> </li>
+
+                <hr>
+
+            <% }); %>
+            <%let total = auto.length %>
+                <li>Cantidad total de autos: <%= total %> </li>
+            </ul>
+        </div>
+    </section>
+
+    <%- include('./partials/footer') %>
