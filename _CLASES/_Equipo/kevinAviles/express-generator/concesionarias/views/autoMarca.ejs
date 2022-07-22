@@ -3,27 +3,24 @@
   
   <%- include('partials/header')  %> 
   <h1>Autos de la marca: <%=laMarca  %> </h1>
- <div style="display: flex; justify-content:space-around; flex-wrap: wrap;">
-    <% autos.forEach(element => { %>
-      <div style=" border: 1px solid black;width: 200px;height: 200px;">
-      <p><%= element.marca %> </p>
-      <p><%= element.modelo %> </p>
-      <p><%= element.anio %> </p>
-    </div>
+  <h2>Puede buscar todos los autos de un color o un año escribiendo en nuestra url:</h2>
+  <h3>Por ej: 'localHost:3000/autos/ford/"2020"' O  'localHost:3000/autos/ford/"green"'</h3>
+  <div class="contenedorCardAutos"><!-- esta clase se repite -->
+    <% autosUnicos.forEach(auto => { %>
+      <div class="cardAuto"><!-- esta clase se repite -->
+        <div class="imgAuto"><!-- esta clase se repite -->
+          <img src="/images/coche.png" alt="">
+        </div>
+        <div class="infoAuto"><!-- esta clase se repite -->
+          <p>Marca: <%= auto.marca %> </p>
+          <p>Modelo: <%= auto.modelo %> </p>
+          <p>Año: <%= auto.anio %> </p>
+          <p>Sucursal: <%= auto.nombreSucursal %> </p>
+        </div>
+      </div> 
     <% }) %>
   </div>
-    <div style="display: flex; justify-content:space-around;flex-wrap: wrap;">
-    
-    <% autosUnicos.forEach(element => { %>
-      
-      <div style=" border: 1px solid red;width: 200px;height: 200px;">
-      <p><%= element.marca %> </p>
-      <p><%= element.modelo %> </p>
-      <p><%= element.anio %> </p>
-    </div>
-  
-    <% }) %>
-  </div>
+ 
   <%- include('partials/footer')  %> 
 </body>
 </html>

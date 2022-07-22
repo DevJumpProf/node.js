@@ -3,11 +3,15 @@
   
   <%- include('partials/header')  %> 
   <h1>Nuestas Marcas</h1>
-  <% marcas.forEach(element => { %>
-    <div style="display: flex; justify-content:space-around; border: 1px solid black;width: 200px;height: 200px;">
-      <p><%= element %> </p>
-      </div>
-  <% }) %>
+
+  <div class="contenedorMarcas">
+    <% marcas.forEach(element => { %>
+      <div class="lasMarcas">
+        <p>Marca: <a href="/marcas/<%= element %> "><%= element %></a></p>
+        </div>
+    <% }) %>
+  </div>
+  
   <%- include('partials/footer')  %> 
 </body>
 </html>

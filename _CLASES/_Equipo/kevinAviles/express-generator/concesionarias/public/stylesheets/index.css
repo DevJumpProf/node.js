@@ -1,0 +1,43 @@
+@import "generales.css";
+
+/* Lista sucursales que se repite en sucursales */
+h1{
+    text-align: center;
+}
+h3{
+    margin-left:10px ;
+}
+
+.listaSucursalesContenedor{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;    
+}
+.listaSucursalesContenedor .cardSucursal{
+    border: 1px solid black;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 20px;
+    width: 300px;
+    flex-wrap: wrap;
+}
+.listaSucursalesContenedor .cardSucursal .imgSucursal{
+    border-bottom: 1px solid black;
+}
+.listaSucursalesContenedor .cardSucursal .cardInfoSucursal{
+    display: flex;
+    flex-direction: column;
+}
+.listaSucursalesContenedor .cardSucursal .cardInfoSucursal .botonSucursal a{
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 3px;
+    margin:3px;
+    background-color:white;
+    color: black;
+    
+}
+.listaSucursalesContenedor .cardSucursal .cardInfoSucursal .botonSucursal a:hover{
+    background-color: black;
+    color: white;
+}

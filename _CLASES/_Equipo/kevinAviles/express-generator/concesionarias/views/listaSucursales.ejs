@@ -1,19 +1,36 @@
-<%- include('partials/head')  %> 
-<body>
-  
-  <%- include('partials/header')  %> 
-    <h1>Listado de sucursales</h1>
-    <% concesionarias.forEach(element => { %>
-        <p>-----------------------------</p>
-        <p><%= element.sucursal %> </p>
-        <p><%= element.direccion %> </p>
-        <p><%= element.telefono %> </p>
+<%- include('partials/head') %>
 
-        <span>Ir a su sucursal</span>
-        <a href="/sucursales/<%= element.sucursal %> ">Click aqui</a>
-        <p>-----------------------------</p>
+  <body>
 
-    <% }) %>
-  <%- include('partials/footer')  %> 
-</body>
-</html>
+    <%- include('partials/header') %>
+      <h1>Listado de sucursales</h1>
+
+      <div class="listaSucursalesContenedor">
+        <% concesionarias.forEach(element=> { %>
+
+          <div class="cardSucursal">
+            <div class="imgSucursal">
+              <img src="/images/concesionaria.png" alt="">
+            </div>
+            <div class="cardInfoSucursal">
+              <span>
+                Sucursal: <%= element.sucursal %>
+              </span>
+              <span>
+                Direccion: <%= element.direccion %>
+              </span>
+              <span>
+                Telefono: <%= element.telefono %>
+              </span>
+              <div class="botonSucursal">
+                <span>Ir a su sucursal:</span>
+                <a href="/sucursales/<%= element.sucursal %> ">Click aqui</a>
+              </div>
+            </div>
+          </div>
+          <% }) %>
+      </div>
+      <%- include('partials/footer') %>
+  </body>
+
+  </html>

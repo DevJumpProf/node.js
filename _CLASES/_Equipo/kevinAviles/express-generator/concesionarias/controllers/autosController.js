@@ -3,37 +3,29 @@ const db = fs.readFileSync('./data/concesionarias.json','utf8');
 const concesionarias = JSON.parse(db);
 
 module.exports = {
-    indexAutos:(req,res)=>{
+    indexAutos:async(req,res)=>{
         let losAutos=[]
         concesionarias.forEach(element=>{
             element.autos.forEach(autos=>{
                 losAutos.push(autos)
             })
         })
-        res.render('listaAutos',{
+        /* res.send(losAutos) */
+        await res.render('listaAutos',{
             titulo:"Listado de autos",
-            losAutos:losAutos
+            losAutos
         })
     },
-    marcaAuto:(req,res)=>{
-        /* let marca = req.params.marca;
-        let listaAuto=[]
-        concesionarias.forEach(element=>{
-            element.autos.forEach(elAuto=>{
-                if(elAuto.marca==marca){
-                  
-                        listaAuto.push(elAuto)
-                   
-                }
-            })
-        }) */
-        //res.send(listaAuto)
+    marcaAuto:async(req,res)=>{
         let laMarca = req.params.marca;
         let autos=[];
         let paramsAceptado=false;
+        let nombreSucursal;
         concesionarias.forEach(element=>{
-            element.autos.forEach(losAutos=>{
-                if(losAutos.marca == laMarca){
+            nombreSucursal=element.sucursal;//captura el nombre de la sucursal
+            element.autos.forEach(losAutos=>{// entra al los autos de cada sucursal empezando con la primera 
+                if(losAutos.marca == laMarca){// pregunta si la marca de cada auto de una sucursal  
+                    losAutos.nombreSucursal=nombreSucursal; // se crea una nueva propiedad al objeto macheado con el valor de = ..  la lista de sucursales en la posicion de numListaSucursales  
                      autos.push(losAutos);
                      paramsAceptado=true; 
                 }
@@ -52,11 +44,10 @@ module.exports = {
        
          /* res.send(elRecParamsPasado(laMarca));  */
           if(paramsAceptado){
-            res.render('autoMarca',{
+            await res.render('autoMarca',{
                 titulo:`Autos de ${laMarca}`,
                 laMarca:laMarca,
-                autos:autos,
-                autosUnicos:autosUnicos
+                autosUnicos:autos
                });
           }else{
             res.render('404',{
@@ -73,15 +64,19 @@ module.exports = {
         let {dato}= req.params;
         let autos=[];
         let paramsAceptado=false;
+        let nombreSucursal;
         concesionarias.forEach(element=>{
+            nombreSucursal=element.sucursal;
             element.autos.forEach(losAutos=>{
                 if(losAutos.marca == laMarca && (losAutos.color==dato || losAutos.anio==dato)){
+                        losAutos.nombreSucursal=nombreSucursal;
                         autos.push(losAutos) 
                        paramsAceptado=true;
                 }
                
                
             })
+
            
         })
 
@@ -89,7 +84,7 @@ module.exports = {
             res.render('datoAuto',{
                 titulo:`Marca ${laMarca}`,
                 laMarca:laMarca,
-                autos:autos,
+                autos
             })
         }else{
             res.render('404',{

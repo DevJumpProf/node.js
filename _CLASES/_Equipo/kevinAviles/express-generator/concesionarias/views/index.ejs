@@ -3,11 +3,22 @@
   
   <%- include('partials/header')  %> 
   <h1>Bienvenido a nuestra concesionaria</h1>
-  <h2>Vea nuestro listado de sucursales</h2>
-  <% sucursales.forEach(sucursal => { %>
-    <a href="/sucursales/<%=sucursal  %> "><%= sucursal %> </a><br>
+  
+  <h3>Puede ver nuestra lista de sucursales:</h3>
 
-  <% }) %>
+  <div class="listaSucursalesContenedor"><!-- esta clase se repite -->
+    <% sucursales.forEach(sucursal => { %>
+      <div class="cardSucursal"><!-- esta clase se repite -->
+        <div class="imgSucursal"><!-- esta clase se repite -->
+          <img src="/images/concesionaria.png" alt="">
+        </div>
+          <div class="cardInfoSucursal"><!-- esta clase se repite -->
+            <p> Sucursal: <%= sucursal %></p> 
+          </div>
+      </div>
+    <% }) %>
+  </div>
+  
   <%- include('partials/footer')  %> 
 </body>
 </html>

@@ -2,19 +2,28 @@
 <body>
   
   <%- include('partials/header')  %> 
-  <h1>Sucursal <%= nombreSucursal %> </h1>
+
+  <h1>Sucursal: <%= nombreSucursal %> </h1>
   <h2>Direccion: <%= direccionSucursal %> </h2>
   <h3>Telefono: <%= telefonoSucursal %> </h3>
+  <span class="cantAutos">La cantidad de autos es de: <%= cantAutos  %> </span>
+
+  <div class="contenedorCardAutos"><!-- esta clase se repite -->
+    <% autosSucursal.forEach(auto => { %>
+      <div class="cardAuto"><!-- esta clase se repite -->
+        <div class="imgAuto"><!-- esta clase se repite -->
+          <img src="/images/coche.png" alt="">
+        </div>
+        <div class="infoAuto"><!-- esta clase se repite -->
+          <p>Marca: <%= auto.marca %> </p>
+          <p>modelo: <%= auto.modelo %> </p>
+          <p>Año: <%= auto.anio %> </p>
+        </div>
+      </div> 
+    <% }) %>
+  </div>
   
-  <% autosSucursal.forEach(auto => { %>
-    <div style="display: flex; justify-content:space-around; border: 1px solid black;width: 200px;height: 200px;">
-     <p><%= auto.marca %> </p>
-     <p><%= auto.modelo %> </p>
-     <p><%= auto.anio %> </p>
-    </div> 
-    
-  <% }) %>
-  <h6>la cantidad de autos de de: <%= cantAutos  %> </h6>
+  
   <%- include('partials/footer')  %> 
   
 </body>

@@ -19,7 +19,7 @@ module.exports = {
         let autosSucursal;
         let cantAutos=0;
         concesionarias.forEach(element => {
-            if(element.sucursal == sucursal){
+            if(element.sucursal.toLowerCase() == sucursal.toLowerCase()){
                 nombreSucursal=element.sucursal;
                 direccionSucursal=element.direccion;
                 telefonoSucursal=element.telefono;

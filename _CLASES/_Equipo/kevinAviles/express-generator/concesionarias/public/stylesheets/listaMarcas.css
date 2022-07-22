@@ -1,0 +1,21 @@
+
+.contenedorMarcas{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.contenedorMarcas .lasMarcas{
+    border: 1px solid black;
+    margin: 10px;
+    padding: 10px;
+    
+}
+.contenedorMarcas .lasMarcas p a{
+    text-transform: capitalize;
+    
+}
+.contenedorMarcas .lasMarcas p a:hover{
+    border: 1px solid black;
+    border-radius: 15px;
+    background-color: rgb(175, 172, 172);
+}

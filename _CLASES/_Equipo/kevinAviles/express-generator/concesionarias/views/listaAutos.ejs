@@ -3,18 +3,23 @@
   
   <%- include('partials/header')  %> 
  <h1>Nuestros autos</h1>
- <div style="display: flex; justify-content:space-around;flex-wrap: wrap;">
-  
-  <% losAutos.forEach(element => { %>
-    <div style=" border: 1px solid black;width: 200px;height: 200px;">
-      <p><%=element.modelo  %> </p>
-      <p><%=element.marca  %> </p>
-      <p><%=element.anio  %> </p>
-      <p><%=element.color  %> </p>
-    </div>
-    
+
+ <div class="contenedorCardAutos"><!-- esta clase se repite -->
+  <% losAutos.forEach(auto => { %>
+    <div class="cardAuto"><!-- esta clase se repite -->
+      <div class="imgAuto"><!-- esta clase se repite -->
+        <img src="/images/coche.png" alt="">
+      </div>
+      <div class="infoAuto"><!-- esta clase se repite -->
+        <p>Marca: <a href="/autos/<%= auto.marca %>"><%= auto.marca %></a></p>
+        <p>Modelo: <%= auto.modelo %> </p>
+        <p>Año: <%= auto.anio %> </p>
+        <p>Color: <%= auto.color  %> </p>
+      </div>
+    </div> 
   <% }) %>
-</div>
+</div><!-- este se repite -->
+ 
   <%- include('partials/footer')  %> 
 </body>
 </html>
