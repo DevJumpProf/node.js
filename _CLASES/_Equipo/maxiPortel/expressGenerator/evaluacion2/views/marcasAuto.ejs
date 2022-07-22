@@ -1,0 +1,12 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+    <h1>
+        <%= title %>
+    </h1>
+
+    <% modelo.forEach(element=> { %>
+        <p>
+            <a href="<%= marca %>/<%= element %>"><%= element %></a>
+        </p>
+        <% }) %>
+            <%- include('partials/footer') %>

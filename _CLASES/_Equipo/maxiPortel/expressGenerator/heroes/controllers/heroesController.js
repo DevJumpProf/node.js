@@ -8,7 +8,7 @@ const heroes = JSON.parse('./data/heroes.json', 'utf-8'); //Otra manera de estru
 
 module.exports = {
     index: (req, res, next) => {
-        res.render('heroes', {titulo: 'Heroes'}) //enviamos el parametro de la lectura+la traduccion del archivo 'heroes.json'. En el navegador usamos una extensión de chrome para verlo mejor 'json.viewer'.
+        res.render('heroes', {titulo: 'Heroes', heroes: heroes}) //enviamos el parametro de la lectura+la traduccion del archivo 'heroes.json'. En el navegador usamos una extensión de chrome para verlo mejor 'json.viewer'.
     },
     detalle: (req, res, next) => {
         let {id} = req.params;

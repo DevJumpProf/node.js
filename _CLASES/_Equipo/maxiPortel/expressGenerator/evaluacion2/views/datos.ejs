@@ -1,0 +1,18 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+
+<h2>Para buscar por color o año agregar despues del url el signo '=' seguido del dato buscado ejemplo: </h2>
+
+<p>Color:  =black</p>
+<p>Año: =2020</p>
+<p>Color y año: =black=2020</p> <br>
+
+
+<% info.forEach(element => { %>
+<b> <%= element.modelo %> </b>
+<b> <%= element.color %> </b>
+<b> <%= element.anio %> </b> <br>
+<b> En sucursal: <%= element.sucursal %> </b> <br> <br>
+<% }) %>
+
+    <%- include('partials/footer') %>

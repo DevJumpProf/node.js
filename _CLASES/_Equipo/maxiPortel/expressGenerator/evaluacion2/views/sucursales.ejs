@@ -1,0 +1,17 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+    <h1>Nuestras sucursales son: </h1>
+
+    <% concesionarias.forEach(element=> { %>
+        <a href="/sucursales/<%=element.sucursal%>">
+            <%= element.sucursal %>
+        </a>
+        <p>
+            <%= element.direccion %>
+        </p>
+        <p>
+            <%= element.telefono %>
+        </p>
+        <% }) %>
+
+            <%- include('partials/footer') %>

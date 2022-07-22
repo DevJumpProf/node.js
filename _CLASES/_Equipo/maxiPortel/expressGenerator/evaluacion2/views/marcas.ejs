@@ -1,0 +1,16 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+    <h1>
+        <%= title %>
+    </h1>
+    <div>
+        <% autosMarca.forEach(element=> { %>
+            <a href="/marcas/<%= element %>">
+                <%= element %>
+            </a> <br>
+            <% }) %>
+                <p>Cantidad de marcas: <%= cantidad %>
+                </p>
+    </div>
+
+    <%- include('partials/footer') %>

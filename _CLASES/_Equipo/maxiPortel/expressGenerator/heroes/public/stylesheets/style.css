@@ -496,13 +496,11 @@ h5 a:after {
 
 .containerHeroes {
   width: 100vw;
-  max-height: 800px;
-  max-width: 1280px;
-  min-width: 1000px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   margin: 80px auto;
+  flex-wrap: wrap;
 }
 .border {
   height: 369px;
@@ -516,6 +514,7 @@ h5 a:after {
   border: 1px solid #fff;
 }
 .cardHeroes {
+  margin: 25px;
   height: 379px;
   width: 300px;
   background: #808080;
@@ -529,26 +528,12 @@ h5 a:after {
   align-items: center;
   position: relative;
 }
-.cardHeroes0 {
+.cardHeroes1 {
   background: url("http://www.huellasdemujeresgeniales.com/wp-content/uploads/2015/04/Ada_Lovelace_portrait_circa_1840.jpg") center center no-repeat;
   background-size: 310px;
 }
-.cardHeroes0:hover {
-  background: url("http://www.huellasdemujeresgeniales.com/wp-content/uploads/2015/04/Ada_Lovelace_portrait_circa_1840.jpg") left center no-repeat;
-  background-size: 350px;
-}
-.cardHeroes0:hover h2 {
-  opacity: 1;
-}
-.cardHeroes0:hover .fa {
-  opacity: 1;
-}
-.cardHeroes1 {
-  background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Charles_Babbage_-_1860.jpg/330px-Charles_Babbage_-_1860.jpg") center center no-repeat;
-  background-size: 300px;
-}
 .cardHeroes1:hover {
-  background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Charles_Babbage_-_1860.jpg/330px-Charles_Babbage_-_1860.jpg") left center no-repeat;
+  background: url("http://www.huellasdemujeresgeniales.com/wp-content/uploads/2015/04/Ada_Lovelace_portrait_circa_1840.jpg") left center no-repeat;
   background-size: 350px;
 }
 .cardHeroes1:hover h2 {
@@ -558,11 +543,11 @@ h5 a:after {
   opacity: 1;
 }
 .cardHeroes2 {
-  background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Margaret_Hamilton_1995.jpg/800px-Margaret_Hamilton_1995.jpg") center center no-repeat;
+  background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Charles_Babbage_-_1860.jpg/330px-Charles_Babbage_-_1860.jpg") center center no-repeat;
   background-size: 300px;
 }
 .cardHeroes2:hover {
-  background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Margaret_Hamilton_1995.jpg/800px-Margaret_Hamilton_1995.jpg") left center no-repeat;
+  background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Charles_Babbage_-_1860.jpg/330px-Charles_Babbage_-_1860.jpg") left center no-repeat;
   background-size: 350px;
 }
 .cardHeroes2:hover h2 {
@@ -571,14 +556,137 @@ h5 a:after {
 .cardHeroes2:hover .fa {
   opacity: 1;
 }
+.cardHeroes3 {
+  background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Margaret_Hamilton_1995.jpg/800px-Margaret_Hamilton_1995.jpg") center center no-repeat;
+  background-size: 300px;
+}
+.cardHeroes3:hover {
+  background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Margaret_Hamilton_1995.jpg/800px-Margaret_Hamilton_1995.jpg") left center no-repeat;
+  background-size: 350px;
+}
+.cardHeroes3:hover h2 {
+  opacity: 1;
+}
+.cardHeroes3:hover .fa {
+  opacity: 1;
+}
+.cardHeroes4 {
+  background: url("https://imagenes.elpais.com/resizer/pSlN1JQG9ko4Y5hYpFYdCO8O9_8=/980x0/cloudfront-eu-central-1.images.arcpublishing.com/prisa/2ARBHGKQZFZ7HRM4WDUKXTKQDA.jpg") center center no-repeat;
+  background-size: 600px;
+}
+.cardHeroes4:hover {
+  background: url("https://imagenes.elpais.com/resizer/pSlN1JQG9ko4Y5hYpFYdCO8O9_8=/980x0/cloudfront-eu-central-1.images.arcpublishing.com/prisa/2ARBHGKQZFZ7HRM4WDUKXTKQDA.jpg") center center no-repeat;
+  background-size: 700px;
+}
+.cardHeroes4:hover h2 {
+  opacity: 1;
+}
+.cardHeroes4:hover .fa {
+  opacity: 1;
+}
+
+.cardHeroes5 {
+  background: url("https://minasyenergia.upm.es/images/Espacio_Igualdad/Exposicion_mujeres_ciencias/gracehopp.jpg") center center no-repeat;
+  background-size: 300px;
+}
+.cardHeroes5:hover {
+  background: url("https://minasyenergia.upm.es/images/Espacio_Igualdad/Exposicion_mujeres_ciencias/gracehopp.jpg") left center no-repeat;
+  background-size: 350px;
+}
+.cardHeroes5:hover h2 {
+  opacity: 1;
+}
+.cardHeroes5:hover .fa {
+  opacity: 1;
+}
+
+
+.cardHeroes6 {
+  background: url("https://digitalaroundtheworld.org/wp-content/uploads/2020/06/Vint_Cerf.jpg") center center no-repeat;
+  background-size: 410px;
+}
+.cardHeroes6:hover {
+  background: url("https://digitalaroundtheworld.org/wp-content/uploads/2020/06/Vint_Cerf.jpg") center center no-repeat;
+  background-size: 460px;
+}
+.cardHeroes6:hover h2 {
+  opacity: 1;
+}
+.cardHeroes6:hover .fa {
+  opacity: 1;
+}
+
+.cardHeroes7 {
+  background: url("https://mujeresconciencia.com/app/uploads/2017/07/joanc1.jpg") center center no-repeat;
+  background-size: 300px;
+}
+.cardHeroes7:hover {
+  background: url("https://mujeresconciencia.com/app/uploads/2017/07/joanc1.jpg") left center no-repeat;
+  background-size: 350px;
+}
+.cardHeroes7:hover h2 {
+  opacity: 1;
+}
+.cardHeroes7:hover .fa {
+  opacity: 1;
+}
+
+.cardHeroes8 {
+  background: url("https://www.nationalgeographic.com.es/medio/2019/05/30/alan-turing_51cdd2da.jpg") center center no-repeat;
+  background-size: 320px;
+}
+.cardHeroes8:hover {
+  background: url("https://www.nationalgeographic.com.es/medio/2019/05/30/alan-turing_51cdd2da.jpg") left center no-repeat;
+  background-size: 360px;
+}
+.cardHeroes8:hover h2 {
+  opacity: 1;
+}
+.cardHeroes8:hover .fa {
+  opacity: 1;
+}
+
+.cardHeroes9 {
+  background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Brendan_Eich_Mozilla_Foundation_official_photo.jpg/1024px-Brendan_Eich_Mozilla_Foundation_official_photo.jpg") center center no-repeat;
+  background-size: 400px;
+}
+.cardHeroes9:hover {
+  background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Brendan_Eich_Mozilla_Foundation_official_photo.jpg/1024px-Brendan_Eich_Mozilla_Foundation_official_photo.jpg") center center no-repeat;
+  background-size: 480px;
+}
+.cardHeroes9:hover h2 {
+  opacity: 1;
+}
+.cardHeroes9:hover .fa {
+  opacity: 1;
+}
+
+
+.cardHeroes10 {
+  background: url("https://jugspeakers.online/images/speakers/0552.jpg") center center no-repeat;
+  background-size: 400px;
+}
+.cardHeroes10:hover {
+  background: url("https://jugspeakers.online/images/speakers/0552.jpg") center center no-repeat;
+  background-size: 480px;
+}
+.cardHeroes10:hover h2 {
+  opacity: 1;
+}
+.cardHeroes10:hover .fa {
+  opacity: 1;
+}
+
 .tituloHeroesh2 {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #fff;
   margin: 20px;
   opacity: 0;
   transition: opacity 1s;
+  -webkit-text-stroke: .4px black;
 }
 .fa {
   opacity: 0;
   transition: opacity 1s;
 }
+

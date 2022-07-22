@@ -1,0 +1,17 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+    <h1>
+        <%= title %>
+    </h1>
+
+    <% auto.forEach(element=> { %>
+        <li>
+            <%= element.marca %> | <%= element.modelo %> | <%= element.anio %>
+                        <%= element.color %>
+        </li>
+        <% }) %>
+
+            <p>Cantidad de autos <%= auto.length %>
+            </p>
+
+            <%- include('partials/footer') %>

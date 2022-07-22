@@ -11,10 +11,9 @@ module.exports = {
         
         personajes.forEach(pj => {
             if(id == pj.id){
-                res.render("idPersonajes", {title: 'Personsajes'}, )
+                res.render("idPersonajes", {title: 'Personsajes', personaje: pj})
             }
         })
         res.send('No encontramos al heroe')
     }
 }
-

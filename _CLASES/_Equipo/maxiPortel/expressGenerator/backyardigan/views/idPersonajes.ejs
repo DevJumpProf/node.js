@@ -7,13 +7,8 @@
         <p>Welcome to <%= title %>
         </p>
 
-
-<% personajes.forEach(pj => { %> 
-<% if(pj.id == req.param.id){ %> 
-    <p>
-        <% pj.nombre %> Es un <% pj.tipo %> 
-    </p>
-<% }}) %> 
+        <h1> <%= personaje.nombre %> </h1> 
+        <p> <%= personaje.detalles %>  </p>
 
     </body>
 

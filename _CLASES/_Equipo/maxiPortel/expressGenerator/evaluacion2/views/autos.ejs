@@ -1,0 +1,16 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+    <h1>
+        <%= title %>
+    </h1>
+    <div>
+        <% autosModeloMarca.forEach(element=> { %>
+            <p>
+                <%= element %>
+            </p>
+            <% }) %>
+                <p>Cantidad de autos: <%= cantidad %>
+                </p>
+    </div>
+
+    <%- include('partials/footer') %>
