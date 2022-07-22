@@ -27,11 +27,11 @@ module.exports = {
          concesionarias.forEach(element=>{
          element.autos.forEach(losAutos=>{
              if(losAutos.marca == marca){
-                 res.render('marca', {title:`marca`, marca, autos})
+                 res.render('marca1', {title:`marca`, marca, autos})
               }
          })
      })
-     res.send("Error, la marca que ingresó no existe")
+    /* res.send("Error, la marca que ingresó no existe") */
 
 
 }
