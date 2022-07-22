@@ -1,0 +1,22 @@
+<%- include('partials/head'); %>
+  <body>
+    <%- include('partials/header'); %>
+    <main>
+      <h2>En esta pagina vas a encontrar todos los autos de <%=marca%> y del año <%=anio%></h2>
+      <h3>Para filtrar por color escribi ese color en la url o hace click en el color que quieras!</h3>
+      <h3>Nuestros autos:</h3>
+    <% autis.forEach(autos=> { %>
+      <div style="border-style: solid">
+        <h3><%=autos.marca%></h3>
+        <h3><%=autos.modelo%></h3>
+        <h3><%=autos.anio%></h3>
+        <a href="/autos/<%=autos.marca%>/<%=autos.anio%>/<%=autos.color%>">
+        <h3><%=autos.color%></h3>
+    </a>
+      </div>
+      <br>
+    <%})%>
+    </main>
+    <%- include('partials/footer'); %>
+  </body>
+</html>

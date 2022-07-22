@@ -1,0 +1,20 @@
+<%- include('partials/head'); %>
+  <body>
+    <%- include('partials/header'); %>
+    <main>
+      <h2>En esta pagina vas a poder encontrar todas nuestras sucursales y su informacion.</h2>
+      <h2>Hace click en cualquiera para ir a esa sucursal!</h2>
+      <h3>Nuestras sucursales:</h3>
+      <% sucurs.forEach(sucursal => { %>
+        <div style="border-style: solid">
+        <a href="/sucursales/<%=sucursal.sucursal%>">
+                <h3><%= sucursal.sucursal %> </h3>
+                <h3><%= sucursal.direccion %> </h3>
+                <h3><%= sucursal.telefono %> </h3>
+            </div>
+            <br>
+    <% }) %>
+    </main>
+    <%- include('partials/footer'); %>
+  </body>
+</html>

@@ -14,10 +14,18 @@
     </h1>
     <div>
         <% json.forEach(element=> { %>
-            <h2><%= element.nombre %></h2>
-            <a href="/back/<%=element.id%>/bio">Bio</a>
+            <h2>
+                <%= element.nombre %>
+            </h2>
+            <a href="/back/<%=element.id%>/bio">Biografía</a>
             <% }) %>
-                
+
+        <% json.forEach(element=> { %>
+            <h2>
+                <%= element.nombre %>
+            </h2>
+            <a href="/back/<%=element.id%>">¿De que tipo es?</a>
+            <% }) %>
 
     </div>
 </body>

@@ -1,0 +1,19 @@
+<%- include('partials/head'); %>
+  <body>
+    <%- include('partials/header'); %>
+    <main>
+      <h2>En esta pagina vas a encontrar todos los autos de <%=marca%></h2>
+      <h3>Nuestros autos:</h3>
+    <% autis.forEach(autos=> { %>
+      <div style="border-style: solid">
+        <h3><%=autos.marca%></h3>
+        <h3><%=autos.modelo%></h3>
+        <h3><%=autos.anio%></h3>
+        <h3><%=autos.color%></h3>
+      </div>
+      <br>
+    <%})%>
+    </main>
+    <%- include('partials/footer'); %>
+  </body>
+</html>

@@ -7,9 +7,9 @@ module.exports = {
         res.render("personajes",{titulo: "Personajes", json: personajes})
     },
     tipo: (req, res) => {
-        let idBack = req.params.id;
+        let id = req.params.id;
         personajes.forEach(personaje => {
-            if (idBack == personaje.id) {
+            if (id == personaje.id) {
                 res.send(`hola soy ${personaje.nombre} y mi tipo es ${personaje.tipo}`)
             }
         })
@@ -27,7 +27,7 @@ module.exports = {
                     res.write(personaje.informacion)
                     res.end()
                 } else {
-                    res.send(`${personaje.nombre}: ¿No quieres ver esta información?`)
+                    res.send(`${personaje.nombre}: Información evadida`)
                 }
             }
         });

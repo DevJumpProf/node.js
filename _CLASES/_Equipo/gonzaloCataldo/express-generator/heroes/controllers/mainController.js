@@ -1,9 +1,9 @@
 module.exports = {
     index: (req, res, next) => {
-    res.send ("Ni Superman, Ni la mujer maravilla son tan increibles como las personas de carne y hueso de nuestra web ") 
+    res.render("index", {titulo: "Heroes main"})
     },
     creditos: (req, res, next) => {
-    res.send ("Pagina creada por heroes del curso de NODE. somos BackEndirgands  ")
+    res.render("creditos", {titulo: "Heroes creditos"})
     }
 }
 

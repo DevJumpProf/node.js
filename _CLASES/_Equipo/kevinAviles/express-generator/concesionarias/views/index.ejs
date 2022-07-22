@@ -1,0 +1,13 @@
+<%- include('partials/head')  %> 
+<body>
+  
+  <%- include('partials/header')  %> 
+  <h1>Bienvenido a nuestra concesionaria</h1>
+  <h2>Vea nuestro listado de sucursales</h2>
+  <% sucursales.forEach(sucursal => { %>
+    <a href="/sucursales/<%=sucursal  %> "><%= sucursal %> </a><br>
+
+  <% }) %>
+  <%- include('partials/footer')  %> 
+</body>
+</html>

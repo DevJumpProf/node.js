@@ -1,0 +1,20 @@
+<%- include('partials/head')  %> 
+<body>
+  
+  <%- include('partials/header')  %> 
+ <h1>Nuestros autos</h1>
+ <div style="display: flex; justify-content:space-around;flex-wrap: wrap;">
+  
+  <% losAutos.forEach(element => { %>
+    <div style=" border: 1px solid black;width: 200px;height: 200px;">
+      <p><%=element.modelo  %> </p>
+      <p><%=element.marca  %> </p>
+      <p><%=element.anio  %> </p>
+      <p><%=element.color  %> </p>
+    </div>
+    
+  <% }) %>
+</div>
+  <%- include('partials/footer')  %> 
+</body>
+</html>

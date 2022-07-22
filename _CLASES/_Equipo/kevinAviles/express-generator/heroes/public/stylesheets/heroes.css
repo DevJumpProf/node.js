@@ -1,7 +1,11 @@
 @import "generales.css";
 
+:root{
+    --laimg:'<%=color%>';
+}
 .loGeneral{
   /*   width: 100%; */
+  
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -11,6 +15,9 @@
     margin: 30px; 
     border: 1px solid black;
     border-radius: 15px;
+    /* background: black; */
+    background: var(--color);
+ /*    background:'<%=color%>'; */
   
 }
 .loGeneral .card .cardParteSuperior{

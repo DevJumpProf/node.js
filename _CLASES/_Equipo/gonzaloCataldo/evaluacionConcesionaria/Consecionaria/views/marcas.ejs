@@ -1,0 +1,15 @@
+<%- include('partials/head'); %>
+  <body>
+    <%- include('partials/header'); %>
+    <main>
+      <h2>En esta pagina vas a poder encontrar todas las marcas de nuestras agencias.</h2>
+      <h2>Hace click en cualquiera para ver todos los autos de esa marca!</h2>
+      <h3>Nuestras marcas:</h3>
+    <% autos.forEach(marcas=> { %>
+        <a href="/marcas/<%=marcas%>"><h3><%=marcas%></h3></a>
+    <%})%>
+    <br>
+    </main>
+    <%- include('partials/footer'); %>
+  </body>
+</html>

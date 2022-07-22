@@ -1,0 +1,29 @@
+<%- include('partials/head') %>
+
+
+
+  <body>
+    <h1>
+      <%= title %>
+    </h1>
+
+    <p>Bienvenidos a nuestra concesionaria ArbiAutos AA</p>
+   
+  
+      <h2>Estas son nuestras sucursales:</h2>
+      <% concesionarias.forEach(sucursal => { %>
+        
+     
+        <ul>
+          <li>
+          <%- sucursal.sucursal%>
+        </li>
+        </ul>
+   
+
+    <%  }); %>
+    </ul>
+
+   </body>
+
+      </html>
