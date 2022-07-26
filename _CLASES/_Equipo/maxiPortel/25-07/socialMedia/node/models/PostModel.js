@@ -1,6 +1,7 @@
 //acá le decimos como está conformada nuestra base de datos
 
 // 1° importamos la conexion a la base de datos(db)
+/* import db from "../database/db.js"; */
 import db from "../database/db.js";
 
 // importamos sequelize
@@ -13,3 +14,4 @@ const PostModel = db.define("posts",{ //nombre de tabla "posts"
 });
 
 export default PostModel;
+
