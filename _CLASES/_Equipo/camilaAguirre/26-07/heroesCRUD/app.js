@@ -7,6 +7,8 @@ import db from './database/db.js';
 const app = express();
 const port = 8000;
 
+
+
 app.use(cors());
 app.use(express.json());
 app.use('/heroes', heroeRoutes);
