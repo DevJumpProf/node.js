@@ -36,7 +36,7 @@ Al registrarme en un sitio nuevo con mis datos estoy haciendo una petición con 
 
 ## DIFERENCIAS ENTRE GET Y POST
 
-<img  src='../img/difgetypost.jpg' height='150px'>
+<img  src='../img/difgetypost.jpg' height='550px'>
 
 ## MÉTODO PUT
 Con este método podemos reemplazar información existente.
