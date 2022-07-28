@@ -33,7 +33,7 @@ todas: (req, res) => { res.render('peliculas')}
 app.get("/peliculas", (req, res) => { res.render('peliculas')} );
 ```
 
-<img  src='../img/peticionget.jpg' height='250px'>
+<img  src='../img/peticionget.jpg' height='550px'>
 
 
 ## QUERY STRING
@@ -44,7 +44,7 @@ El query string comienza al final de la ruta con el signo ? . Está formado por 
 
 https://www.youtube.com/results?search_query=arbusta
 
-<img  src='../img/query.jpg' height='150px'>
+<img  src='../img/query.jpg' height='550px'>
 
 Para acceder al query string dentro del callback que maneja la petición lo haremos a través de la propiedad query del objeto request.
 Esta propiedad es un objeto literal, en donde sus claves y valores serán las mismas que viajen en la url:
