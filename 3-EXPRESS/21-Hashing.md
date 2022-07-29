@@ -55,7 +55,7 @@ parámetros:
 ● El segundo, el hash con el que lo queremos comparar
 
 ```javascript
-let check = bcrypt.compareSync('monito123', passEncriptada);
+let check = bcrypt.compareSync('arbu123', passEncriptada);
 console.log(check); // true
 ```
 

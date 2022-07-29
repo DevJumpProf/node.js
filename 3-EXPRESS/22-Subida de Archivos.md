@@ -70,7 +70,7 @@ filename: (req, file, cb) => {
 
 ## filename
 
-En filename, usaremos el callback para definir el nombre con el que guardaremos el archivo. El primer parámetro será null , el segundo, la nombre. Aquí usaremos la variable file junto con el paquete path .
+En filename, usaremos el callback para definir el nombre con el que guardaremos el archivo. El primer parámetro será null , el segundo, el nombre. Aquí usaremos la variable file junto con el paquete path .
 Para crear el nombre del archivo, usaremos el método extname() del paquete, pasándole como parámetro el nombre original del archivo para que nos devuelva únicamente su extensión.
 
 ```javascript
