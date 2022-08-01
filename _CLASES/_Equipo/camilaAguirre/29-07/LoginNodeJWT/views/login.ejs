@@ -1,14 +1,47 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>
-        Vista Login
-    </h1>
-</body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.101.0">
+    <title>LOGIN CON NODE - JWT</title>
+
+    <!-- BOOSTRAP core css -->
+    <link href="/css/style.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+   <!--  <link href="/css/signin.css" rel="stylesheet"> -->
+  </head>
+  <body class="text-center">
+    
+<main class="form-signin w-100 m-auto">
+  <form id="formLogin" action="/login" method="post"> <!-- DARLE UN ID AL FORM -->
+    <img class="mb-4" src="img/bootstrap-logo.svg" alt="" width="72" height="57">
+   <!--  <h1 class="h3 mb-3 fw-normal">Please Login</h1> -->
+
+    <div class="form-floating">
+      <input type="text" class="form-control" id="user" placeholder="user" name="User"> <!-- IMPORTANTE PONER EL NAME -->
+      <label for="user">user</label> <!-- poner el for para que quede igual al name -->
+    </div>
+    <div class="form-floating">
+      <input type="password" class="form-control" id="pass" placeholder="Password" name="pass">
+      <label for="pass">Password</label>
+    </div>
+
+    <div class="checkbox mb-3">
+     <!--  <label>
+        <input type="checkbox" value="remember-me"> Remember me
+      </label> -->
+    </div>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">cancelar</button>
+  </form>
+  <br>
+  <a type="button" class="w-100 btn btn-lg btn-primary" href="/register">Register</a>
+</main>
+
+
+<script src="js/bootstrap.bundle.min.js"></script>    
+
+  </body>
 </html>
