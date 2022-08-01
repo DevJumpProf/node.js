@@ -1,8 +1,7 @@
-import db  from "../database/db.js";
-import { DataTypes } from "sequelize";
+import db from '../database/db.js'
+import DataTypes from 'Sequelize'
 
-
-const HeroeModel = db.define('heroes', {
+const HeroeModel = db.define('heroes',{
     nombre: {type: DataTypes.STRING},
     profesion: {type: DataTypes.STRING},
     pais: {type: DataTypes.STRING},

@@ -1,56 +1,57 @@
-import HeroeModel from "../models/HeroeModel.js";
 
-//mostrar todos los registro
-export const getAllHeroes = async(req,res) =>{
+import HeroeModel from '../models/HeroeModel.js'
+
+/* Seleccionar todos los registros */
+export const getAllHeroes = async(req, res) =>{
     try {
         const heroes = await HeroeModel.findAll();
-        res.json(heroes)
+        res.json(heroes);
     } catch (error) {
-        res.json({message: error.message});
+        res.json({message: error.message})
     }
 }
 
-//mostrar 1 registro
-export const getHeroe = async(req,res) =>{
+/* Seleccionar un registro */
+export const getHeroe = async(req, res) =>{
     try {
         const heroe = await HeroeModel.findAll({
             where: {id: req.params.id}
         });
-        res.json(heroe) //hacer prueba sin indice
+        res.json(heroe)
     } catch (error) {
         res.json({message: error.message});
     }
 }
 
-export const createHeroe = async(req,res) =>{
+/* Crear registro */
+export const createHeroe = async (req, res) =>{
     try {
         await HeroeModel.create(req.body);
-        res.json({"message": 'Creado correctamente'}) // posible error
+        res.json({message: `Heroe creado correctamente`})
     } catch (error) {
-        res.json({message: error.message});
+        res.json({message: error.message})
     }
 }
 
+/* Actualizar registro */
 export const updateHeroe = async(req,res) =>{
     try {
         await HeroeModel.update(req.body,{
             where: {id: req.params.id}
-        })
-        res.json({
-            'message': 'registro actualizado correctamente'
-        })
+        });
+        res.json({message: `Actualizacion realizada`})
     } catch (error) {
         res.json({message: error.message});
     }
 }
 
-
-export const deleteHeroe = async(req,res) =>{
+/* Eliminar registro */
+export const deleteHeroe = async (req, res) =>{
     try {
         await HeroeModel.destroy({
             where: {id: req.params.id}
-        })
-        res.json('Eliminado Correctamente') //posible error
+        });
+        res.json({message: `El heroe con id '${req.params.id}' ha sido eliminado correctamente`});
     } catch (error) {
         res.json({message: error.message});
     }

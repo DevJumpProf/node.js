@@ -1,13 +1,11 @@
-import express from "express";
-import { createHeroe, deleteHeroe, getAllHeroes, getHeroe, updateHeroe } from "../controllers/heroesController.js";
-const router = express.Router()
-
+import express from 'express';
+const router = express.Router();
+import { createHeroe, deleteHeroe, getAllHeroes, getHeroe, updateHeroe } from "../controllers/HeroesController.js";
 
 router.get('/', getAllHeroes);
 router.get('/:id', getHeroe);
-router.post('/', createHeroe);
-router.put('/:id', updateHeroe);
-router.delete('/:id', deleteHeroe)
-
+router.get('/', createHeroe);
+router.get('/:id', updateHeroe);
+router.get('/:id', deleteHeroe);
 
 export default router;
