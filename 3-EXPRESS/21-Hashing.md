@@ -42,7 +42,7 @@ Un pequeño dato añadido que hace que los hash sean significativamente más dif
 
 ```javascript
 const bcrypt = require('bcrypt');
-let passEncriptada = bcrypt.hashSync('arbu123', 10);
+let passEncriptada = bcrypt.hashSync('arbi123', 10);
 ```
 
 ## .compareSync()
@@ -55,7 +55,7 @@ parámetros:
 ● El segundo, el hash con el que lo queremos comparar
 
 ```javascript
-let check = bcrypt.compareSync('arbu123', passEncriptada);
+let check = bcrypt.compareSync('arbi123', passEncriptada);
 console.log(check); // true
 ```
 
