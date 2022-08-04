@@ -5,7 +5,7 @@ const authController = require('../controllers/authController')
 
 //router para las vistas
 router.get('/', authController.isAuthenticated, (req, res)=>{    
-    res.render('index', {user:req.user})
+    res.render('index', {user : req.user})
 })
 router.get('/login', (req, res)=>{
     res.render('login', {alert:false})
