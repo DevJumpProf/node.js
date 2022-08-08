@@ -4,14 +4,14 @@ const conexion = require('../database/db.js')
 const {promisify} = require('util')
 
 //procedimiento para registrarnos
-exports.register = async (req, res)=>{    
+exports.register = async (req, res, next)=>{    
     try {
         const user = req.body.user
         const name = req.body.name
-        const pass = req.body.pass
-        let passHash = await bcryptjs.hash(pass, 8)    
+        const pass = await bcryptjs.hash(req.body.pass, 10)
+        const avatar = req.files[0].filename  
         //console.log(passHash)   
-        conexion.query('INSERT INTO users SET ?', {user:user, name: name, pass:passHash}, (error, results)=>{
+        conexion.query('INSERT INTO users SET ?', {user:user, name: name, pass:pass, avatar:avatar}, (error, results)=>{
             if(error){console.log(error)}
             res.redirect('/')
         })
@@ -55,7 +55,7 @@ exports.login = async (req, res)=>{
                     })
                     //generamos el token SIN fecha de expiracion
                    //const token = jwt.sign({id: id}, process.env.JWT_SECRETO)
-                   console.log("TOKEN: "+token+" para el USUARIO : "+user)
+                   console.log("TOKEN: "+token+" para el USUARIO : "+ user)
 
                    const cookiesOptions = {
                         expires: new Date(Date.now()+process.env.JWT_COOKIE_EXPIRES * 24 * 60 * 60 * 1000),
