@@ -1,6 +1,6 @@
 //importamos el modelo de la basde de datos
 import PostModel from "../models/PostModel.js";
-
+import bcrypt from "bcrypt";
 //metodos para el 'CRUD'
 
 //mostrar todos los registros (posteos en este caso)
@@ -19,7 +19,7 @@ export const getPost = async(req, res) =>{
         const post = await PostModel.findAll({
             where: {id: req.params.id}
         })
-        res.json(post[0])  //posicion 0 porque nos trae 1. No es necesario, ya que nos trae 1
+        res.json(post[0])  //posicion 0, nos trae 1. No es necesario, ya que nos trae 1
     } catch (error) {
         res.json({message: error.message});
     }
