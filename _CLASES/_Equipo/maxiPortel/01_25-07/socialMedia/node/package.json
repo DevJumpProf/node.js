@@ -17,6 +17,7 @@
   "author": "Maximiliano Portel - Arbusta",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
     "express": "^4.18.1",
     "mysql2": "^2.3.3",
