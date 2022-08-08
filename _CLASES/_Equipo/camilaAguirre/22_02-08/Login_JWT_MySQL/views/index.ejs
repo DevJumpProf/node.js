@@ -97,6 +97,9 @@
         <h2>Bienvenido:
           <% if (user) { %>
             <span class="badge bg-success"><%= user.name %></span>
+            <div>
+              <img src="../tmp/my-uploads/<%= user.avatar %> " alt="" srcset="">
+            </div>
           <% } %>
         </h2>
       </div> 
