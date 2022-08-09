@@ -3,6 +3,7 @@ import cors from "cors";
 import postRoutes from "./routes/routes.js";
 import db from './database/db.js';
 
+
 const app = express()
 const port = 8000;
 
