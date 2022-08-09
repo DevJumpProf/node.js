@@ -30,3 +30,6 @@ app.listen (3000,()=>{
     console.log("Servidor Corriendo en http:/localhost:3000")
 })
 
+
+
+//para json web token : Yo como usuario aunque ya este registrado no podria ver por ejemplo el catalog para eso esta el jwt que al iniciar sesion le pido autorizacion para poder ver todo eso
