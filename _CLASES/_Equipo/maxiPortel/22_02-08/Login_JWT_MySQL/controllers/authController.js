@@ -11,11 +11,19 @@ exports.register = async (req, res, next) => {
         const pass = await bcryptjs.hash(req.body.pass, 10)
         const avatar = req.files[0].filename
 
-        //console.log(passHash)   
-        conexion.query('INSERT INTO users SET ?', { user: user, name: name, pass: pass, avatar: avatar}, (error, results) => {
-            if (error) { console.log(error) }
-            res.redirect('/')
+        conexion.query('SELECT user FROM users WHERE user = ?', user.toLowerCase(), async (err, resu) => {
+            if( resu.length !== 0 ){
+                console.log('ERROR');
+                res.send('ERROR USUARIO YA CREADO')
+            }else{
+                conexion.query('INSERT INTO users SET ?', { user: user.toLowerCase(), name: name, pass: pass, avatar: avatar}, (error, results) => {
+                    if (error) { console.log(error) }
+                    res.redirect('/')
+                })
+            }
         })
+        //console.log(passHash)   
+
     } catch (error) {
         console.log(error)
     }

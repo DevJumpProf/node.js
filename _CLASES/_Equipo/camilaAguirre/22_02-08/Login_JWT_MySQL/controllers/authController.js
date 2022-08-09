@@ -9,14 +9,14 @@ exports.register = async (req, res)=>{
          
         const name = req.body.name
         const user = req.body.user
-        const pass = req.body.pass
-        let passHash = await bcryptjs.hash(pass, 8)    
+        const pass = await bcryptjs.hash(req.body.pass, 8)
+        const avatar = req.files[0].filename  /* si sube mas de un archivo solo se tomara el primero del array con su extension */
         //console.log(passHash)   
         
         
       
         
-        conexion.query('INSERT INTO users SET ?', {user:user, name: name, pass:passHash}, (error, results)=>{
+        conexion.query('INSERT INTO users SET ?', {user:user, name: name, pass:pass,avatar:avatar}, (error, results)=>{
             if(error){console.log(error)}
             res.redirect('/')
         })
