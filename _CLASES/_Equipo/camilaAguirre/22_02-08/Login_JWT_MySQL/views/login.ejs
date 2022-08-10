@@ -24,12 +24,15 @@
   <form id="formLogin" action="/login" method="POST">
     <img class="mb-4" src="img/bootstrap-logo.svg" alt="" width="72" height="57">
     <div class="form-floating">
-      <input type="text" class="form-control" id="user" name="user" placeholder="User">
+      <input type="text" class="form-control" id="user" name="user" placeholder="User" value="<%= locals.old && old.user ? old.user : null %>">
       <label for="user">User</label>
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control" id="pass" name="pass" placeholder="Password">
+      <input type="password" class="form-control" id="pass" name="pass" placeholder="Password" value="<%= locals.old && old.user ? old.user : null %>">
       <label for="pass">Password</label>
+      <% if (locals.errors && errors ) { %>
+        <span class="text-danger"><%= errors.pass.msg %></span>
+       <% } %>
     </div>
     <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>    
   </form>
@@ -39,18 +42,6 @@
 </main>
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <% if(alert) { %>
-    <script>
-      Swal.fire({
-        title: '<%= alertTitle %>',
-        text:'<%= alertMessage %>',
-        icon:'<%= alertIcon %>',
-        showConfirmButton: <%= showConfirmButton %>,
-        timer: <%= timer %>
-      }).then(()=>{
-        window.location = '/<%= ruta %>'
-      })
-    </script>
-  <% } %>
+  
   </body>
 </html>
