@@ -1,8 +1,8 @@
 const express = require('express')
 const router = express.Router()
-const path = require('path');
-const authController = require('../controllers/authController')
-const uploadAvatar = require('../middleware/uploadAvatar');
+const authController = require('../controllers/authController.js')
+const uploadAvatar = require('../middleware/uploadAvatar.js');
+const validatorRegister = require('../validations/validatorRegister.js');
 
 
 //router para las vistas
@@ -18,7 +18,7 @@ router.get('/register', (req, res) => {
 
 
 //router para los métodos del controller
-router.post('/register',uploadAvatar.any(), authController.register)
+router.post('/register',uploadAvatar.any(), validatorRegister, authController.register)
 router.post('/login', authController.login)
 router.get('/logout', authController.logout)
 

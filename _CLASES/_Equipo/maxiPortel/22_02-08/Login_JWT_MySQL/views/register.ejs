@@ -45,15 +45,30 @@
                 <div class="mb-3">
                     <label for="pass" class="form-label">Password</label>
                     <input id="pass" name="pass" type="password" class="form-control">
-                </div>                            
+                </div>  
+                
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input id="email" name="email" type="email" class="form-control">
+              </div>
             </div>
             <div class="card-footer bg-transparent border-primary">
               <a href="/" type="button" class="btn btn-secondary">Cancelar</a>
               <button type="submit" class="btn btn-primary">Registrar</button>
             </div>
+
             </form>
           </div>   
-    
+                <% if(typeof errors != 'undefined'){ %> 
+              <p style="color: red">ERROR</p>
+              <ul>
+            <% for(let i=0; i<errors.length; i++){%> 
+            <li>
+              <%= errors[i].msg %> 
+            </li>
+              <% } %> 
+            </ul>
+            <% } %>
         </div>
     </div>
 </div>
