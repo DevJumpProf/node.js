@@ -2,24 +2,30 @@ const jwt = require('jsonwebtoken')
 const bcryptjs = require('bcryptjs')
 const conexion = require('../database/db')
 const {promisify} = require('util')
-
+const {check,validationResult,body}= require ("express-validator")
 //procedimiento para registrarnos
 exports.register = async (req, res,next)=>{    
+let errors = (validationResult(req));
+if ( errors.isEmpty()){
     try {
-         
+
         const name = req.body.name
         const user = req.body.user
         const pass = await bcryptjs.hash(req.body.pass, 10)     
         const avatar = req.files[0].filename
         //console.log(pass)   
-        
+
         conexion.query('INSERT INTO users SET ?', {user:user, name: name, pass:pass,avatar:avatar}, (error, results)=>{
+
             if(error){console.log(error)}
             res.redirect('/')
         })
     } catch (error) {
         console.log(error)
-    }       
+    }   
+}    else{
+  return res.render ("register", {errors:errors.errors})
+}
 }
 
 exports.login = async (req, res)=>{
