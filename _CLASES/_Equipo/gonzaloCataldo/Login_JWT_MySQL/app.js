@@ -1,8 +1,10 @@
 const express = require('express')
 const dotenv = require('dotenv')
 const cookieParser = require('cookie-parser')
-
 const app = express()
+const db = require("./database/db.js")
+
+
 
 //seteamos el motor de plantillas
 app.set('view engine', 'ejs')
@@ -30,7 +32,14 @@ app.use(function(req, res, next) {
     next();
 });
 
-
+async (req, res,next)=>{
+try {
+    await db.authenticate()
+    console.log("conexion exitosa")
+} catch (error) {
+    console.log(`el error en conexion es: ${error}`)
+}
+}
 app.listen(3000, ()=>{
     console.log('SERVER UP runnung in http://localhost:3000')
 })
