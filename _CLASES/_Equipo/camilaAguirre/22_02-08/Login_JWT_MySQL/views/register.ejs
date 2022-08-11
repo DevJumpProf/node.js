@@ -30,20 +30,49 @@
               <form action="/register" method="POST" enctype="multipart/form-data"> <!-- importante que este el ENCTYPE para la subida de archivos -->        
                 <div class="mb-3">
                     <label for="name" class="form-label">Nombre completo</label>
-                    <input id="name" name="name" type="text" class="form-control" aria-describedby="emailHelp">              
-                </div>
+                    <input id="name" name="name" type="text" class="form-control" aria-describedby="emailHelp" value="<%= locals.old && old.name ? old.name : null %>">  <!-- con esto hacemos que se vea lo que anteriormente se escribio en el registro -->            
+                    <% if (locals.errors) { %>
+                      <% errors.forEach(error => { %>
+                         <span class="text-danger"><%- error.param === "name" ? error.msg : null %> </span> <!-- mostramos en especifico el mensaje de error -->
+                      <% }) %>
+                     <% } %>
+                  </div>
                 <div class="mb-3">
                     <label for="user" class="form-label">Cuenta de usuario</label>
-                    <input id="user" name="user" type="text" class="form-control">
-                </div>
+                    <input id="user" name="user" type="text" class="form-control" value="<%= locals.old && old.user ? old.user : null %>">
+                    <% if (locals.errors) { %>
+                      <% errors.forEach(error => { %>
+                         <span class="text-danger"><%- error.param === "user" ? error.msg : null %> </span>
+                      <% }) %>
+                     <% } %>
+                  </div>
+                  <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input id="email" name="email" type="text" class="form-control" value="<%= locals.old && old.email ? old.email : null %>">
+                    <% if (locals.errors) { %>
+                      <% errors.forEach(error => { %>
+                         <span class="text-danger"><%- error.param === "email" ? error.msg : null %> </span>
+                      <% }) %>
+                     <% } %>
+                  </div>
                 <div class="mb-3">
                   <label for="avatar" class="form-label">Avatar</label>
                   <input id="avatar" name="avatar" type="file" class="form-control"> <!-- agregar el input de tipo file para la subida de archivos -->
-              </div>
+                  <% if (locals.errors) { %>
+                    <% errors.forEach(error => { %>
+                       <span class="text-danger"><%- error.param === "avatar" ? error.msg : null %> </span>
+                    <% }) %>
+                   <% } %>
+                </div>
                 <div class="mb-3">
                     <label for="pass" class="form-label">Password</label>
-                    <input id="pass" name="pass" type="password" class="form-control">
-                </div>                            
+                    <input id="pass" name="pass" type="password" class="form-control" value="<%= locals.old && old.name ? old.name : null %>">
+                    <% if (locals.errors) { %>
+                      <% errors.forEach(error => { %>
+                         <span class="text-danger"><%- error.param === "pass" ? error.msg : null %> </span>
+                      <% }) %>
+                     <% } %>
+                  </div>                            
             </div>
             <div class="card-footer bg-transparent border-primary">
               <a href="/" type="button" class="btn btn-secondary">Cancelar</a>

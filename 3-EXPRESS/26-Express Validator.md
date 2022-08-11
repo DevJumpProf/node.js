@@ -201,7 +201,7 @@ body('email').custom(function(value){
 })
 ```
 
-Al igual que check(), las
+Al  lasigual que check(),
 validaciones con body() las
 haremos dentro del array que le
 pasamos como parámetro a la

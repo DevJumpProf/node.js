@@ -2,31 +2,75 @@ const jwt = require('jsonwebtoken')
 const bcryptjs = require('bcryptjs')
 const conexion = require('../database/db')
 const {promisify} = require('util')
+const { validationResult } = require("express-validator"); 
 
 //procedimiento para registrarnos
 exports.register = async (req, res)=>{    
-    try {
+    
+    let errors = validationResult(req); /* traemos en una variable los errores que se guarden */
+    console.log(errors);
+    if(!errors.isEmpty()) {
+        return res.render("register", { errors: errors.array(), old: req.body})
+        
+    }else{
+
+        try {
          
         const name = req.body.name
         const user = req.body.user
         const pass = await bcryptjs.hash(req.body.pass, 8)
+        const email = req.body.email
         const avatar = req.files[0].filename  /* si sube mas de un archivo solo se tomara el primero del array con su extension */
         //console.log(passHash)   
         
         
       
         
-        conexion.query('INSERT INTO users SET ?', {user:user, name: name, pass:pass,avatar:avatar}, (error, results)=>{
+        conexion.query('INSERT INTO users SET ?', {user:user, name: name, pass:pass,avatar:avatar, email:email}, (error, results)=>{
             if(error){console.log(error)}
             res.redirect('/')
         })
-    } catch (error) {
-        console.log(error)
-    }       
+            } catch (error) {
+                 console.log(error)
+                }
+
+    }
+    
+    
+    
+           
 }
 
 exports.login = async (req, res)=>{
-    try {
+
+    let errors = validationResult(req);
+
+    if(errors.isEmpty()){
+        try {
+            conexion.query('SELECT * FROM users WHERE user = ?', [user], async (error, results)=>{
+                const id = results[0].id
+                const token = jwt.sign({id:id}, process.env.JWT_SECRETO, { 
+                    expiresIn: process.env.JWT_TIEMPO_EXPIRA
+                })  
+
+                console.log("TOKEN: "+token+" para el USUARIO : "+user)
+
+                   const cookiesOptions = {
+                        expires: new Date(Date.now()+process.env.JWT_COOKIE_EXPIRES * 24 * 60 * 60 * 1000),
+                        httpOnly: true
+                   }
+                   res.cookie('jwt', token, cookiesOptions)
+                   res.render('login')
+
+            })
+        } catch (error) {
+            
+        }
+    }else{
+        return res.render("login", { errors : errors.mapped(), old: req.body })
+    }
+
+/* try {
         const user = req.body.user
         const pass = req.body.pass        
 
@@ -42,7 +86,7 @@ exports.login = async (req, res)=>{
             })
         }else{
             conexion.query('SELECT * FROM users WHERE user = ?', [user], async (error, results)=>{
-                if( results.length == 0 || ! (await bcryptjs.compare(pass, results[0].pass)) ){ // corregimos el length || aunque por mas que este corregido si se hace andar la terminal y estan resueltos los demas problemas tira un error con length con el que lo resuelvo al comentar y descomentar para que tome el cambio con nodemon pero no lo toma al principio
+                if(  results.length == 0 || ! (await bcryptjs.compare(pass, results[0].pass)) ){ // corregimos el length || aunque por mas que este corregido si se hace andar la terminal y estan resueltos los demas problemas tira un error con length con el que lo resuelvo al comentar y descomentar para que tome el cambio con nodemon pero no lo toma al principio
                     res.render('login', {
                         alert: true,
                         alertTitle: "Error",
@@ -81,7 +125,10 @@ exports.login = async (req, res)=>{
         }
     } catch (error) {
         console.log(error)
-    }
+    } */
+
+
+
 }
 
 exports.isAuthenticated = async (req, res, next)=>{
