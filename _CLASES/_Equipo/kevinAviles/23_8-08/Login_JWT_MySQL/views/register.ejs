@@ -40,7 +40,10 @@
                   <label for="avatar" class="form-label">Avatar</label>
                   <input id="avatar" name="avatar" type="file" class="form-control">
               </div>
-  
+              <div class="mb-3">
+                <label for="user" class="form-label">email</label>
+                <input id="email" name="email" type="email" class="form-control">
+            </div>
 
                 <div class="mb-3">
                     <label for="pass" class="form-label">Password</label>
@@ -57,7 +60,18 @@
         </div>
     </div>
 </div>
-
+<% if (typeof errors != 'undefined') { %>
+<h5 style="color: red;">Errores</h5>
+<ul></ul>
+  <% errors.forEach(element => { %>
+ 
+  <li><%= element.msg %> </li>
+ 
+  <% }) %>
+</ul>
+<% } %>
+  
+  
  
     
     <script src="js/bootstrap.bundle.min.js"></script>

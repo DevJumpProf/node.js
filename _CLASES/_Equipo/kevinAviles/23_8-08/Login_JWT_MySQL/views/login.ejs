@@ -31,27 +31,43 @@
       <input type="password" class="form-control" id="pass" name="pass" placeholder="Password">
       <label for="pass">Password</label>
     </div>
+     <div class="">
+    
+     <% if (typeof errors != 'undefined') { %>
+       <h5 style="color: red;">Errores</h5>
+       <ul>
+         <% errors.forEach(element => { %>
+        
+         <li><%= element.msg %> </li>
+        
+         <% }) %>
+       </ul>
+       <% } %>
+   </div>
     <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>    
   </form>
 
   <br>
   <a href="/register" type="button" class="w-100 btn btn-lg btn-bd-primary">Registrarse</a>
+ 
+  
 </main>
 
+
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <% if(alert) { %>
-    <script>
+  <%# if(alert) { %>
+   <!--  <script>
       Swal.fire({
-        title: '<%= alertTitle %>',
-        text:'<%= alertMessage %>',
-        icon:'<%= alertIcon %>',
-        showConfirmButton: <%= showConfirmButton %>,
-        timer: <%= timer %>
+        title: '<%#= alertTitle %>',
+        text:'<%#= alertMessage %>',
+        icon:'<%#= alertIcon %>',
+        showConfirmButton: <%#= showConfirmButton %>,
+        timer: <%#= timer %>
       }).then(()=>{
-        window.location = '/<%= ruta %>'
+        window.location = '/<%#= ruta %>'
       })
-    </script>
-  <% } %>
+    </script> -->
+  <%# } %>
 
   </body>
 </html>
