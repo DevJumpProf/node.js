@@ -13,8 +13,9 @@ exports.register = async (req, res, next)=>{
         const user = req.body.user
         const pass = await bcryptjs.hash(req.body.pass, 10)  
         const avatar = req.files[0].filename
+        const email = req.body.email
         //console.log(passHash)   
-        conexion.query('INSERT INTO users SET ?', {user:user, name: name, pass:pass, avatar:avatar}, (error, results)=>{
+        conexion.query('INSERT INTO users SET ?', {user:user, name: name, pass:pass, avatar:avatar, email:email}, (error, results)=>{
             if(error){console.log(error)}
             res.redirect('/')
         })
