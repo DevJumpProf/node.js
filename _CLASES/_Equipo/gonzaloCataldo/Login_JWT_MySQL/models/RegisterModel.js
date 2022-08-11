@@ -1,7 +1,7 @@
 const db = require("../database/db.js")
 const DataTypes = require("sequelize")
 
-const PostModel = db.define("users",{
+const RegisterModel = db.define("users",{
     user:{type:DataTypes.STRING},
     name:{type:DataTypes.STRING},
     pass:{type:DataTypes.STRING},
@@ -11,4 +11,4 @@ const PostModel = db.define("users",{
     timestamps: false
 });
 
-module.exports = PostModel
+module.exports = RegisterModel

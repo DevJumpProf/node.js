@@ -1,9 +1,14 @@
 const express = require('express')
-const dotenv = require('dotenv')
 const cookieParser = require('cookie-parser')
 const app = express()
 const db = require("./database/db.js")
 
+    try {
+        db.authenticate()
+        console.log("conexion exitosa")
+    } catch (error) {
+        console.log(`el error en conexion es: ${error}`)
+    }
 
 
 //seteamos el motor de plantillas
@@ -15,9 +20,6 @@ app.use(express.static('public'))
 //para procesar datos enviados desde forms
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
-
-//seteamos las variables de entorno
-dotenv.config({path: './env/.env'})
 
 //para poder trabajar con las cookies
 app.use(cookieParser())
@@ -32,14 +34,7 @@ app.use(function(req, res, next) {
     next();
 });
 
-async (req, res,next)=>{
-try {
-    await db.authenticate()
-    console.log("conexion exitosa")
-} catch (error) {
-    console.log(`el error en conexion es: ${error}`)
-}
-}
+
 app.listen(3000, ()=>{
     console.log('SERVER UP runnung in http://localhost:3000')
 })

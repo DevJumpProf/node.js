@@ -1,35 +1,60 @@
 const jwt = require('jsonwebtoken')
-const bcryptjs = require('bcryptjs')
 const conexion = require('../database/db')
 const {promisify} = require('util')
-const {validationResult, body}= require ("express-validator")
-const PostModel = require("../models/PostModel.js")
+const RegisterModel = require("../models/RegisterModel.js")
+const bcryptjs = require('bcryptjs')
+const {validationResult } = require('express-validator');
 
 
-
-//procedimiento para registrarnos
-exports.register = async (req, res,next)=>{
+//Falta validar el avatar, todo lo demas ya esta validado y la pass esta hasheada 
+exports.register = registerUser = async(req, res)=>{
     let errors = (validationResult(req));
+    const {name,user,email} = req.body
+    const avatar = req.files[0].filename
+    const pass = await bcryptjs.hash(req.body.pass, 10)
     if ( errors.isEmpty()){
-    try {
-        const name = req.body.name
-        const user = req.body.user
-        const email = req.body.email
-        const pass = await bcryptjs.hash(req.body.pass, 10)     
-        const avatar = req.files[0].filename
-        conexion.query('INSERT INTO users SET ?', {user:user, name: name, pass:pass,avatar:avatar, email:email}, (error, results)=>{
-            if(error){console.log(error)}
-            res.redirect('/')
+    try {      //metodo que permite crear un registro
+        await RegisterModel.create({
+            name: name,
+            user: user,
+            pass: pass,
+            email: email,
+            avatar: avatar
         })
-    } catch (error) {
-        console.log(error)
-    }       
+        res.redirect("/login")
+    }catch (error) {
+        res.json({message:error.message})
+    }
 }   else{
     return res.render ("register", {errors:errors.errors})
-  }
+    }
 }
 
-exports.login = async (req, res)=>{
+
+exports.login = userLogin = async(req, res)=>{
+    try {
+        const user = req.body.user
+        const pass = req.body.pass        
+
+        if(!user || !pass ){
+            res.render("login",{
+                alert:true,
+                alertTitle: "Advertencia",
+                alertMessage: "Ingrese un usuario y password",
+                alertIcon:'info',
+                showConfirmButton: true,
+                timer: false,
+                ruta: 'login'
+            })}
+        const usuarios = await RegisterModel.findAll()
+        console.log(usuarios)
+        res.redirect("/")
+        
+    } catch (error) {
+        res.json({ message: error.message })
+    }
+}
+/* exports.login = async (req, res)=>{
     try {
         const user = req.body.user
         const pass = req.body.pass        
@@ -87,7 +112,7 @@ exports.login = async (req, res)=>{
         console.log(error)
     }
 }
-
+ */
 exports.isAuthenticated = async (req, res, next)=>{
     if (req.cookies.jwt) {
         try {
@@ -106,7 +131,7 @@ exports.isAuthenticated = async (req, res, next)=>{
     }
 }
 
-exports.logout = (req, res)=>{
+/* exports.logout = (req, res)=>{
     res.clearCookie('jwt')   
     return res.redirect('/')
-}
+} */
