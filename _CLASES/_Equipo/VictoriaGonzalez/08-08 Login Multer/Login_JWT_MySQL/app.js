@@ -40,7 +40,7 @@ app.use(function(req, res, next) {
 //    }
 
 
-// PORQUÉ NO LO MUESTRA POR CONSOLA?, ahora porque lo muestra comentando la linea 18 AAAAAAAA
+
 app.listen(3000, ()=>{
     console.log('SERVER UP runnig in http://localhost:3000')
 })
