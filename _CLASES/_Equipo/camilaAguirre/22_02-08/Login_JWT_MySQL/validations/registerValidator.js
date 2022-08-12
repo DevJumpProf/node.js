@@ -18,8 +18,8 @@ module.exports = [
     body("avatar") /* validacion de la subida de archivos para que solo pueda ser subido cierto tipo de archivo imagen */
     .custom((value, {req}) => {
         
-        if(req.file){
-            let file = path.extname(req.file.filename).toUpperCase()
+        if(req.body.file){
+            let file = path.extname(req.body.file.filename).toUpperCase()
             
             if (file == ".JPG" || file == ".JPEG" || file == ".PNG" || file == ".GIF"){
                 return true

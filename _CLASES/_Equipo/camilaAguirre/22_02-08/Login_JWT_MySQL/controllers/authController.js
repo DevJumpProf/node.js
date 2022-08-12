@@ -43,7 +43,7 @@ exports.register = async (req, res)=>{
 
 exports.login = async (req, res)=>{
 
-    let errors = validationResult(req);
+    /* let errors = validationResult(req);
 
     if(errors.isEmpty()){
         try {
@@ -69,8 +69,8 @@ exports.login = async (req, res)=>{
     }else{
         return res.render("login", { errors : errors.mapped(), old: req.body })
     }
-
-/* try {
+ */
+try {
         const user = req.body.user
         const pass = req.body.pass        
 
@@ -125,7 +125,7 @@ exports.login = async (req, res)=>{
         }
     } catch (error) {
         console.log(error)
-    } */
+    }
 
 
 
