@@ -3,28 +3,33 @@ const bcryptjs = require('bcryptjs')
 const conexion = require('../database/db')
 const {promisify} = require('util')
 const {check, validationResult, body} = require("express-validator")
+const loginModel = require("../models/loginModel.js")
 
-//procedimiento para registrarnos
-exports.register = async (req, res, next)=>{ 
+
+
+
+
+exports.CreateUser = async(req, res)=>{
     let errors = (validationResult(req));
-    if (errors.isEmpty()){   
-    try {
-        const name = req.body.name
-        const user = req.body.user
-        const pass = await bcryptjs.hash(req.body.pass, 10)  
-        const avatar = req.files[0].filename
-        const email = req.body.email
-        //console.log(passHash)   
-        conexion.query('INSERT INTO users SET ?', {user:user, name: name, pass:pass, avatar:avatar, email:email}, (error, results)=>{
-            if(error){console.log(error)}
-            res.redirect('/')
+    const {name,user,email} = req.body
+    const avatar = req.files[0].filename
+    const pass = await bcryptjs.hash(req.body.pass, 10)
+    if ( errors.isEmpty()){
+    try {      //metodo que permite crear un registro
+        await loginModel.create({
+            name: name,
+            user: user,
+            pass: pass,
+            email: email,
+            avatar: avatar
         })
+        res.render("login")
     } catch (error) {
-        console.log(error)
-    }       
-} else{
-    return res.render("Register", {errors:errors.errors})
-}
+        res.json({message:error.message})
+    }
+}   else{
+    return res.render ("register", {errors:errors.errors})
+    }
 }
 
 
@@ -44,8 +49,10 @@ exports.login = async (req, res)=>{
                 ruta: 'login'
             })
         }else{
-            conexion.query('SELECT * FROM users WHERE user = ?', [user], async (error, results)=>{
-                if( results.length == 0 || ! (await bcryptjs.compare(pass, results[0].pass)) ){
+         const usuarioPass = await loginModel.findAll({
+            where: {user:user}
+         }) 
+            if( usuarioPass.length == 0 || ! (await bcryptjs.compare(pass, usuarioPass[0].pass)) ){
                     res.render('login', {
                         alert: true,
                         alertTitle: "Error",
@@ -57,7 +64,7 @@ exports.login = async (req, res)=>{
                     })
                 }else{
                     //inicio de sesión OK
-                    const id = results[0].id
+                    const id = usuarioPass[0].id
                     const token = jwt.sign({id:id}, process.env.JWT_SECRETO, {
                         expiresIn: process.env.JWT_TIEMPO_EXPIRA
                     })
@@ -80,12 +87,12 @@ exports.login = async (req, res)=>{
                         ruta: ''
                    })
                 }
-            })
-        }
+            }
+        
     } catch (error) {
         console.log(error)
     }
-}
+
 
 exports.isAuthenticated = async (req, res, next)=>{
     if (req.cookies.jwt) {
@@ -108,4 +115,5 @@ exports.isAuthenticated = async (req, res, next)=>{
 exports.logout = (req, res)=>{
     res.clearCookie('jwt')   
     return res.redirect('/')
+}
 }

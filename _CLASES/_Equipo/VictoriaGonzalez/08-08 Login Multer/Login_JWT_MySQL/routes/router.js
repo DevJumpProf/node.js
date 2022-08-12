@@ -6,7 +6,7 @@ const validations = require('../validations/validationsRegister.js')
 
 
 
-router.get('/', authController.isAuthenticated, (req, res)=>{    
+router.get('/', authController.login, (req, res)=>{    
     res.render('index', {user:req.user})
     console.log(req.user)
 })
@@ -19,8 +19,8 @@ router.get('/register',(req, res)=>{
 
 
 //router para los métodos del controller
-router.post('/register', upload.any(), validations, authController.register)
+router.post('/register', upload.any(upload), validations, authController.CreateUser)
 router.post('/login', authController.login)
-router.get('/logout', authController.logout)
+/* router.get('/logout', authController.logout)*/
 
 module.exports = router
