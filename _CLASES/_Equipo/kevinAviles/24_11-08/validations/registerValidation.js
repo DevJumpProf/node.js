@@ -25,7 +25,7 @@ module.exports =[
       
     }),
     body('pass2').custom((value,{req})=>{
-      if(value!=req.params.pass){
+      if(value!=req.body.pass){
          return false
       }
          return true

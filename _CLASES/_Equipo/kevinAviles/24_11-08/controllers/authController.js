@@ -45,10 +45,22 @@ exports.register = async (req, res, next) => {
 exports.login = async (req, res) => {
     const user = req.body.user
     const pass = req.body.pass
+    const errors = validationResult(req);
 
     try {
-
-        if (!user || !pass) {
+        if(!errors.isEmpty()){
+            res.render('login', {
+                alert: false,
+                alertTitle: "Advertencia",
+                alertMessage: "Ingrese un usuario y password",
+                alertIcon: 'info',
+                showConfirmButton: true,
+                timer: false,
+                ruta: 'login',
+                errors:errors.errors
+        })
+        }
+        /* if (!user || !pass) {
             res.render('login', {
                 alert: true,
                 alertTitle: "Advertencia",
@@ -58,7 +70,7 @@ exports.login = async (req, res) => {
                 timer: false,
                 ruta: 'login'
             })
-        } else {
+        } */ /* else {
 
             const result = await UserModel.findOne({
                 where: {
@@ -75,7 +87,12 @@ exports.login = async (req, res) => {
                     timer: false,
                     ruta: 'login'
                 })
-            } else {
+            }  */else {
+                const result = await UserModel.findOne({
+                    where: {
+                        user: user
+                    }
+                })
                 const id = result.id
                 const token = jwt.sign({ id: id }, process.env.JWT_SECRETO, { // agregamos las variables de JWT en el archivo .env
                     expiresIn: process.env.JWT_TIEMPO_EXPIRA
@@ -100,7 +117,7 @@ exports.login = async (req, res) => {
                 })
             }
             
-        }
+        //}
     } catch (error) {
         console.log(error)
     }
