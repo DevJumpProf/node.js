@@ -3,7 +3,7 @@ const conexion = require('../database/db');
 const bcryptjs = require('bcryptjs')
 module.exports = [
     check('user').notEmpty().withMessage('El nombre de usuario es requerido'),
-    body('user').custom((value)=>{ 
+   /*  body('user').custom((value)=>{ 
         return new Promise ((resolve,reject)=>{
             conexion.query('SELECT user from users where user = ?',[value],async(error,results)=>{
                  if(error){
@@ -15,7 +15,7 @@ module.exports = [
                  resolve()
             })    
         })
-    }),
+    }), */
     check('pass').notEmpty().withMessage('La contraseña es requerida'),
    /*  body('pass').custom((value,{req})=>{ 
         
