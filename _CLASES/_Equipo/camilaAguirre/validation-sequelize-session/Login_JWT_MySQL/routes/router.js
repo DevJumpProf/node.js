@@ -26,7 +26,7 @@ router.post('/login', authController.login)
 router.get('/logout', authController.logout)
 router.get('/allUsers',authController.isAuthenticated,authController.getAllUsers)
 router.get('/user/:id',authController.isAuthenticated,authController.getUser)
-router.get('/updateUser/:id',authController.updateUser)
+router.get('/updateUser/:id',authController.isAuthenticated,authController.updateUser)
 router.put('/updateUser/:id',upImgAvatar.any(),userCheck,authController.processUpdateUser)
 router.delete('/deleteUser/:id',authController.deleteUser)
 

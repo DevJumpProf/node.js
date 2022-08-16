@@ -17,6 +17,11 @@ app.use(express.static('public'))
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 app.use(methodOverride('_method'));
+app.use(session({ 
+    secret: "secret",
+    resave: false,
+    saveUninitialized: true
+  }));
 
 //para poder trabajar con las cookies
 app.use(cookieParser())
@@ -31,11 +36,6 @@ app.use(function(req, res, next) {
     next();
 });
 
-app.use(session({ 
-    secret: "secret"
-    /* resave: false,
-    saveUninitialized: true */
-  }));
 
 try {
     db.authenticate()
