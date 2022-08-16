@@ -9,8 +9,8 @@ module.exports = [
     check('user').isLength({min: 4}).withMessage('El usuario debe tener minimo 4 caracteres'),
     check('pass').isLength({min: 8}).withMessage('La contraseña debe tener minimo 8 caracteres'),
     check('email').isEmail().withMessage('Debe ingresar un email en el campo'),
-    body('avatar') /* validacion de la subida de archivos para que solo pueda ser subido cierto tipo de archivo imagen */
-    .custom((value, {req}) => {
+    /*body('avatar') /* validacion de la subida de archivos para que solo pueda ser subido cierto tipo de archivo imagen */
+   /*  .custom((value, {req}) => {
         
         if(req.body.file){
             let file = path.extname(req.body.file.filename).toUpperCase()
@@ -24,8 +24,8 @@ module.exports = [
             req.avatar 
         }
 
-    }).withMessage('Solo se pueden cargar archivos JPG, JPEG, PNG, GIF'),
-
+    }).withMessage('Solo se pueden cargar archivos JPG, JPEG, PNG, GIF'), 
+    */
     body('user')
     .custom(function(value){
        return loginModel.findOne({

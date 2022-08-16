@@ -3,7 +3,7 @@ const express = require('express')
 const cookieParser = require('cookie-parser')
 const app = express()
 const db = require("./database/db.js")
-
+const method = require("method-override")
 //seteamos el motor de plantillas
 app.set('view engine', 'ejs')
 
@@ -13,7 +13,7 @@ app.use(express.static('public'))
 //para procesar datos enviados desde forms
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
-
+app.use(method("_method"))
 //seteamos las variables de entorno
  dotenv.config({path: './env/.env'})
 

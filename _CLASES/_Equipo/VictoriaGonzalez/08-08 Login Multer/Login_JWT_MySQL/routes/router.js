@@ -15,11 +15,19 @@ router.get('/login', (req, res)=>{
 router.get('/register', (req, res)=>{
     res.render('register')
 })
+router.get('/users', authController.isAuthenticated, authController.Users, (req, res)=>{    
+    res.render('users', {user:req.user}) 
+})
 
 
 //router para los métodos del controller
 router.post('/register',upload.any(upload), validations, authController.createUser)
 router.post('/login', authController.login)  
- router.get('/logout', authController.logout) 
-
+router.get('/logout', authController.logout) 
+router.get('/users', authController.isAuthenticated, authController.Users)
+/* router.get('/update', authController.update ) */ 
+router.delete('/delete/:id', authController.deleteUser)
+router.get('/editUser/:id',authController.userEdit)
+router.put('/editUser/:id',upload.any(),authController.processEditUser)
 module.exports = router
+

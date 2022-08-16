@@ -8,8 +8,9 @@ const { validationResult } = require('express-validator');
 
 exports.createUser = async (req, res) => {
     let errors = (validationResult(req));
-    const { name, user, email } = req.body
-    const avatar = req.files[0].filename
+    const { name, user, email } = req.body 
+    // De esta forma en caso que el usuario no suba imagen, se sube una por default. Falta configurar carpetas en el multer para más orden
+    const avatar = (req.files[0]) ? req.files[0].filename : "default.png"
     const pass = await bcryptjs.hash(req.body.pass, 10)
     if (errors.isEmpty()) {
         try {      //metodo que permite crear un registro
@@ -133,12 +134,94 @@ exports.isAuthenticated = async (req, res, next) => {
 }
 
 
-exports.logout = (req, res) => {
+ exports.logout = (req, res) => {
     res.clearCookie('jwt')
-    return res.render('/login')
-}
+    return res.redirect('/login')
+} 
 
-exports.logout = (req, res)=>{
+/* exports.logout = (req, res)=>{
     req.session.destroy();
     res.send("logout success!");
-  };
+  }; */
+
+
+exports.Users = async (req, res) => {
+    const users = await loginModel.findAll();
+    res.render('users', {
+        users: users,
+        user: req.user
+    })
+}
+
+exports.getUser = async(req, res) => {
+    try {
+        const user= await loginModel.findAll({
+            where: {id:req.params.id}
+        })
+        res.json (user[0])
+        
+    } catch (error) {
+        res.json({message: error.message})
+    }
+}
+
+
+
+exports.update = async(req,res)=>{
+    await loginModel.update({
+        where:{
+            id:req.params.id
+        }
+    })
+    res.redirect('/users');
+}
+
+/*exports.deleteUser = async(req, res) =>{
+    try {
+        await loginModel.destroy ({where:{id:req.params.id}
+        })
+       res.json({ "message": "registro eliminado correctamente"}) 
+    } catch (error) {
+        res.json({message:error.message})
+    }
+}*/
+
+
+exports.deleteUser = async(req,res)=>{
+    await loginModel.destroy({
+        where:{
+            id:req.params.id
+        }
+    })
+    res.redirect('/login');
+}
+
+
+exports.userEdit = async (req, res) => {
+    const usuario = await loginModel.findByPk(req.params.id);
+    if (!usuario) {
+        res.redirect('/');
+    } else {
+        res.render('editUser', {
+            old: usuario
+        })
+    }
+}
+exports.processEditUser = async (req, res) => {
+    const { name, user, email } = req.body;
+    const avatar = req.files[0].filename
+    await loginModel.update({
+        name: name,
+        user: user,
+        email: email,
+        avatar: avatar
+    }, {
+        where: {
+            id: req.params.id
+        }
+    })
+    res.redirect('/');
+}
+
+
+

@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -43,15 +44,17 @@
       <a type="button" class="px-3 btn btn-danger" href="logout">Logout</a>
     </div>
   </div>
+
 </header>
 
+<!--
 <div class="container-fluid">
   <div class="row">
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-primary sidebar collapse">
       <div class="position-sticky pt-3">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="users">
+            <a class="nav-link" aria-current="page" href="#">
               <span data-feather="home"></span>
               Users
             </a>
@@ -89,20 +92,59 @@
         </ul>
       </div>
     </nav>
-
+-->
     <!-- Contenido principal   -->
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h2>Dashboard</h2>
-        <h2>Bienvenido:
-          <% if (user) { %>
-            <span class="badge bg-success"><%= user.name %> <img width="60px" src="img/<%= user.avatar %>"></span>
-          <% } %>
-        </h2>
+        <h2>USERS:</h2>
+ 
+        
       </div> 
     </main>
   </div>
+
+  
 </div>
+<div class="navbar-nav">
+  
+
+
+
+
+
+</div>
+<div class="card border-primary">
+    <div class="card-header bg-primary text-white">Edit usuario <%= old.id %>
+    </div>
+    <div class="card-body text-primary">
+        <form action="/editUser/<%= old.id %>?_method=put " method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="name" class="form-label">Nombre completo</label>
+                <input id="name" name="name" type="text" class="form-control"
+                    aria-describedby="emailHelp" value="<%= old.name %>">
+            </div>
+            <div class="mb-3">
+                <label for="user" class="form-label">Cuenta de usuario</label>
+                <input id="user" name="user" type="text" class="form-control" value="<%= old.user %>">
+            </div>
+            <div class="mb-3">
+                <label for="avatar" class="form-label">Avatar</label>
+                <input id="avatar" name="avatar" type="file" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="user" class="form-label">email</label>
+                <input id="email" name="email" type="email" class="form-control"
+                    value="<%= old.email %>">
+            </div>
+    </div>
+    <div class="card-footer bg-transparent border-primary">
+        <a href="/" type="button" class="btn btn-secondary">Cancelar</a>
+        <button type="submit" class="btn btn-primary">Editar</button>
+    </div>
+
+    
+   
+
 
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="dashboard.js"></script>
