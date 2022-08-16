@@ -53,13 +53,7 @@
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="#">
               <span data-feather="home"></span>
-              <% if (typeof userNew != 'undefined') { %>
-                
-                <%=userNew.name%> 
-              <% }else{ %>
-                Dashboard 
-                <% } %>
-              
+              Dashboard
             </a>
           </li>
           <li class="nav-item">
@@ -101,54 +95,23 @@
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h2>Dashboard</h2>
         <h2>Bienvenido:
-          <% if (user) { %>
-            <span class="badge bg-success"><%= user.name %></span>
-            <span style="width: 100px;" class="badge bg-success"><img style="width: 100%;" src="/img/tmp/my-uploads/<%= user.avatar %> " alt=""></span>
+          <% if (user1) { %>
+            <span class="badge bg-success"><%= user1.name %></span>
+            <div>
+              <img src="img/users/<%= user1.avatar %> " alt="avatar" srcset="" style="height: 80px;"> <!-- subido en carpeta public -->
+            </div>
           <% } %>
         </h2>
-      </div>
-      <div class="container">
-        <div class="row">
-            <div class="col-lg-12 shadow-lg p-3 mb-5">
-    
-              <div class="card border-primary">
-                <div class="card-header bg-primary text-white">Lista de usuarios</div>
-                <div class="card-body text-primary">
-                  <a href="/userList">Lista de usuarios</a>
-                  <!-- <form  action="/register" method="POST" enctype="multipart/form-data">        
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Nombre completo</label>
-                        <input id="name" name="name" type="text" class="form-control" aria-describedby="emailHelp">              
-                    </div>
-                    <div class="mb-3">
-                        <label for="user" class="form-label">Cuenta de usuario</label>
-                        <input id="user" name="user" type="text" class="form-control">
-                    </div>
-                    <div class="mb-3">
-                      <label for="avatar" class="form-label">Avatar</label>
-                      <input id="avatar" name="avatar" type="file" class="form-control">
-                  </div>
-                  <div class="mb-3">
-                    <label for="user" class="form-label">email</label>
-                    <input id="email" name="email" type="email" class="form-control">
-                </div>
-    
-                    <div class="mb-3">
-                        <label for="pass" class="form-label">Password</label>
-                        <input id="pass" name="pass" type="password" class="form-control">
-                    </div>                            
-                </div>
-                <div class="card-footer bg-transparent border-primary">
-                  <a href="/" type="button" class="btn btn-secondary">Cancelar</a>
-                  <button type="submit" class="btn btn-primary">Registrar</button>
-                </div>
-                </form> -->
-              </div>   
-        
-            </div>
+
+        <h3>Usuario con id: <%= user.id %> </h3>
+        <div>
+            <img src="img/users/<%= user.avatar %> " alt="" width="100px">
+            <h4><%= user.user %> </h4>
+            <h4><%= user.name %></h4>
+            <h4><%= user.email %> </h4>
+                
         </div>
-    </div> 
-    </div>
+      </div> 
     </main>
   </div>
 </div>

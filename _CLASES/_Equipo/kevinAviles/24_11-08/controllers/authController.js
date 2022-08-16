@@ -44,7 +44,7 @@ exports.register = async (req, res, next) => {
 
 exports.login = async (req, res) => {
     const user = req.body.user
-    const pass = req.body.pass
+   /*  const pass = req.body.pass */
     const errors = validationResult(req);
 
     try {
@@ -93,10 +93,17 @@ exports.login = async (req, res) => {
                         user: user
                     }
                 })
-                const id = result.id
+                req.session.userNew = {
+                        id: user.id,
+                        username: user.name,
+                        apellido: user.apellido,
+                        email: user.email,
+                        avatar: user.avatar
+                };
+                const id = result.id;
                 const token = jwt.sign({ id: id }, process.env.JWT_SECRETO, { // agregamos las variables de JWT en el archivo .env
                     expiresIn: process.env.JWT_TIEMPO_EXPIRA
-                })
+                });
                 //generamos el token SIN fecha de expiracion
                 //const token = jwt.sign({id: id}, process.env.JWT_SECRETO)
                 console.log("TOKEN: " + token + " para el USUARIO : " + user)
@@ -149,13 +156,10 @@ exports.isAuthenticated = async (req, res, next) => {
     }
 }
 
-exports.logout = (req, res) => {
-    res.clearCookie('jwt')
-    return res.redirect('/')
-}
+
 exports.listaUsers = async (req, res) => {
     const usuarios = await UserModel.findAll();
-    
+    console.log(req.session.user);
 
    /*  usuarios.forEach(element => {
         let today = new Date();
@@ -185,25 +189,30 @@ exports.userEdit = async (req, res) => {
     if (!usuario) {
         res.redirect('/');
     } else {
-        res.render('userEdit', {
+        res.render('userEdits', {
             old: usuario
         })
     }
 }
 exports.processEditUser = async (req, res) => {
-    const { name, user, email } = req.body;
-    const avatar = req.files[0].filename
-    await UserModel.update({
-        name: name,
-        user: user,
-        email: email,
-        avatar: avatar
-    }, {
-        where: {
-            id: req.params.id
-        }
-    })
-    res.redirect('/');
+    try {
+        const { name, user, email } = req.body;
+        const avatar = req.files[0].filename
+        await UserModel.update({
+            name: name,
+            user: user,
+            email: email,
+            avatar: avatar
+        }, {
+            where: {
+                id: req.params.id
+            }
+        })
+        res.redirect('/');    
+    } catch (error) {
+        console.log(error)
+    }
+    
 }
 
 exports.deleteUser = async(req,res)=>{
@@ -213,4 +222,9 @@ exports.deleteUser = async(req,res)=>{
         }
     })
     res.redirect('/userList');
+}
+exports.logout = (req, res) => {
+    res.clearCookie('jwt')
+    req.session.destroy()
+    return res.redirect('/')
 }

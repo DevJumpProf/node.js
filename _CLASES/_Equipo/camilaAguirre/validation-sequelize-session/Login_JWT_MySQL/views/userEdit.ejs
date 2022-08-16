@@ -27,7 +27,7 @@
           <div class="card border-primary">
             <div class="card-header bg-primary text-white">Editar Usuario</div>
             <div class="card-body text-primary">
-              <form action="/updateUser/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data"> <!-- importante que este el ENCTYPE para la subida de archivos  PUSIMOS EN LA RUTA EL METODO PARA QUE PROCESE LA EDICION-->        
+              <form action="/updateUser/<%= user.id %>?_method=put " method="POST" enctype="multipart/form-data"> <!-- importante que este el ENCTYPE para la subida de archivos  PUSIMOS EN LA RUTA EL METODO PARA QUE PROCESE LA EDICION-->        
                 <div class="mb-3">
                     <label for="name" class="form-label">Nombre completo</label>
                     <input id="name" name="name" type="text" class="form-control"  value="<%= user.name%>">  <!-- con esto hacemos que se vea lo que anteriormente se escribio en el registro -->            
@@ -48,15 +48,11 @@
                   <input id="avatar" name="avatar" type="file" class="form-control"> <!-- agregar el input de tipo file para la subida de archivos -->
                   
                 </div>
-                <div class="mb-3">
-                    <label for="pass" class="form-label">Password</label>
-                    <input id="pass" name="pass" type="password" class="form-control" value="">
-                    
-                  </div>                            
+                                           
             </div>
             <div class="card-footer bg-transparent border-primary">
               <a href="/" type="button" class="btn btn-secondary">Cancelar</a>
-              <button type="submit" class="btn btn-primary">Registrar</button>
+              <button type="submit" class="btn btn-primary">Editar</button>
             </div>
             </form>
           </div>   

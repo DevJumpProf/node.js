@@ -69,6 +69,13 @@ try {
                     })
                 }else{
                     //inicio de sesión OK
+                   /*  req.session.userLog = {
+                        id : user.id,
+                        name : user.name,
+                        user : user.user,
+                        email : user.email,
+                        avatar : user.avatar
+                    } */
                     const id = usuario[0].id
                     const token = jwt.sign({id:id}, process.env.JWT_SECRETO, { // agregamos las variables de JWT en el archivo .env
                         expiresIn: process.env.JWT_TIEMPO_EXPIRA
@@ -142,8 +149,8 @@ exports.getUser = async (req,res) =>{
         const usuario = await UserModel.findAll({
         where : {id : req.params.id}
         })
-        res.render('user',{user:usuario, user1 : req.user})
-        console.log(usuario);
+        res.render('user1',{user:usuario[0], user1 : req.user})
+        /* console.log(usuario); */
     } catch (error) {
         console.log(error);
     }
@@ -155,7 +162,7 @@ exports.updateUser = async (req,res) => {
         where : {id : req.params.id}
         });
         if(user){
-            res.render('userEdit',{user:user})
+            res.render('userEdit',{user:user[0]})
         }else{
             res.redirect('/login')
         }
@@ -186,20 +193,21 @@ exports.processUpdateUser = async (req,res) => {
            avatar : avatar
            
              
-        }),{
+        },{
             where : {
               id : req.params.id
             }
-        }.then(user => {
-            req.session.userLog = {
+        })/* .then(user => { */
+            /* req.session.userLog = {
                 id : user.id,
                 name : user.name,
                 user : user.user,
                 email : user.email,
                 avatar : user.avatar
-            }
-        })
-        res.redirect('/login')
+            } */
+            res.redirect('/login')  
+        /* }) */
+       
 
 
     } catch (error) {

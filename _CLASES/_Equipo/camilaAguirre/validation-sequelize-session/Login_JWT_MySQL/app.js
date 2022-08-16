@@ -16,7 +16,7 @@ app.use(express.static('public'))
 //para procesar datos enviados desde forms
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
-
+app.use(methodOverride('_method'));
 
 //para poder trabajar con las cookies
 app.use(cookieParser())
@@ -30,7 +30,7 @@ app.use(function(req, res, next) {
         res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
     next();
 });
-app.use(methodOverride('_method'));
+
 app.use(session({ 
     secret: "secret"
     /* resave: false,
