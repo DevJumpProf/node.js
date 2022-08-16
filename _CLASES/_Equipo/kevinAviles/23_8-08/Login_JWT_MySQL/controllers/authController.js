@@ -3,6 +3,7 @@ const bcryptjs = require('bcryptjs')
 const conexion = require('../database/db')
 const {promisify} = require('util');
 const {validationResult} = require('express-validator');
+const UserModel = require('../../../24_11-08/models/UserModel');
 
 //procedimiento para registrarnos
 exports.register = async (req, res,next)=>{    
