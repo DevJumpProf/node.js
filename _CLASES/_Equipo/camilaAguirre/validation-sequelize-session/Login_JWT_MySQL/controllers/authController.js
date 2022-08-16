@@ -126,3 +126,74 @@ exports.logout = (req, res)=>{
     res.clearCookie('jwt')   
     return res.redirect('/')
 }
+
+exports.getAllUsers = async (req,res) => {
+    try {
+        const users = await UserModel.findAll();
+        res.render('lista',{users:users, user1 : req.user})
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+exports.getUser = async (req,res) =>{
+    
+    try {
+        const user = await UserModel.findAll({
+        where : {id : req.params.id}
+        })
+        res.render('user',{user:user, user1 : req.user})
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+exports.updateUser = async (req,res) => {
+    try {
+      const user = await UserModel.findAll({
+        where : {id : req.params.id}
+        });
+        if(user){
+            res.render('userEdit',{user:user})
+        }else{
+            res.redirect('/login')
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
+exports.processUpdateUser = async (req,res) => {
+    try {
+        const {name,user,email} = req.body;
+        const avatar = req.files[0].filename
+        await UserModel.update({
+           name : name,
+           user : user, 
+           /* password :  newPassword == "" ? req.session.userLog.password : bcrypt.hashSync(newPassword, 10), */
+           email : email,
+           avatar : avatar 
+        }),{
+            where : {
+              id : req.params.id
+            }
+        }
+        res.redirect('/login')
+
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+exports.deleteUser = async (req,res) => {
+    try {
+        await UserModel.destroy({
+        where:{
+            id:req.params.id
+        }
+    })
+    res.redirect('/allUsers');
+    } catch (error) {
+        console.log(error);
+    }
+        
+    }
