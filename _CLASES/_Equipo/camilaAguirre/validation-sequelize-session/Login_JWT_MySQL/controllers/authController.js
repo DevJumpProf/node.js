@@ -69,6 +69,14 @@ try {
                     })
                 }else{
                     //inicio de sesión OK
+                    req.session.userLog = {
+                        id : usuario.id,
+                        user : usuario.user,
+                        name : usuario.name,
+                        pass : usuario.pass,
+                        avatar : usuario.avatar,
+                        email : usuario.email
+                    }
                     const id = usuario[0].id
                     const token = jwt.sign({id:id}, process.env.JWT_SECRETO, { // agregamos las variables de JWT en el archivo .env
                         expiresIn: process.env.JWT_TIEMPO_EXPIRA
@@ -123,7 +131,8 @@ exports.isAuthenticated = async (req, res, next)=>{
 }
 
 exports.logout = (req, res)=>{
-    res.clearCookie('jwt')   
+    res.clearCookie('jwt')
+    req.session.destroy()   
     return res.redirect('/')
 }
 
@@ -137,17 +146,17 @@ exports.getAllUsers = async (req,res) => {
 }
 
 exports.getUser = async (req,res) =>{
-    
     try {
         const usuario = await UserModel.findAll({
         where : {id : req.params.id}
         })
-        res.render('user',{user:usuario, user1 : req.user})
-        console.log(usuario);
+        res.render('user',{user:usuario[0], user1 : req.user})
+        /* console.log(usuario); */
     } catch (error) {
         console.log(error);
     }
 }
+
 
 exports.updateUser = async (req,res) => {
     try {
@@ -155,53 +164,43 @@ exports.updateUser = async (req,res) => {
         where : {id : req.params.id}
         });
         if(user){
-            res.render('userEdit',{user:user})
+            res.render('userEdit',{user:user[0]}) // pasar el usuario del array en la posicion 0
         }else{
             res.redirect('/login')
         }
     } catch (error) {
         console.log(error);
     }
-
   /*   UserModel.findByPk(req.session.userLog.id)
         .then(user => res.render('userEdit',{
             user
         })).catch(error => console.log(error)) */
-
-
-
 }
 exports.processUpdateUser = async (req,res) => {
     try {
         /* const usuario = req.session.userLog */
-        const {name,user,email} = req.body;
+        const {name,user,email,newPassword} = req.body;
         const avatar = req.files[0].filename
         await UserModel.update({
-           
-          
             name : name,
-           user : user, 
-           /* password :  newPassword == "" ? req.session.userLog.password : bcrypt.hashSync(newPassword, 10), */
+           user : user,
+           pass :  newPassword == "" ? req.session.userLog.password : bcryptjs.hashSync(newPassword, 10),
            email : email,
            avatar : avatar
-           
-             
-        }),{
+        },{
             where : {
               id : req.params.id
             }
-        }.then(user => {
-            req.session.userLog = {
+        })/* .then(user => { */
+            /* req.session.userLog = {
                 id : user.id,
                 name : user.name,
                 user : user.user,
                 email : user.email,
                 avatar : user.avatar
-            }
-        })
-        res.redirect('/login')
-
-
+            } */
+            res.redirect('/login')
+        /* }) */
     } catch (error) {
         console.log(error);
     }
@@ -217,5 +216,4 @@ exports.deleteUser = async (req,res) => {
     } catch (error) {
         console.log(error);
     }
-        
-    }
+    }    
