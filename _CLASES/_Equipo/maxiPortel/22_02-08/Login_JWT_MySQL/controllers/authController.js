@@ -14,9 +14,8 @@ exports.register = async (req, res, next) => {
             const name = req.body.name
             const user = req.body.user
             const pass = await bcryptjs.hash(req.body.pass, 10)
-            const avatar = req.files[0].filename
+            const avatar = req.files[0] ? req.files[0].filename : "default.png"
             const email = req.body.email
-
             await userModel.create({ user: user.toLowerCase(), name: name, pass: pass, avatar: avatar, email: email });
             res.redirect('/')
         } catch (error) {
