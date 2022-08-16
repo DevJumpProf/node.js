@@ -139,10 +139,11 @@ exports.getAllUsers = async (req,res) => {
 exports.getUser = async (req,res) =>{
     
     try {
-        const user = await UserModel.findAll({
+        const usuario = await UserModel.findAll({
         where : {id : req.params.id}
         })
-        res.render('user',{user:user, user1 : req.user})
+        res.render('user',{user:usuario, user1 : req.user})
+        console.log(usuario);
     } catch (error) {
         console.log(error);
     }
@@ -161,22 +162,43 @@ exports.updateUser = async (req,res) => {
     } catch (error) {
         console.log(error);
     }
+
+  /*   UserModel.findByPk(req.session.userLog.id)
+        .then(user => res.render('userEdit',{
+            user
+        })).catch(error => console.log(error)) */
+
+
+
 }
 exports.processUpdateUser = async (req,res) => {
     try {
+        /* const usuario = req.session.userLog */
         const {name,user,email} = req.body;
         const avatar = req.files[0].filename
         await UserModel.update({
-           name : name,
+           
+          
+            name : name,
            user : user, 
            /* password :  newPassword == "" ? req.session.userLog.password : bcrypt.hashSync(newPassword, 10), */
            email : email,
-           avatar : avatar 
+           avatar : avatar
+           
+             
         }),{
             where : {
               id : req.params.id
             }
-        }
+        }.then(user => {
+            req.session.userLog = {
+                id : user.id,
+                name : user.name,
+                user : user.user,
+                email : user.email,
+                avatar : user.avatar
+            }
+        })
         res.redirect('/login')
 
 

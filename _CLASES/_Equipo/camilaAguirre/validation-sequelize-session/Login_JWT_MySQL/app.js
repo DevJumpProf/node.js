@@ -4,6 +4,7 @@ const app = express()
 const db = require("./database/db.js")
 const dotenv = require('dotenv')
 const session = require('express-session');
+const methodOverride = require('method-override'); // modulo para poder usar el metodo put en el formulario
 
 
 //seteamos el motor de plantillas
@@ -29,10 +30,11 @@ app.use(function(req, res, next) {
         res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
     next();
 });
+app.use(methodOverride('_method'));
 app.use(session({ 
-    secret: "secret",
-    resave: false,
-    saveUninitialized: true
+    secret: "secret"
+    /* resave: false,
+    saveUninitialized: true */
   }));
 
 try {

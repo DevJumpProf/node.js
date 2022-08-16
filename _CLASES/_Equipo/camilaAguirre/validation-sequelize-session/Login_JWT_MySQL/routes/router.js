@@ -26,8 +26,8 @@ router.post('/login', authController.login)
 router.get('/logout', authController.logout)
 router.get('/allUsers',authController.getAllUsers)
 router.get('/user/:id',authController.getUser)
-router.get('/updateUser/:id',userCheck, authController.updateUser)
-router.post('/updateUser/:id',upImgAvatar.any(),authController.processUpdateUser)
+router.get('/updateUser/:id',authController.updateUser)
+router.post('/updateUser/:id',upImgAvatar.any(),userCheck,authController.processUpdateUser)
 router.delete('/deleteUser/:id',authController.deleteUser)
 
 module.exports = router

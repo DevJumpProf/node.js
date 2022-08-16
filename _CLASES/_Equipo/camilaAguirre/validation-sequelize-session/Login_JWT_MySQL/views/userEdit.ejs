@@ -27,7 +27,7 @@
           <div class="card border-primary">
             <div class="card-header bg-primary text-white">Editar Usuario</div>
             <div class="card-body text-primary">
-              <form action="/updateUser/<%= user.id %>?_method=put " method="POST" enctype="multipart/form-data"> <!-- importante que este el ENCTYPE para la subida de archivos  PUSIMOS EN LA RUTA EL METODO PARA QUE PROCESE LA EDICION-->        
+              <form action="/updateUser/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data"> <!-- importante que este el ENCTYPE para la subida de archivos  PUSIMOS EN LA RUTA EL METODO PARA QUE PROCESE LA EDICION-->        
                 <div class="mb-3">
                     <label for="name" class="form-label">Nombre completo</label>
                     <input id="name" name="name" type="text" class="form-control"  value="<%= user.name%>">  <!-- con esto hacemos que se vea lo que anteriormente se escribio en el registro -->            
