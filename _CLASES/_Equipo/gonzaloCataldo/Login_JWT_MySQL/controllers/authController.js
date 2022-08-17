@@ -67,7 +67,8 @@ try {
                     username: usuario[0].name,
                     apellido: usuario[0].apellido,
                     email: usuario[0].email,
-                    avatar: usuario[0].avatar
+                    avatar: usuario[0].avatar,
+                    password: usuario[0].pass
                 }
                 const token = jwt.sign({id:id}, process.env.JWT_SECRETO, {
                     expiresIn: process.env.JWT_TIEMPO_EXPIRA
@@ -183,14 +184,18 @@ exports.deleteUser = async (req,res) => {
             console.log(error);
         }
     }
+
     exports.processUpdateUser = async (req,res) => {
+        let errors = (validationResult(req));
+        const usuarioEditar = await RegisterModel.findByPk(req.params.id)
+        if ( errors.isEmpty()){
         try {
             const {name,user,email,newPassword} = req.body;
-            const avatar = req.files[0].filename
+            const avatar = (req.files[0]) ? req.files[0].filename : usuarioEditar.avatar
             await RegisterModel.update({
                 name : name,
                user : user,
-               pass :  newPassword == "" ? req.session.userLog.password : bcryptjs.hashSync(newPassword, 10),
+               pass :  newPassword == "" ? req.session.userNew.password : bcryptjs.hashSync(newPassword, 10),
                email : email,
                avatar : avatar
             },{
@@ -198,8 +203,12 @@ exports.deleteUser = async (req,res) => {
                   id : req.params.id
                 }
             })
-                res.redirect('/login')
+                res.redirect('/usuarios')
         } catch (error) {
             console.log(error);
+        }
+    }   else{
+        console.log(errors)
+        return res.render ("editarUsuario", {errors:errors.errors, usuarios: usuarioEditar})
         }
     }

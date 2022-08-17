@@ -24,6 +24,6 @@ router.get("/usuarios", authController.isAuthenticated, authController.getAllUse
 router.get("/usuarios/:id", authController.isAuthenticated, authController.getUser)
 router.get("/usuarios/:id/eliminar", authController.isAuthenticated, authController.deleteUser)
 router.get('/usuarios/:id/editar',authController.isAuthenticated,authController.updateUser)
-router.put('/usuarios/:id/editar',upload.any(),checks,authController.processUpdateUser)
+router.put('/usuarios/:id/editar',upload.any(), checks ,authController.processUpdateUser)
 
 module.exports = router

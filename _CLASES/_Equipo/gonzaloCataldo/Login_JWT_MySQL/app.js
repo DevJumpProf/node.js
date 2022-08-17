@@ -4,6 +4,7 @@ const app = express()
 const db = require("./database/db.js")
 const dotenv = require('dotenv')
 const session = require("express-session")
+const methodOverride = require('method-override');
 
     try {
         db.authenticate()
@@ -24,7 +25,7 @@ app.use(express.static('public'))
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 app.use(session( {secret: "Nuestro mensaje secreto",resave: true, saveUninitialized: true}));
-
+app.use(methodOverride('_method'));
 //para poder trabajar con las cookies
 app.use(cookieParser())
 
