@@ -95,17 +95,25 @@
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h2>Dashboard</h2>
         <h2>Bienvenido:
-          <% if (user) { %>
-            <span class="badge bg-success"><%= user.name %></span>
-            <img src="img/<%=user.avatar%>">
+          <% if (usuarioLogueado) { %>
+            <span class="badge bg-success"><%= usuarioLogueado.name %></span>
+            <div>
+              <img src="img/<%=usuarioLogueado.avatar%>" alt="avatar" srcset="" style="height: 80px;">
+            </div>
           <% } %>
         </h2>
-        <a href="/usuarios" "style="size: 50px">Lista De Usuarios</a>
+        <h3>Lista de usuarios</h3>
+        <div>
+            <% usuarios.forEach(usuarios => { %>
+                <h4><a href="/usuarios/<%= usuarios.id %> "><%= usuarios.id %></a></h4>
+                <h4><a href="/usuarios/<%= usuarios.id %> "><%= usuarios.name %></a> </h4>
+                <h4><%= usuarios.email %> </h4>
+                <img src="img/<%= usuarios.avatar %> " alt="" width="100px">
+            <% }) %>
+        </div>
       </div> 
-    </div>
     </main>
   </div>
-
 </div>
 
     <script src="js/bootstrap.bundle.min.js"></script>

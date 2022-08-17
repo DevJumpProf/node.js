@@ -95,17 +95,27 @@
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h2>Dashboard</h2>
         <h2>Bienvenido:
-          <% if (user) { %>
-            <span class="badge bg-success"><%= user.name %></span>
-            <img src="img/<%=user.avatar%>">
+          <% if (usuarioLogueado) { %>
+            <span class="badge bg-success"><%= usuarioLogueado.name %></span>
+            <div>
+              <img src="img/<%=usuarioLogueado.avatar%>" alt="avatar" srcset="" style="height: 80px;">
+            </div>
           <% } %>
         </h2>
-        <a href="/usuarios" "style="size: 50px">Lista De Usuarios</a>
+        <h3>Usuario Seleccionado:</h3>
+        <div>
+            <% usuario.forEach(usuario => { %>
+                <h4><a href="/usuarios/<%= usuario.id %> "><%= usuario.id %></a></h4>
+                <h4><a href="/usuarios/<%= usuario.id %> "><%= usuario.name %></a> </h4>
+                <h4><%= usuario.email %> </h4>
+                <img src="img/<%= usuario.avatar %> " alt="" width="100px">
+                <a type="button" class="px-3 btn btn-danger" href="/usuarios/<%=usuario.id%>/eliminar">Eliminar</a>
+                <a type="button" class="px-3 btn btn-danger" href="/usuarios/<%=usuario.id%>/editar">Editar</a>
+            <% }) %>
+        </div>
       </div> 
-    </div>
     </main>
   </div>
-
 </div>
 
     <script src="js/bootstrap.bundle.min.js"></script>
