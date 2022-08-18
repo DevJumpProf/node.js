@@ -9,13 +9,13 @@ const port = 3000
 
 app.set("view engine", "ejs")
 
-//tulizamos el router
+app.use(expressLayouts)     
 
 const router = require ("./routes/router.js");
 app.use(router.routes)
 
 
-app.use(expressLayouts)
+
 
 app.use(express.static(path.join(__dirname, "public")))
 /* 
