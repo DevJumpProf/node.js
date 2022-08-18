@@ -3,6 +3,9 @@ import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
 import router from './routes/router.js';
 import db from './database/db.js';
+import methodOverride from 'method-override';
+/* import session from "express-session";
+ */
 
 const app = express()
 const port = 3000;
@@ -16,12 +19,21 @@ app.use(express.static('public'))
 //para procesar datos enviados desde forms
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
+app.use(methodOverride("_method"))
+
+// Configuramos session para identificar usuario único
+/* app.use(session({
+    secret: "Este es un mensaje secreto",
+    resave: true,
+    saveUninitialized: true
+}));  */
 
 //seteamos las variables de entorno
 dotenv.config({path: './env/.env'})
 
 //para poder trabajar con las cookies
 app.use(cookieParser())
+
 
 //llamar al router
 app.use('/', router)
