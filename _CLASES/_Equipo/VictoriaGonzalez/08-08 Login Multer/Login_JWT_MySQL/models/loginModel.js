@@ -7,8 +7,6 @@ const loginModel = db.define("users",{
     pass:{type:DataTypes.STRING},
     avatar:{type:DataTypes.STRING},
     email:{type:DataTypes.STRING},
-},{
-    timestamps: false
-});
+})
 
 module.exports = loginModel

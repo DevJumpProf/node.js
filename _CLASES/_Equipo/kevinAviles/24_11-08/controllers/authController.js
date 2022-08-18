@@ -12,7 +12,8 @@ exports.register = async (req, res, next) => {
         const name = req.body.name
         const user = req.body.user
         const pass = bcrypt.hashSync(req.body.pass, 10);
-        const avatar = req.files[0].filename
+        const avatar = (req.files[0]) ? req.files[0].filename : "default.png"
+        /* const avatar = (req.files[0].filename) ?  */
         const email = req.body.email
         //console.log(pass) 
         const errors = validationResult(req);
@@ -44,7 +45,7 @@ exports.register = async (req, res, next) => {
 
 exports.login = async (req, res) => {
     const user = req.body.user
-    const pass = req.body.pass
+   /*  const pass = req.body.pass */
     const errors = validationResult(req);
 
     try {
@@ -93,10 +94,17 @@ exports.login = async (req, res) => {
                         user: user
                     }
                 })
-                const id = result.id
+                req.session.userNew = {
+                        id: result.id,
+                        username: result.name,
+                        apellido: result.apellido,
+                        email: result.email,
+                        avatar: result.avatar
+                } ;
+                const id = result.id;
                 const token = jwt.sign({ id: id }, process.env.JWT_SECRETO, { // agregamos las variables de JWT en el archivo .env
                     expiresIn: process.env.JWT_TIEMPO_EXPIRA
-                })
+                });
                 //generamos el token SIN fecha de expiracion
                 //const token = jwt.sign({id: id}, process.env.JWT_SECRETO)
                 console.log("TOKEN: " + token + " para el USUARIO : " + user)
@@ -149,14 +157,9 @@ exports.isAuthenticated = async (req, res, next) => {
     }
 }
 
-exports.logout = (req, res) => {
-    res.clearCookie('jwt')
-    return res.redirect('/')
-}
+
 exports.listaUsers = async (req, res) => {
     const usuarios = await UserModel.findAll();
-    
-
    /*  usuarios.forEach(element => {
         let today = new Date();
     let dd = String(today.getDate()).padStart(2, '0');
@@ -185,32 +188,62 @@ exports.userEdit = async (req, res) => {
     if (!usuario) {
         res.redirect('/');
     } else {
-        res.render('userEdit', {
+        res.render('userEdits', {
             old: usuario
         })
     }
 }
 exports.processEditUser = async (req, res) => {
-    const { name, user, email } = req.body;
-    const avatar = req.files[0].filename
-    await UserModel.update({
-        name: name,
-        user: user,
-        email: email,
-        avatar: avatar
-    }, {
-        where: {
-            id: req.params.id
+    try {
+        const errors = validationResult(req);
+        const userAEditar = await UserModel.findByPk(req.params.id);
+        const { name, user, email } = req.body;
+        const avatar = (req.files[0]) ? req.files[0].filename : userAEditar.avatar 
+        if(!errors.isEmpty()){
+            res.render('userEdits',{
+                old:userAEditar,
+                errors:errors.errors
+            })
+        }else{
+            await UserModel.update({
+                name: name,
+                user: user,
+                email: email,
+                avatar: avatar
+            }, {
+                where: {
+                    id: req.params.id
+                }
+            })
+            res.redirect('/');    
         }
-    })
-    res.redirect('/');
+    } catch (error) {
+        console.log(error)
+    }
+    
 }
 
 exports.deleteUser = async(req,res)=>{
+    const elSeleccionado =  await UserModel.findByPk(req.params.id)
+
+
     await UserModel.destroy({
         where:{
             id:req.params.id
         }
     })
-    res.redirect('/userList');
+    
+     if(elSeleccionado.id == req.session.userNew.id){
+        res.clearCookie('jwt')
+        req.session.destroy()
+        res.redirect('/login')
+    }else{
+        res.redirect('/userList');
+    }
+     
+}
+exports.logout = (req, res) => {
+    res.clearCookie('jwt')
+    req.session.destroy()
+    return res.redirect('/')
 }

@@ -53,7 +53,13 @@
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="#">
               <span data-feather="home"></span>
-              Dashboard
+              <% if (typeof userNew != 'undefined') { %>
+                
+                <%=userNew.username%> 
+              <% }else{ %>
+                Dashboard 
+                <% } %>
+              
             </a>
           </li>
           <li class="nav-item">

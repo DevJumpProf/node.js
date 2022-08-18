@@ -1,5 +1,5 @@
 const {check,validationResult,body} = require('express-validator');
-
+const path = require('path')
 const UserModel= require('../models/UserModel');
 module.exports =[
     check('name').notEmpty().withMessage('El "Nombre completo" es obligatorio'),
@@ -31,6 +31,24 @@ module.exports =[
          return true
       
     }).withMessage("Las contraseñas tiene que ser iguales"),
+
+    /* body('image')
+    .custom((value,{req})=>{
+        if(!req.files[0]){
+            return false
+        }else{
+            return true
+        }
+    })
+    .withMessage("Tenés que subir una imagen"), */
+   /*  body('image')
+    .custom((value,{req})=>{
+        value = req.files[0].filename
+        let extension = path.extname(value)
+
+        return extension = '.jpg' || extension == '.jpeg' || extension == '.png' || extension == '.gif';
+    })
+    .withMessage("El formato de la imagen debe ser: jpg, jpeg, png o gif") */
     //body('user').custom((value)=>{ 
    /*  return new Promise ((resolve,reject)=>{
         conexion.query('SELECT user from users where user = ?',[value],async(error,results)=>{

@@ -3,6 +3,8 @@ const cookieParser = require('cookie-parser')
 const app = express()
 const db = require("./database/db.js")
 const dotenv = require('dotenv')
+const session = require('express-session');
+const methodOverride = require('method-override'); // modulo para poder usar el metodo put en el formulario
 
 
 //seteamos el motor de plantillas
@@ -14,6 +16,12 @@ app.use(express.static('public'))
 //para procesar datos enviados desde forms
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
+app.use(methodOverride('_method'));
+app.use(session({ 
+    secret: "secret",
+    resave: false,
+    saveUninitialized: true
+  }));
 
 //para poder trabajar con las cookies
 app.use(cookieParser())
@@ -28,14 +36,15 @@ app.use(function(req, res, next) {
     next();
 });
 
+
 try {
     db.authenticate()
-    console.log("conexion exitosa LPM")
+    console.log("conexion exitosa")
 } catch (error) {
     console.log(`el error en conexion es: ${error}`)
 }
 
-dotenv.config({path: './env/.env'})
+dotenv.config({path: './env/.env'}) // tiene que ir despues de la autenticación del db sino saldra errores
 
 
 app.listen(3000, ()=>{

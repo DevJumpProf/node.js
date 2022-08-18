@@ -51,9 +51,9 @@
       <div class="position-sticky pt-3">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">
+            <a class="nav-link" aria-current="page" href="users">
               <span data-feather="home"></span>
-              Dashboard
+              Users
             </a>
           </li>
           <li class="nav-item">
@@ -96,7 +96,7 @@
         <h2>Dashboard</h2>
         <h2>Bienvenido:
           <% if (user) { %>
-            <span class="badge bg-success"><%= user.name %> <img src="img/<%= user.avatar %>"></span>
+            <span class="badge bg-success"><%= user.name %> <img width="60px" src="img/<%= user.avatar %>"></span>
           <% } %>
         </h2>
       </div> 
