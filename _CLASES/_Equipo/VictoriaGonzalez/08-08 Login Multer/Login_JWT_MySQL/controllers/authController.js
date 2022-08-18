@@ -8,7 +8,7 @@ const { validationResult } = require('express-validator');
 
 exports.createUser = async (req, res) => {
     let errors = (validationResult(req));
-    const { name, user, email } = req.body 
+    const { name, user, email, birthday, rol } = req.body 
     // De esta forma en caso que el usuario no suba imagen, se sube una por default. Falta configurar carpetas en el multer para más orden
     const avatar = (req.files[0]) ? req.files[0].filename : "default.png"
     const pass = await bcryptjs.hash(req.body.pass, 10)
@@ -19,7 +19,9 @@ exports.createUser = async (req, res) => {
                 user: user,
                 pass: pass,
                 email: email,
-                avatar: avatar
+                avatar: avatar,
+                birthday:birthday,
+                rol:rol
             })
             res.redirect("/login")
         } catch (error) {
@@ -200,7 +202,7 @@ exports.deleteUser = async(req,res)=>{
 exports.userEdit = async (req, res) => {
     const usuario = await loginModel.findByPk(req.params.id);
     if (!usuario) {
-        res.redirect('/');
+        res.redirect('/users');
     } else {
         res.render('editUser', {
             old: usuario
@@ -209,7 +211,7 @@ exports.userEdit = async (req, res) => {
 }
 exports.processEditUser = async (req, res) => {
     const { name, user, email } = req.body;
-    const avatar = req.files[0].filename
+    const avatar = (req.files[0]) ? req.files[0].filename : req.body.avatar
     await loginModel.update({
         name: name,
         user: user,
@@ -220,8 +222,9 @@ exports.processEditUser = async (req, res) => {
             id: req.params.id
         }
     })
-    res.redirect('/');
+    res.redirect('/users');
 }
+
 
 
 

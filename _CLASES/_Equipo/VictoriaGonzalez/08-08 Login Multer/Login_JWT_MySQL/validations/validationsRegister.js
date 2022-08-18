@@ -9,6 +9,7 @@ module.exports = [
     check('user').isLength({min: 4}).withMessage('El usuario debe tener minimo 4 caracteres'),
     check('pass').isLength({min: 8}).withMessage('La contraseña debe tener minimo 8 caracteres'),
     check('email').isEmail().withMessage('Debe ingresar un email en el campo'),
+    
     /*body('avatar') /* validacion de la subida de archivos para que solo pueda ser subido cierto tipo de archivo imagen */
    /*  .custom((value, {req}) => {
         
@@ -47,6 +48,26 @@ module.exports = [
         return true
     })
     .withMessage("Las constraseñas no coiciden"),
+
+/*    body('birthday')
+    .custom(function(value){
+       return loginModel.findOne({
+           where : {
+               birthday: value
+           }
+       })
+       .then(birthday => {
+        let date = new (Date)
+        let day = (date.getDay)
+        let edad = (date.getFullYear()) - (birthday.getFullYear())
+
+
+           if(edad <18){
+               return Promise.reject('Debe ser mayor a 18 años para registrarse')
+           }
+       })
+    })
+
   /*  body('user').custom(function(value,{user}){
 
 
