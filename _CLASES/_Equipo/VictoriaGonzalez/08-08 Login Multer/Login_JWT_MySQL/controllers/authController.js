@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken')
-const conexion = require('../database/db')
 const { promisify } = require('util')
 const loginModel = require("../models/loginModel.js")
 const bcryptjs = require('bcryptjs')
