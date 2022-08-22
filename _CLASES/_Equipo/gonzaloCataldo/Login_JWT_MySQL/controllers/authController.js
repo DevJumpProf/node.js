@@ -3,6 +3,8 @@ const {promisify} = require('util')
 const RegisterModel = require("../models/RegisterModel.js")
 const bcryptjs = require('bcryptjs')
 const {validationResult } = require('express-validator');
+const fs = require("fs");
+const db = require("../database/db.js")
 
 
 //Falta validar el avatar, todo lo demas ya esta validado y la pass esta hasheada 
@@ -20,6 +22,8 @@ exports.register = registerUser = async(req, res)=>{
             email: email,
             avatar: avatar
         })
+        await db.query("SET @counter = 0;")
+        await db.query("UPDATE users SET id = @counter := @counter + 1 ORDER BY id")
         res.redirect("/login")
     }catch (error) {
         res.json({message:error.message})
@@ -68,7 +72,7 @@ try {
                     apellido: usuario[0].apellido,
                     email: usuario[0].email,
                     avatar: usuario[0].avatar,
-                    password: usuario[0].pass
+                    pass: usuario[0].pass
                 }
                 const token = jwt.sign({id:id}, process.env.JWT_SECRETO, {
                     expiresIn: process.env.JWT_TIEMPO_EXPIRA
@@ -119,7 +123,7 @@ exports.isAuthenticated = async (req, res, next)=>{
 
 exports.logout = (req, res)=>{
     res.clearCookie('jwt')   
-    return res.redirect('/')
+    res.redirect('/')
 } 
 
 
@@ -145,7 +149,6 @@ exports.getUser = async (req,res) =>{
 }
 
 
-//agregar eliminar el token para q se deslogee
 exports.deleteUser = async (req,res) => {
     try {
         const seleccionado = await RegisterModel.findByPk(req.params.id)
@@ -155,6 +158,9 @@ exports.deleteUser = async (req,res) => {
                 id:req.params.id
             }
         })
+        fs.unlinkSync(`public/img/${seleccionado.avatar}`)
+        await db.query("SET @counter = 0;")
+        await db.query("UPDATE users SET id = @counter := @counter + 1 ORDER BY id")
         res.clearCookie('jwt')
         res.redirect('/login');
     } else {
@@ -163,6 +169,9 @@ exports.deleteUser = async (req,res) => {
                 id:req.params.id
             }
         })
+        fs.unlinkSync(`public/img/${seleccionado.avatar}`)
+        await db.query("SET @counter = 0;")
+        await db.query("UPDATE users SET id = @counter := @counter + 1 ORDER BY id")
         res.redirect('/usuarios');
     }
     } catch (error) {
@@ -190,12 +199,12 @@ exports.deleteUser = async (req,res) => {
         const usuarioEditar = await RegisterModel.findByPk(req.params.id)
         if ( errors.isEmpty()){
         try {
-            const {name,user,email,newPassword} = req.body;
+            const {name,user,email,pass} = req.body;
             const avatar = (req.files[0]) ? req.files[0].filename : usuarioEditar.avatar
             await RegisterModel.update({
                 name : name,
                user : user,
-               pass :  newPassword == "" ? req.session.userNew.password : bcryptjs.hashSync(newPassword, 10),
+               pass :  pass == "" ? req.session.userNew.pass : bcryptjs.hashSync(pass, 10),
                email : email,
                avatar : avatar
             },{
@@ -207,6 +216,7 @@ exports.deleteUser = async (req,res) => {
         } catch (error) {
             console.log(error);
         }
+
     }   else{
         console.log(errors)
         return res.render ("editarUsuario", {errors:errors.errors, usuarios: usuarioEditar})
