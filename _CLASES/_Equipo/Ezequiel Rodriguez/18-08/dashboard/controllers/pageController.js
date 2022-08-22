@@ -1,13 +1,23 @@
-vistaPrincipal = (req, res) => {
-    res.render('home')
-}
+const dashboardModel = require('../models/dasboardModel.js');
 
-vistaTables = (req, res) => {
-    res.render('tables')
-}
+viewPrincipal = (req, res) => {
+    res.render('home');
+};
 
-vistaNotifications = (req, res) => {
-    res.render('notifications')
-}
+viewTables = (req, res) => {
+    res.render('tables');
+};
 
-module.exports = {vistaPrincipal, vistaTables, vistaNotifications};
+viewNotifications = (req, res) => {
+    res.render('notifications');
+};
+
+viewLogin = (req, res) => {
+    res.render('login');
+};
+
+viewRegister = (req, res) => {
+    res.render('register');
+};
+
+module.exports = {viewLogin, viewNotifications, viewPrincipal, viewRegister, viewTables};

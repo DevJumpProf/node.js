@@ -1,7 +1,11 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const vistaPrincipal = require("../controllers/pageController.js")
+const {viewLogin, viewNotifications, viewPrincipal, viewRegister, viewTables} = require('../controllers/pageController.js')
 
-router.get("/", vistaPrincipal);
+router.get('/', viewPrincipal);
+router.get('/tables', viewTables);
+router.get('/notifications', viewNotifications);
+router.get('/login', viewLogin);
+router.get('/register', viewRegister);
 
 module.exports = router;
