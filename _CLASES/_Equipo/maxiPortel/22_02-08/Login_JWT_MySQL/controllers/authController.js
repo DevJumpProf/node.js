@@ -1,22 +1,28 @@
 const jwt = require('jsonwebtoken')
-const bcryptjs = require('bcryptjs')
+const bcryptjs = require('bcryptjs');
 const { promisify } = require('util');
 const userModel = require('../models/userModel.js');
 const { check, validationResult, body } = require('express-validator');
 
 //procedimiento para registrarnos
 exports.register = async (req, res, next) => {
-
     let errors = validationResult(req);
     /* console.log(errors); */
     if (errors.isEmpty()) {
         try {
-            const name = req.body.name
             const user = req.body.user
             const pass = await bcryptjs.hash(req.body.pass, 10)
             const avatar = req.files[0] ? req.files[0].filename : "default.png"
             const email = req.body.email
-            await userModel.create({ user: user.toLowerCase(), name: name, pass: pass, avatar: avatar, email: email });
+            await userModel.create({ 
+                user: user.toLowerCase(),
+                pass: pass,
+                avatar: avatar,
+                email: email,
+                rol: 'user'
+            });
+            /* await db.query("SET @counter = 0;")
+            await db.query("UPDATE users SET id = @counter := @counter + 1 ORDER BY id") */
             res.redirect('/')
         } catch (error) {
             console.log(error)
@@ -30,7 +36,6 @@ exports.login = async (req, res) => {
     try {
         const user = req.body.user
         const pass = req.body.pass
-
         if (!user || !pass) {
             res.render('login', {
                 alert: true,
@@ -63,7 +68,7 @@ exports.login = async (req, res) => {
                 })
                 //generamos el token SIN fecha de expiracion
                 //const token = jwt.sign({id: id}, process.env.JWT_SECRETO)
-                console.log("TOKEN: " + token + " para el USUARIO : " + user)
+                console.log(`TOKEN: ${token} para el USER: ${user}`);
 
                 const cookiesOptions = {
                     expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRES * 24 * 60 * 60 * 1000),

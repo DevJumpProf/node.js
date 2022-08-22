@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/register.css">
+    <title>Form</title>
+</head>
+
+<body>
+    <div class="container-form sign-up">
+        <div class="welcome-back">
+            <div class="message">
+                <h2>Welcome to our page</h2>
+                <button class="sign-up-btn">Please log in</button>
+            </div>
+        </div>
+
+        <!-- Inicio de form de registro -->
+        <form action="/register" method="POST" enctype="multipart/form-data" class="formulario">
+            <h2 class="create-account">Create an account</h2>
+            <div class="iconos">
+                <div class="border-icon">
+                    <i class='bx bxl-instagram'></i>
+                </div>
+                <div class="border-icon">
+                    <i class='bx bxl-linkedin' ></i>
+                </div>
+                <div class="border-icon">
+                    <i class='bx bxl-facebook-circle' ></i>
+                </div>
+            </div>
+            <p class="cuenta-gratis">Create a free account</p>
+            <input type="text" placeholder="User" id="user" name="user">
+            <input type="text" placeholder="Name" id="name" name="name">
+            <input type="password" placeholder="Password" id="password" name="password">
+            <input type="email" placeholder="Email" id="email" name="email">
+            <label for="avatar">Select your avatar(optional)</label>
+            <input type="file" id="avatar" name="avatar">
+            <button type="submit">Register</button>
+            
+        </form>
+        <!-- fin form de registro-->
+    </div>
+    <div class="container-form sign-in">
+        <!-- inicio form de login-->
+        <form class="formulario">
+            <h2 class="create-account">Log in</h2>
+            <div class="iconos">
+                <div class="border-icon">
+                    <i class='bx bxl-instagram'></i>
+                </div>
+                <div class="border-icon">
+                    <i class='bx bxl-linkedin' ></i>
+                </div>
+                <div class="border-icon">
+                    <i class='bx bxl-facebook-circle' ></i>
+                </div>
+            </div>
+            <p class="cuenta-gratis">Enter your account</p>
+            <input type="email" placeholder="Email" id="logemail">
+            <input type="password" placeholder="Password" id="logpassword">
+            <input type="button" value="Log in">
+            <!-- fin form de Log in-->
+        </form>
+        <div class="welcome-back">
+            <div class="message">
+                <h2>Welcome again</h2>
+                <p>Don't you have an account? Register here</p>
+                <button class="sign-in-btn">Register</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+<script>
+    const $btnSignIn= document.querySelector('.sign-in-btn'),
+      $btnSignUp = document.querySelector('.sign-up-btn'),  
+      $signUp = document.querySelector('.sign-up'),
+      $signIn  = document.querySelector('.sign-in');
+
+document.addEventListener('click', e => {
+    if (e.target === $btnSignIn || e.target === $btnSignUp) {
+        $signIn.classList.toggle('active');
+        $signUp.classList.toggle('active')
+    }
+});
+</script>
+
+
+

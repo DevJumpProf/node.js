@@ -1,0 +1,22 @@
+{
+  "name": "express",
+  "version": "1.0.0",
+  "description": "crud prueba",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "prueba",
+    "CRUD",
+    "express"
+  ],
+  "author": "Maximiliano Portel",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mysql2": "^2.3.3",
+    "router": "^1.3.7",
+    "sequelize": "^6.21.4"
+  }
+}
