@@ -6,4 +6,3 @@ const usuarioLog = userModel.findOne({where: {user: user}})
 if(usuarioLog.user == user){
     req.session.user = user
 }
-

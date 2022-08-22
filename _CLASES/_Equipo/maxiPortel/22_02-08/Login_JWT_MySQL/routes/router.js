@@ -11,7 +11,7 @@ const validatorRegister = require('../validations/validatorRegister.js');
 
 //router para las vistas
 router.get('/', authController.isAuthenticated, (req, res) => {
-    res.render('index', { user: req.user })
+    res.render('index', { user: req.user, title: 'Inicio'})
 })
 router.get('/login', (req, res) => {
     res.render('login', { alert: false })
@@ -20,7 +20,7 @@ router.get('/register', (req, res) => {
     res.render('register')
 })
 router.get('/listaUser', authController.isAuthenticated, getAllUsers)
-router.get('/editUser/:id', authController.isAuthenticated, getUser)
+router.get('/editProfile/:id', authController.isAuthenticated, getUser)
 
 //ruta prueba session
 router.get('/pruebaSession', (req,res) =>{

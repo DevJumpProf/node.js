@@ -1,5 +1,6 @@
 const express = require('express');
 const dotenv = require('dotenv');
+const db = require('./database/db.js');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const methodOverride = require('method-override');
@@ -10,9 +11,6 @@ app.set('view engine', 'ejs')
 
 //seteamos la carpeta public para archivos estáticos
 app.use(express.static('public'))
-
-
-app.use(session({ secret: 'Secreto' }))
 
 //para procesar datos enviados desde forms
 app.use(express.urlencoded({ extended: true }))
@@ -26,6 +24,13 @@ app.use(session({
     saveUninitialized: true,
     cookie: { secure: true }
 }))
+
+try {
+    db.authenticate();
+    console.log(`Servidor CONECTADO =D`);
+} catch (error) {
+    console.log(`${error} No pudimos conectar`);
+}
 
 //seteamos las variables de entorno
 dotenv.config({ path: './env/.env' })

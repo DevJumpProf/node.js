@@ -1,170 +1,71 @@
-<!doctype html>
-<html lang="en">
+<%- include('partials/indexHead'); %><!-- HEAD -->
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.87.0">
-    <title>Login con Node + JWT + MySQL</title>
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+<%- include('partials/indexHeader'); %><!-- HEADER -->
 
-    <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
-        }
+        <div class="container-fluid">
+            <div class="row">
 
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
-    </style>
+                    <!-- NAVEGADOR -->
+                    <%- include('partials/indexMain'); %>
+                        <!-- Contenido principal   -->
+                        <article>
+                            <table class="table">
+                                <thead class="table-dark ">
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">User</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Ultima edicion</th>
+                                        <th scope="col">Edit</th>
+                                        <th scope="col">Delete</th>
+                                    </tr>
+                                </thead>
 
+                                <% users.forEach(user=> { %>
+                                    <tbody>
 
-    <!-- Custom styles for this template -->
-    <link href="css/dashboard.css" rel="stylesheet">
-</head>
+                                        <th>
+                                            <%= user.id %>
+                                        </th>
+                                        <td>
+                                            <%= user.user %>
+                                        </td>
+                                        <td>
+                                            <%= user.name %>
+                                        </td>
+                                        <td>
+                                            <%= user.email %>
+                                        </td>
+                                        <td>
+                                            <%= user.updatedAt %>
+                                        </td>
+                                        <td><a class="btn btn-primary" href="editProfile/<%= user.id %> "
+                                                role="button">Editar</a>
+                                        </td>
+                                        <td>
+                                            <form action="/<%= user.id %>?_method=delete " method="post">
+                                                <button class="btn btn-danger" type="submit">Eliminar</button>
+                                            </form>
+                                        </td>
 
-<body>
+                                    </tbody>
+                                    <% }) %>
+                            </table>
 
-    <header class="navbar navbar-dark sticky-top bg-primary flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Company name</a>
-        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
-            data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="navbar-nav">
-            <div class="nav-item text-nowrap">
-                <a type="button" class="px-3 btn btn-danger" href="logout">Logout</a>
+                        </article>
             </div>
         </div>
-    </header>
 
-    <div class="container-fluid">
-        <div class="row">
-            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-primary sidebar collapse">
-                <div class="position-sticky pt-3">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">
-                                <span data-feather="home"></span>
-                                Lista de usuarios
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="listaUser">
-                                <span data-feather="file"></span>
-                                Lista de usuarios
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="shopping-cart"></span>
-                                Products
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="users"></span>
-                                Customers
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="bar-chart-2"></span>
-                                Reports
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="layers"></span>
-                                Integrations
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-
-            <!-- Contenido principal   -->
-            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                <div
-                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h2>Dashboard</h2>
-                    <h2>Bienvenido:
-                        <% if (user) { %>
-                            <span class="badge bg-success"><img src="img/tmp/my-uploads/<%=user.avatar%>" alt="avatar"
-                                    height="50px"></span>
-                            <% } %>
-                    </h2>
-                </div>
-                <article>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+            integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
+            integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
+            crossorigin="anonymous"></script>
+        <script src="dashboard.js"></script>
 
 
-                    <table class="table">
-                        <thead class="table-dark ">
-                            <tr>
-                                <th scope="col">ID</th>
-                                <th scope="col">User</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Ultima edicion</th>
-                                <th scope="col">Edit</th>
-                                <th scope="col">Delete</th>
-                            </tr>
-                        </thead>
 
-                        <% users.forEach(user=> { %>
-                            <tbody>
-
-                                <th>
-                                    <%= user.id %>
-                                </th>
-                                <td>
-                                    <%= user.user %>
-                                </td>
-                                <td>
-                                    <%= user.name %>
-                                </td>
-                                <td>
-                                    <%= user.email %>
-                                </td>
-                                <td>
-                                    <%= user.updatedAt %>
-                                </td>
-                                <td><a class="btn btn-primary" href="editUser/<%= user.id %> " role="button">Editar</a>
-                                </td>
-                                <td>
-                                    <form action="/<%= user.id %>?_method=delete " method="post">
-                                        <button class="btn btn-danger" type="submit">Eliminar</button>
-                                    </form>
-                                </td>
-
-                            </tbody>
-                            <% }) %>
-                    </table>
-
-                </article>
-            </main>
-        </div>
-    </div>
-
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
-        integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
-        integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
-        crossorigin="anonymous"></script>
-    <script src="dashboard.js"></script>
-</body>
-
-</html>
+        <%- include('partials/indexFooter'); %><!-- FOOTER -->
