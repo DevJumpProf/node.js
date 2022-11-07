@@ -63,10 +63,13 @@
                        <span class="text-danger"><%- error.param === "avatar" ? error.msg : null %> </span>
                     <% }) %>
                    <% } %>
+                   <div id="preview">
+
+                   </div>
                 </div>
                 <div class="mb-3">
                     <label for="pass" class="form-label">Password</label>
-                    <input id="pass" name="pass" type="password" class="form-control" value="<%= locals.old && old.name ? old.name : null %>">
+                    <input id="pass" name="pass" type="password" class="form-control" value="<%= locals.old && old.pass ? old.pass : null %>">
                     <% if (locals.errors) { %>
                       <% errors.forEach(error => { %>
                          <span class="text-danger"><%- error.param === "pass" ? error.msg : null %> </span>
@@ -88,5 +91,33 @@
  
     
     <script src="js/bootstrap.bundle.min.js"></script>
+   <!--  <script type="text/javascript">
+
+      function validarExt() {
+        let archivo = document.getElementById('avatar');
+        let archivoRuta = archivo.value;
+        let extPermitidas = /(\.|\/)(png|jpeg?x|jpg)$/i;
+
+        if(!extPermitidas.exec(archivoRuta)){
+          alert('Solo se pueden cargar archivos JPG, JPEG, PNG');
+          archivo.value = '';
+          return false
+        }else{
+          if(archivo.files && archivo.files[0]){
+
+            let visor = new FileReader();
+            visor.onload = function(e){
+              document.getElementById('preview').innerHTML = 
+              '<embed src="'+e.target.result'" width="150px" height="150px">'
+            }
+            visor.readAsDataURL(archivo.files[0]);
+
+          }
+        }
+    </script>
+      } -->
+
+
+    
   </body>
 </html>

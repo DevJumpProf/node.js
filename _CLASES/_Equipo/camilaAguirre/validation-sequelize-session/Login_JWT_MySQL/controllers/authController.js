@@ -9,7 +9,7 @@ const { validationResult } = require("express-validator");
 exports.register = async (req, res)=>{    
     
     const {name,user,pass,email} = req.body
-    const avatar = req.files[0].filename
+    /* const avatar = req.files[0].filename */
 
     let errors = validationResult(req); /* traemos en una variable los errores que se guarden */
     console.log(errors);
@@ -24,7 +24,7 @@ exports.register = async (req, res)=>{
             user: user,
             pass:  await bcryptjs.hash(pass, 10), // error de password se soluciona con await, esperaba una promesa
             email: email,
-            avatar : avatar
+            avatar : req.file ? req.file.filename : 'default-avatar.jpg'
         })
         res.render('login')
     } catch (error) {
@@ -205,15 +205,11 @@ exports.processUpdateUser = async (req,res) => {
         console.log(error);
     }
 }
-exports.deleteUser = async (req,res) => {
-    try {
-        await UserModel.destroy({
+exports.deleteUser = async(req,res)=>{
+    await UserModel.destroy({
         where:{
             id:req.params.id
         }
     })
-    res.redirect('/allUsers');
-    } catch (error) {
-        console.log(error);
-    }
-    }    
+    res.redirect('/login');
+}

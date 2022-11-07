@@ -15,8 +15,8 @@ module.exports = [
     .notEmpty().withMessage('Debes ingresar un email').bail()
     .isEmail().withMessage('Debes ingresar un email valido'),
 
-    body("avatar") /* validacion de la subida de archivos para que solo pueda ser subido cierto tipo de archivo imagen */
-    .custom((value, {req}) => {
+   //body("avatar") /* validacion de la subida de archivos para que solo pueda ser subido cierto tipo de archivo imagen */
+    /* .custom((value, {req}) => {
         
         if(req.body.file){
             let file = path.extname(req.body.file.filename).toUpperCase()
@@ -29,7 +29,38 @@ module.exports = [
         }else{
             return true
         }
-    }).withMessage('Solo se pueden cargar archivos JPG, JPEG, PNG, GIF'),
+    }).withMessage('Solo se pueden cargar archivos JPG, JPEG, PNG, GIF'), */
+
+   /*  body("avatar")
+    .custom((value, {req}) => {
+        let file = path.extname(req.body.file.filename).toUpperCase()
+        let error = true
+        
+            if (file == ".JPG" || file == ".JPEG" || file == ".PNG" || file == ".GIF"){
+                null
+            }else{
+                error = true
+            }
+            return error
+        }).withMessage('Solo se pueden cargar archivos JPG, JPEG, PNG, GIF'), */
+    
+        body("avatar")
+        .custom((value, {req}) => {
+            let file = path.extname(req.file.filename).toUpperCase()
+            let error = true
+            console.log(file);
+            if(req.file){
+        
+                if (file == ".JPG" || file == ".JPEG" || file == ".PNG" || file == ".GIF"){
+                    return true
+                }else{
+                    return false
+                }
+            }else{
+                return true
+            }
+            
+        }).withMessage('Solo se pueden cargar archivos JPG, JPEG, PNG, GIF'),
 
     check("pass")
     .notEmpty().withMessage("Debes ingresar una contraseña").bail()

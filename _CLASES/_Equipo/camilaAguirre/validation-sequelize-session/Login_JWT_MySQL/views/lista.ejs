@@ -93,25 +93,38 @@
     <!-- Contenido principal   -->
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h2>Dashboard</h2>
-        <h2>Bienvenido:
-          <% if (user1) { %>
-            <span class="badge bg-success"><%= user1.name %></span>
-            <div>
-              <img src="img/users/<%= user1.avatar %> " alt="avatar" srcset="" style="height: 80px;"> <!-- subido en carpeta public -->
-            </div>
-          <% } %>
-        </h2>
+        
 
-        <h3>Lista de usuarios</h3>
-        <div>
-            <% users.forEach(user => { %>
-                <h4><a href="/user/<%= user.id %> "><%= user.id %></a></h4>
-                <h4><a href="/user/<%= user.id %> "><%= user.name %></a> </h4>
-                <h4><%= user.email %> </h4>
-                <img src="img/users/<%= user.avatar %> " alt="" width="100px">
-            <% }) %>
-        </div>
+        <table class="table">
+          <thead class="table-dark ">
+            <tr >
+              <th  scope="col">ID</th>
+              <th scope="col">User</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Edit</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+          
+          <% users.forEach(user => { %>
+          <tbody >
+              
+              <th><%= user.id %> </th> 
+              <td><%= user.user %> </td>
+              <td><%= user.name %> </td>
+              <td><%= user.email %> </td>
+    
+              <td>
+               <a class="btn btn-primary" href="/updateUser/<%= user.id %> " role="button">Editar</a></td>
+              </form>
+              <td><form action="/deleteUser/<%= user.id %>?_method=delete " method="post">
+                <button type="submit" class="px-3 btn btn-danger">Eliminar</button>
+              </form></td>
+              
+          </tbody>
+          <% }) %>
+        </table>
       </div> 
     </main>
   </div>
