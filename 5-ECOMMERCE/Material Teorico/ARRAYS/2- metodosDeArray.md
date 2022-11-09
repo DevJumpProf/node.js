@@ -104,7 +104,7 @@ console.log (numeros.fill(10,3))  */
 console.log(numeros.fill(8,4,8)) 
 
 push() : Añade uno o más elementos al final de un array y devuelve la nueva longitud del array.
-push
+
 
 pop() : Elimina el último elemento de un array y lo devuelve. Este método cambia la longitud del array.
 pop
