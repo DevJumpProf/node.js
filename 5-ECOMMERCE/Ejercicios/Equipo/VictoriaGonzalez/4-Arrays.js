@@ -3,45 +3,23 @@ const numeros  = [1, 2, 3, 19, 20]
 
 
 
-function devolverPrimerElemento(array) {
-    // Devuelve el primer elemento de un array
-    // Tu código:
-    console.log (array[0])
-  }
-//  devolverPrimerElemento(frutas);
+const devolverPrimerElemento=array=> {console.log (array[0])};devolverPrimerElemento(frutas);
 
-
-
-  function devolverUltimoElemento(array) {
-    // Devuelve el último elemento de un array
-    // Tu código:
-    console.log(array[array.length-1])
-  }
-//  devolverUltimoElemento(frutas);
+const devolverUltimoElemento=array=> {console.log(array[array.length-1])};devolverUltimoElemento(frutas);
   
-  function obtenerLargoDelArray(array) {
-    // Devuelve el largo de un array
-    // Tu código:
-    console.log(array.length)
-  }
-//  obtenerLargoDelArray(frutas);
+function obtenerLargoDelArray(array) {console.log(array.length)}obtenerLargoDelArray(frutas);
   
-  function incrementarPorUno(array) {
-    // "array" debe ser una matriz de enteros (int/integers)
-    // Aumenta cada entero por 1
-    // y devuelve el array
-    // Tu código:
-    console.log (array.map(elemento => elemento+1))
-  }
-//  incrementarPorUno(numeros);
+function incrementarPorUno(array) {
+console.log (array.map(elemento => elemento+1))
+}
+incrementarPorUno(numeros);
   
-  
-  function agregarItemAlFinalDelArray(array, elemento) {
+function agregarItemAlFinalDelArray(array, elemento) {
     // Añade el "elemento" al final del array
     // y devuelve el array
     // Tu código:
-    console.log(array.push("Kiwi"))
-  }
+console.log(array.push("Kiwi"))
+}
 //  agregarItemAlFinalDelArray(frutas);
 //  console.log(frutas);
 
@@ -125,7 +103,7 @@ function devolverPrimerElemento(array) {
         console.log(0)
     }
   }
-  // multiplicarArgumentos(numeros)
+  multiplicarArgumentos(9,1,2,3)
   
   function cuentoElementos(arreglo){
     //Realiza una función que retorne la cantidad de los elementos del arreglo cuyo valor es mayor a 18.
@@ -242,15 +220,17 @@ const mayoresACien = [101, 0, 101]
 
     let newArray =[];
     for(let i = 0; i<10; i++){
+      numero+= 2
       if(i == 5){
         console.log("Se saltea esta suma")
         continue;
       }else{
-      numero = numero+2;
+   
       newArray.push(numero);
-      console.log(newArray);
+
       }
     }
+;      console.log(newArray)
   }
 continueStatement(1)
   
