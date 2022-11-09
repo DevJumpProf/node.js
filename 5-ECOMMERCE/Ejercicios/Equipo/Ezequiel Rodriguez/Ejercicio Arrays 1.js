@@ -30,13 +30,12 @@ function mostrarClasificacion(clasificaciones) {
 //1era vista de la clasificacion
 // mostrarClasificacion(clasificaciones);
 
-
 /* 3)El concurso continua, y se van modifican esas posiciones anteriores. Debemos cambiar en el array: */
 /* a)Leon adelanta a Agostina */
-function adelantarAlumnos(clasificaciones){
-   clasificaciones.splice(2, 1, "Leon");
-   clasificaciones.splice(3, 1, "Agostina");
-   console.log(clasificaciones);
+function adelantarAlumnos(clasificaciones) {
+  clasificaciones.splice(2, 1, "Leon");
+  clasificaciones.splice(3, 1, "Agostina");
+  console.log(clasificaciones);
 }
 adelantarAlumnos(clasificaciones);
 /* b)Eduardo es descalificado y se elimina del concurso */
@@ -44,19 +43,21 @@ function descalificarAlumno(clasificaciones) {
   clasificaciones.pop();
   return clasificaciones;
 }
-descalificarAlumno(clasificaciones)
+descalificarAlumno(clasificaciones);
 /* c)Detrás de Marcos y antes de Franco se clasifican dos nuevas concursantes: Julieta y Martina, en ese orden */
-function nuevosConcursantes(clasificaciones){
-    // Agregar nuevos concursantes
-    clasificaciones.push("Julieta","Martina");
+function nuevosConcursantes(clasificaciones) {
+  // MALA FORMA DE RESOLVERLO
+  // Agregar nuevos concursantes
+  // clasificaciones.push("Julieta","Martina");
+  // clasificaciones.splice(clasificaciones.length-1,1,"Juan Cruz");
+  // clasificaciones.splice(clasificaciones.length-2,1,"Agostina");
+  // clasificaciones.splice(clasificaciones.length-3,1,"Leon");
+  // clasificaciones.splice(clasificaciones.length-4,1,"Franco");
 
-    // Modificar posiciones de los nuevos concursantes
-    clasificaciones.splice(1,1,"Julieta");
-    clasificaciones.splice(2,1,"Martina");
-    clasificaciones.splice(clasificaciones.length-1,1,"Juan Cruz");
-    clasificaciones.splice(clasificaciones.length-2,1,"Agostina");
-    clasificaciones.splice(clasificaciones.length-3,1,"Leon");
-    clasificaciones.splice(clasificaciones.length-4,1,"Franco");
+  // FORMA CORRECTO DE RESOLVERLO
+  // Modificar posiciones de los nuevos concursantes
+  clasificaciones.splice(1, 0, "Julieta");
+  clasificaciones.splice(2, 0, "Martina");
 }
 nuevosConcursantes(clasificaciones);
 
