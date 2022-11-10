@@ -9,12 +9,14 @@ let clasificaciones = ["Marcos", "Franco", "Agostina", "Leon", "Juan Cruz", "Edu
  (realizar una funcion "mostrarClasificacion()" esa funcion debe recorrer el array con un bucle for y mostrar la clasificacion) */
 
 
-function mostrarClasificacion(array){
-    array.forEach((element,i) => {
-        console.log(`En el ${i} lugar está posiciando ${element}`);
-    });
-} 
-mostrarClasificacion(clasificaciones);
+// function mostrarClasificacion(array){
+//     array.forEach((element,i) => {
+//         console.log(`En el ${i} lugar está posiciando ${element}`);
+//     });
+// } 
+// mostrarClasificacion(clasificaciones);
+
+const mostrarClasificacion=array=>{array.forEach((element, i)=>{console.log(`En el ${i} lugar está posicionado ${element}`)})}; mostrarClasificacion(clasificaciones);
 
 /* 3)El concurso continua, y se van modifican esas posiciones anteriores. Debemos cambiar en el array: */
 /* a)Leon adelanta a Agostina */
